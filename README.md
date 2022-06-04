@@ -67,8 +67,9 @@ Description of project
 
 ### Built With
 
-* [Django](https://www.djangoproject.com/)
+* [React](https://reactjs.org/)
 * [Bootstrap](https://getbootstrap.com)
+* [NodeJS](https://nodejs.org/en)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
