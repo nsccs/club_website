@@ -5,7 +5,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-<h3 align="center">NAME OF PROJECT</h3>
+<h3 align="center">NSC CSC Website</h3>
 
   <p align="center">
     <description of project?>
