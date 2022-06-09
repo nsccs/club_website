@@ -77,16 +77,16 @@ Description of project
 1. Contact christopher.hancock@seattlecolleges.edu for project secret keys
 2. Create and navigate into a directory
    ```sh
-   mkdir club_website
-   cd club_website
+    mkdir club_website
+    cd club_website
    ```
 3. Clone the repo
    ```sh
-   git clone https://github.com/NSC-Computer-Science-Club/club_website.git
+    git clone https://github.com/NSC-Computer-Science-Club/club_website.git
    ```
 4. Navigate into the root directory
   ```sh
-   cd club_website
+    cd club_website
   ```
 6. Install required packages
    ```sh
