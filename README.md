@@ -76,39 +76,31 @@ Description of project
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
-1. [Install Python](https://wiki.python.org/moin/BeginnersGuide/Download)
-2. Verify pip ([install here](https://pypi.org/project/pip/) if pip is not installed)
-   ```sh
-   pip --version
-   ```
-3. Navigate to the root directory, [activate](https://www.w3schools.com/django/django_getstarted.php#:~:text=Virtual-,Environment,-It%20is%20suggested) the virtual environment
-4. [Install Django](https://www.w3schools.com/django/django_getstarted.php#:~:text=Install-,Django,-Finally%2C%20we%20can)
 
 
 ### Installation
 
-1. Contact hello@renecapella.com for project secret keys
+1. Contact christopher.hancock@seattlecolleges.edu for project secret keys
 2. Create and navigate into a directory
    ```sh
-   mkdir NLP_APP
-   cd NLP_APP
+   mkdir club_website
+   cd club_website
    ```
 3. Clone the repo
    ```sh
-   git clone https://github.com/ReneCapella/Inclusionary.git
+   git clone https://github.com/NSC-Computer-Science-Club/club_website.git
    ```
-4. Activate the virtual environment
-   ```sh
-   source bin/activate
-   ```
-5. Navigate into the Inclusionary root directory
+4. Navigate into the root directory
   ```sh
-   cd Inclusionary
+   cd club_website
   ```
-6. Start the server
+6. Install required packages
    ```sh
-   python manage.py runserver
+    npm install 
+   ```
+7. Start server
+   ```sh
+    npm start
    ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -165,16 +157,4 @@ Project Link: [https://github.com/<project link>](https://github.com/<project li
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/ReneCapella/Inclusionary.svg?style=for-the-badge
-[contributors-url]: https://github.com/ReneCapella/Inclusionary/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/ReneCapella/Inclusionary.svg?style=for-the-badge
-[forks-url]: https://github.com/ReneCapella/Inclusionary/network/members
-[stars-shield]: https://img.shields.io/github/stars/ReneCapella/Inclusionary.svg?style=for-the-badge
-[stars-url]: https://github.com/ReneCapella/Inclusionary/stargazers
-[issues-shield]: https://img.shields.io/github/issues/ReneCapella/Inclusionary.svg?style=for-the-badge
-[issues-url]: https://github.com/ReneCapella/Inclusionary/issues
-[license-shield]: https://img.shields.io/github/license/ReneCapella/Inclusionary.svg?style=for-the-badge
-[license-url]: https://github.com/ReneCapella/Inclusionary/blob/master/LICENSE.txt
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/amandarenecapella
-[product-screenshot]: images/screenshot.png
+
