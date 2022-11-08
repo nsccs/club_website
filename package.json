@@ -4,8 +4,9 @@
   "description": "<div id=\"top\"></div>",
   "private": true,
   "scripts": {
+    "start": "nodemon server",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack"
+    "build": "webpack -w"
   },
   "repository": {
     "type": "git",
@@ -19,6 +20,8 @@
   "homepage": "https://github.com/NSC-Computer-Science-Club/club_website#readme",
   "dependencies": {
     "jquery": "^3.6.0",
+    "nodemon": "^2.0.20",
+    "path": "^0.12.7",
     "react": "^18.1.0",
     "react-bootstrap": "^2.4.0",
     "react-dom": "^18.1.0",
