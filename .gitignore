@@ -1,1 +1,10 @@
-node_modules
+.idea/
+node_modules/
+dist/
+*.iml
+yarn-error.log
+yarn.lock
+.next/
+.env*.local
+*.swp
+*.DS_Store
