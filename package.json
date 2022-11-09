@@ -1,42 +1,42 @@
 {
-  "name": "club_website",
-  "version": "1.0.0",
-  "description": "<div id=\"top\"></div>",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/NSC-Computer-Science-Club/club_website.git"
-  },
-  "author": "North Seattle Computer Science Club",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/NSC-Computer-Science-Club/club_website/issues"
-  },
-  "homepage": "https://github.com/NSC-Computer-Science-Club/club_website#readme",
-  "dependencies": {
-    "@chakra-ui/react": "^2.3.7",
-    "@emotion/react": "^11.10.5",
-    "@emotion/styled": "^11.10.5",
-    "@types/node": "^18.11.9",
-    "@typescript-eslint/eslint-plugin": "^5.42.1",
-    "@typescript-eslint/parser": "^5.42.1",
-    "eslint": "^8.27.0",
-    "eslint-config-next": "^13.0.2",
-    "eslint-plugin-react": "^7.31.10",
-    "framer-motion": "^7.6.5",
-    "next": "^13.0.2",
-    "prettier": "^2.7.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "typescript": "^4.8.4"
-  },
-  "devDependencies": {
-    "@types/react": "18.0.25"
-  }
+    "name": "club_website",
+    "version": "1.0.0",
+    "description": "<div id=\"top\"></div>",
+    "private": true,
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "lint": "next lint"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/NSC-Computer-Science-Club/club_website.git"
+    },
+    "author": "North Seattle Computer Science Club",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/NSC-Computer-Science-Club/club_website/issues"
+    },
+    "homepage": "https://github.com/NSC-Computer-Science-Club/club_website#readme",
+    "dependencies": {
+        "@chakra-ui/react": "^2.3.7",
+        "@emotion/react": "^11.10.5",
+        "@emotion/styled": "^11.10.5",
+        "@types/node": "^18.11.9",
+        "@typescript-eslint/eslint-plugin": "^5.42.1",
+        "@typescript-eslint/parser": "^5.42.1",
+        "eslint": "^8.27.0",
+        "eslint-config-next": "^13.0.2",
+        "eslint-plugin-react": "^7.31.10",
+        "framer-motion": "^7.6.5",
+        "next": "^13.0.2",
+        "prettier": "^2.7.1",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "typescript": "^4.8.4"
+    },
+    "devDependencies": {
+        "@types/react": "18.0.25"
+    }
 }
