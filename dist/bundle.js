@@ -16,7 +16,7 @@
   \********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _components_Header_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/Header.js */ \"./src/components/Header.js\");\n/* harmony import */ var _components_Footer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/Footer.js */ \"./src/components/Footer.js\");\n\n\n\nfunction App() {\n  return /*#__PURE__*/React.createElement(\"div\", null, /*#__PURE__*/React.createElement(_components_Header_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"], null), /*#__PURE__*/React.createElement(_components_Footer_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"], null));\n}\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (App);\n\n//# sourceURL=webpack://club_website/./src/App.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _components_Header_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/Header.js */ \"./src/components/Header.js\");\n/* harmony import */ var _components_Footer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/Footer.js */ \"./src/components/Footer.js\");\n\n\n\nfunction App() {\n  return /*#__PURE__*/React.createElement(\"div\", {\n    style: global\n  }, /*#__PURE__*/React.createElement(_components_Header_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"], null), /*#__PURE__*/React.createElement(_components_Footer_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"], null));\n}\n\nvar global = {\n  margin: '-10px -10px',\n  padding: '0px 0px'\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (App);\n\n//# sourceURL=webpack://club_website/./src/App.js?");
 
 /***/ }),
 
@@ -36,7 +36,17 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \**********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _useBreakpoints_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./useBreakpoints.js */ \"./src/components/useBreakpoints.js\");\n\n\nvar Header = function Header() {\n  return /*#__PURE__*/React.createElement(\"div\", null, \"Header!!!!!!\");\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Header);\n\n//# sourceURL=webpack://club_website/./src/components/Header.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _useBreakpoints_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./useBreakpoints.js */ \"./src/components/useBreakpoints.js\");\n/* harmony import */ var _HeroImage_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./HeroImage.js */ \"./src/components/HeroImage.js\");\n\n\n\nvar Header = function Header() {\n  var _useBreakpoints = (0,_useBreakpoints_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(),\n      isXs = _useBreakpoints.isXs,\n      isSm = _useBreakpoints.isSm,\n      isMd = _useBreakpoints.isMd,\n      isLg = _useBreakpoints.isLg,\n      active = _useBreakpoints.active;\n\n  if (active == 'xs') {\n    return /*#__PURE__*/React.createElement(\"div\", {\n      style: headerStyleXs\n    }, /*#__PURE__*/React.createElement(_HeroImage_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"], null), /*#__PURE__*/React.createElement(\"div\", {\n      style: logoAndNameXs\n    }, /*#__PURE__*/React.createElement(\"img\", {\n      id: \"headerLogo\",\n      src: \"/Users/christopherhancock/CSC NSC/nsc_club_website/club_website/src/components/assets/North_Seattle_College_Logo_2.jpeg\"\n    }), /*#__PURE__*/React.createElement(\"div\", {\n      id: \"headerName\"\n    }, /*#__PURE__*/React.createElement(\"div\", null, \"North Seattle College\"), /*#__PURE__*/React.createElement(\"div\", null, \"Computer Science Club\")), /*#__PURE__*/React.createElement(\"div\", null, \"Home\"), /*#__PURE__*/React.createElement(\"div\", null, \"Resources\"), /*#__PURE__*/React.createElement(\"div\", null, \"Events\"), /*#__PURE__*/React.createElement(\"div\", null, \"News\"), /*#__PURE__*/React.createElement(\"div\", null, \"Join The Club\")));\n  } else {\n    return /*#__PURE__*/React.createElement(\"div\", {\n      style: headerStyle\n    }, console.log(\"active\", active), /*#__PURE__*/React.createElement(\"div\", {\n      style: logoAndName\n    }, /*#__PURE__*/React.createElement(\"img\", {\n      id: \"headerLogo\",\n      src: \"/Users/christopherhancock/CSC NSC/nsc_club_website/club_website/src/components/assets/North_Seattle_College_Logo_2.jpeg\"\n    }), /*#__PURE__*/React.createElement(\"div\", {\n      id: \"headerName\"\n    }, /*#__PURE__*/React.createElement(\"div\", null, \"North Seattle College\"), /*#__PURE__*/React.createElement(\"div\", null, \"Computer Science Club\")), /*#__PURE__*/React.createElement(\"div\", null, \"Home\"), /*#__PURE__*/React.createElement(\"div\", null, \"Resources\"), /*#__PURE__*/React.createElement(\"div\", null, \"Events\"), /*#__PURE__*/React.createElement(\"div\", null, \"News\"), /*#__PURE__*/React.createElement(\"div\", null, \"Join The Club\")));\n  }\n}; // xs \n\n\nvar headerStyleXs = {\n  display: 'flex',\n  flexDirection: 'column',\n  fontSize: 'Large',\n  backgroundColor: 'blue',\n  margin: '0px 0px',\n  height: '100px'\n};\nvar logoAndNameXs = {\n  display: 'flex',\n  flexDirection: 'row',\n  fontSize: '1.4em'\n}; // large\n\nvar headerStyle = {\n  display: 'flex',\n  flexDirection: 'column',\n  fontSize: 'Large',\n  backgroundColor: 'blue',\n  margin: '0px 0px',\n  height: '100px'\n};\nvar logoAndName = {\n  display: 'flex',\n  flexDirection: 'row',\n  fontSize: '1.8vw'\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Header);\n\n//# sourceURL=webpack://club_website/./src/components/Header.js?");
+
+/***/ }),
+
+/***/ "./src/components/HeroImage.js":
+/*!*************************************!*\
+  !*** ./src/components/HeroImage.js ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _assets_North_Seattle_College_Logo_2_jpeg__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./assets/North_Seattle_College_Logo_2.jpeg */ \"./src/components/assets/North_Seattle_College_Logo_2.jpeg\");\n\n\nvar HeroImage = function HeroImage() {\n  return /*#__PURE__*/React.createElement(\"div\", null, /*#__PURE__*/React.createElement(\"img\", {\n    src: _assets_North_Seattle_College_Logo_2_jpeg__WEBPACK_IMPORTED_MODULE_0__\n  }));\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (HeroImage);\n\n//# sourceURL=webpack://club_website/./src/components/HeroImage.js?");
 
 /***/ }),
 
@@ -138,6 +148,16 @@ eval("/**\n * @license React\n * scheduler.development.js\n *\n * Copyright (c) 
 
 eval("\n\nif (false) {} else {\n  module.exports = __webpack_require__(/*! ./cjs/scheduler.development.js */ \"./node_modules/scheduler/cjs/scheduler.development.js\");\n}\n\n\n//# sourceURL=webpack://club_website/./node_modules/scheduler/index.js?");
 
+/***/ }),
+
+/***/ "./src/components/assets/North_Seattle_College_Logo_2.jpeg":
+/*!*****************************************************************!*\
+  !*** ./src/components/assets/North_Seattle_College_Logo_2.jpeg ***!
+  \*****************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+eval("module.exports = __webpack_require__.p + \"3bbab50d199ff2083c1a.jpeg\";\n\n//# sourceURL=webpack://club_website/./src/components/assets/North_Seattle_College_Logo_2.jpeg?");
+
 /***/ })
 
 /******/ 	});
@@ -194,6 +214,18 @@ eval("\n\nif (false) {} else {\n  module.exports = __webpack_require__(/*! ./cjs
 /******/ 		};
 /******/ 	})();
 /******/ 	
+/******/ 	/* webpack/runtime/global */
+/******/ 	(() => {
+/******/ 		__webpack_require__.g = (function() {
+/******/ 			if (typeof globalThis === 'object') return globalThis;
+/******/ 			try {
+/******/ 				return this || new Function('return this')();
+/******/ 			} catch (e) {
+/******/ 				if (typeof window === 'object') return window;
+/******/ 			}
+/******/ 		})();
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
@@ -217,6 +249,26 @@ eval("\n\nif (false) {} else {\n  module.exports = __webpack_require__(/*! ./cjs
 /******/ 			if (!module.children) module.children = [];
 /******/ 			return module;
 /******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/publicPath */
+/******/ 	(() => {
+/******/ 		var scriptUrl;
+/******/ 		if (__webpack_require__.g.importScripts) scriptUrl = __webpack_require__.g.location + "";
+/******/ 		var document = __webpack_require__.g.document;
+/******/ 		if (!scriptUrl && document) {
+/******/ 			if (document.currentScript)
+/******/ 				scriptUrl = document.currentScript.src
+/******/ 			if (!scriptUrl) {
+/******/ 				var scripts = document.getElementsByTagName("script");
+/******/ 				if(scripts.length) scriptUrl = scripts[scripts.length - 1].src
+/******/ 			}
+/******/ 		}
+/******/ 		// When supporting browsers where an automatic publicPath is not supported you must specify an output.publicPath manually via configuration
+/******/ 		// or pass an empty string ("") and set the __webpack_public_path__ variable from your code to use your own logic.
+/******/ 		if (!scriptUrl) throw new Error("Automatic publicPath is not supported in this browser");
+/******/ 		scriptUrl = scriptUrl.replace(/#.*$/, "").replace(/\?.*$/, "").replace(/\/[^\/]+$/, "/");
+/******/ 		__webpack_require__.p = scriptUrl;
 /******/ 	})();
 /******/ 	
 /************************************************************************/
