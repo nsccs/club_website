@@ -10,13 +10,3 @@ function App() {
         </div>
     )
 }
-
-
-const global = {
-    margin: '-10px -10px',
-    padding: '0px 0px'
-
-}
-
-
-export default App;
