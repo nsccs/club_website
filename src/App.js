@@ -3,12 +3,10 @@ import Footer from './components/Footer.js';
 
 function App() {
     return(
-        <div>
+        <div style={global}>
             <Header />
             {/* <Body /> */}
             <Footer />
         </div>
     )
 }
-
-export default App;
