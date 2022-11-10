@@ -1,15 +1,16 @@
-import Header from "../components/header";
-import Footer from "../components/footer";
+import Header from "../components/Header/Header";
+import Footer from "../components/Footer/Footer";
+import { Box, Flex } from "@chakra-ui/react";
 
 const Index = () => {
     return (
-        <>
+        <Flex>
             <Header />
 
-            {/* <Body /> */}
+            <Box flexGrow={1}>{/* <Body /> */}</Box>
 
             <Footer />
-        </>
+        </Flex>
     );
 };
 
