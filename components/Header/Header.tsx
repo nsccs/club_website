@@ -75,6 +75,7 @@ const Header: React.FC = () => {
                                     md: "1.4em",
                                     lg: "1.7em",
                                 }}
+                                color="white"
                             >
                                 {name}
                             </Text>

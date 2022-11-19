@@ -1,7 +1,7 @@
 import { NextComponentType } from "next";
 import { AppContext, AppInitialProps, AppProps } from "next/app";
 import Head from "next/head";
-import { ChakraProvider } from "@chakra-ui/react";
+import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 
 const App: NextComponentType<AppContext, AppInitialProps, AppProps> = ({
     Component,
@@ -17,7 +17,14 @@ const App: NextComponentType<AppContext, AppInitialProps, AppProps> = ({
                 <meta charSet="utf-8" />
             </Head>
 
-            <ChakraProvider>
+            <ChakraProvider
+                theme={extendTheme({
+                    config: {
+                        initialColorMode: "light",
+                        useSystemColorMode: false,
+                    },
+                })}
+            >
                 <Component {...pageProps} />
             </ChakraProvider>
         </>
