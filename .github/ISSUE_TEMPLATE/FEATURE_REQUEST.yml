@@ -8,31 +8,7 @@ body:
     id: Description
     attributes:
       label: "Description"
-      description: Provide a brief explanation of the feature
-      placeholder: Describe in a few lines your feature request
+      description: Why do you want this sweet new feature and what does it address?
+      placeholder: Tell us all about it!
     validations:
       required: true
-  - type: textarea
-    id: basic_example
-    attributes:
-      label: "Basic Example"
-      description: Provide an example or two (User Story).
-      placeholder: A few specific words about your feature request.
-    validations:
-      required: true
-  - type: textarea
-    id: tradeoffs
-    attributes:
-      label: "Trade-offs"
-      description: What are the impacts of your feature request?
-      placeholder: Identify the drawbacks and impacts while being neutral on your feature request
-    validations:
-      required: true
-  - type: textarea
-    id: unresolved_issues
-    attributes:
-      label: "Unresolved Issues"
-      description: If you created this feature request in response to an problem you encountered, what parts of that problem does this feature not address?
-      placeholder: Identify any unresolved issues.
-    validations:
-      required: false
