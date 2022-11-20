@@ -1,0 +1,38 @@
+name: "Feature Request"
+description: Create a new ticket for a new feature request
+title: "[REQUEST]: "
+labels: ["enhancement", "triage"]
+
+body:
+  - type: textarea
+    id: summary
+    attributes:
+      label: "Summary"
+      description: Provide a brief explanation of the feature
+      placeholder: Describe in a few lines your feature request
+    validations:
+      required: true
+  - type: textarea
+    id: basic_example
+    attributes:
+      label: "Basic Example"
+      description: Provide an example or two (User Story).
+      placeholder: A few specific words about your feature request.
+    validations:
+      required: true
+  - type: textarea
+    id: tradeoffs
+    attributes:
+      label: "Trade-offs"
+      description: What are the impacts of your feature request?
+      placeholder: Identify the drawbacks and impacts while being neutral on your feature request
+    validations:
+      required: true
+  - type: textarea
+    id: unresolved_questions
+    attributes:
+      label: "Unresolved questions"
+      description: What questions still remain unresolved?
+      placeholder: Identify any unresolved issues.
+    validations:
+      required: false
