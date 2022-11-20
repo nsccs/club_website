@@ -9,11 +9,12 @@ This is the website for the Computer Science Club at North Seattle. Besides the 
 
 Do not be intimidated or dissuaded if you have little experience with any of the tools or languages involved in this project. There are multiple ways to contribute including editing documentation, design, feature requests, logging bugs, etc. 
 
-If you are a student at North Seattle College in any field we encourage you contribute! Please see `CONTRIBUTING.md` for a full outline of how to get involved.
+If you are a student at North Seattle College in any field we encourage you contribute! Please see [contribution guidelines for this project](CONTRIBUTING.md) for a full outline of how to get involved.
 
 ### Installation
 
-If you are going to contribute please see `CONTRIBUTING.md` for guidelines before you go through this.
+If you plan on participating in the project please see the 
+[contribution guidelines for this project](CONTRIBUTING.md) before you go through this installation as the setup is different.
 
 #### Prerequisites
 
@@ -24,32 +25,28 @@ If you are going to contribute please see `CONTRIBUTING.md` for guidelines befor
 
 ##### Then
 
-1. Contact christopher.hancock@seattlecolleges.edu for project secret keys
-2. Create and navigate into a directory
-    ```sh
-    mkdir club_website
-    cd club_website
-    ```
-3. Clone the repo
+- Contact christopher.hancock@seattlecolleges.edu for project secret keys
+- Open a Terminal and navigate to where you want the project repository to exist
+- Clone the repo
     ```sh
     git clone https://github.com/NSC-Computer-Science-Club/club_website.git
     ```
-4. Navigate into the root directory
+- Navigate into the root directory
     ```sh
     cd club_website
     ```
-5. Install required packages
+- Install required packages
     ```sh
     npm install 
     ```
-6. Start server
+- Start server
     ```sh
-    npm start
+    npm start dev
     ```
 
 ## License
 
-See `LICENSE.txt`.
+Found [here](LICENSE).
 
 ### Contact
 - christopher.hancock@seattlecolleges.edu
