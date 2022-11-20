@@ -5,9 +5,9 @@ labels: ["enhancement", "triage"]
 
 body:
   - type: textarea
-    id: summary
+    id: Description
     attributes:
-      label: "Summary"
+      label: "Description"
       description: Provide a brief explanation of the feature
       placeholder: Describe in a few lines your feature request
     validations:
@@ -29,10 +29,10 @@ body:
     validations:
       required: true
   - type: textarea
-    id: unresolved_questions
+    id: unresolved_issues
     attributes:
-      label: "Unresolved questions"
-      description: What questions still remain unresolved?
+      label: "Unresolved Issues"
+      description: If you created this feature request in response to an problem you encountered, what parts of that problem does this feature not address?
       placeholder: Identify any unresolved issues.
     validations:
       required: false
