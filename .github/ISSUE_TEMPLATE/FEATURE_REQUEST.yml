@@ -5,10 +5,17 @@ labels: ["enhancement", "triage"]
 
 body:
   - type: textarea
-    id: Description
+    id: feature
     attributes:
-      label: "Description"
-      description: Why do you want this sweet new feature and what does it address?
+      label: "Feature"
+      description: What feature do you want added?
       placeholder: Tell us all about it!
     validations:
       required: true
+  - type: textarea
+    id: why_feature
+    attributes:
+      label: "Why do you want this feature?"
+      placeholder: Cause it's awesome!
+    validations:
+      required: false
