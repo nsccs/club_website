@@ -53,7 +53,7 @@ const Header: React.FC = () => {
                 minH="100px"
                 px={{ base: "16px", md: "50px", lg: "100px" }}
                 alignItems="center"
-                bg="blue"
+                bg="#004da8"
             >
                 <Box w={{ base: "50px", md: "75px" }}>
                     <Image src={headerLogo} alt="North Seattle College Logo" />
