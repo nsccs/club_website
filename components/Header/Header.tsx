@@ -14,7 +14,7 @@ import {
     VStack,
 } from "@chakra-ui/react";
 import Image from "next/image";
-import headerLogo from "../../public/North_Seattle_College_Logo_2.jpeg";
+import headerLogo from "../../public/CS_Club_Logo_White.png";
 import React from "react";
 import { FaBars } from "react-icons/fa";
 import Link from "next/link";
@@ -55,7 +55,7 @@ const Header: React.FC = () => {
                 alignItems="center"
                 bg="#004da8"
             >
-                <Box w={{ base: "50px", md: "75px" }}>
+                <Box w={{ base: "45%", sm: "35%", md: "20%", lg: "25%" }}>
                     <Image src={headerLogo} alt="North Seattle College Logo" />
                 </Box>
 
