@@ -11,21 +11,31 @@ Do not be intimidated or dissuaded if you have little experience with any of the
 
 If you are a student at North Seattle College in any field we encourage you contribute! Please see [contribution guidelines for this project](CONTRIBUTING.md) for a full outline of how to get involved.
 
-### Installation
-
-If you plan on participating in the project please see the 
-[contribution guidelines for this project](CONTRIBUTING.md) before you go through this installation as the setup is different.
-
 #### Prerequisites
 
 ##### MacOS
-- xcode develpment tools
+- XCode Command Line Tools `xcode-select --install`.
+- If you already have the full Xcode installed, go to menu `Xcode -> Open Developer Tool -> More Developer Tools....`.
+- Install Node.js
+
 ##### Windows
-- Windows Linux Subsystem
+- Install current version of Python from Microsoft Store.
+- Install Visual Studio Code.
+    - Add the Microsoft C/C++ extention.
+- Install Node.js for Windows.
+- OR Install Windows Subsystem for Linux 2 and follow the linux instructions (not recommended unless familiar with WSL already) 
 
-##### Then
+##### Linux
 
-- Contact christopher.hancock@seattlecolleges.edu for project secret keys
+- Install Python > 3.7
+- Install 'make'
+- A C/C++ compiler toolchain (the GNU Compiler Collection for example)
+
+### Installation
+
+STOP! -> If you plan on collaborating on this project please see the 
+[contribution guidelines](CONTRIBUTING.md). Only follow the steps below if you have direct access to this repository.
+
 - Open a Terminal and navigate to where you want the project repository to exist
 - Clone the repo
     ```sh
