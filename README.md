@@ -1,62 +1,31 @@
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](code_of_conduct.md)
 
-## Computer Science Club Website
-#### North Seattle College
+# North Seattle College Computer Science Club Website
 
-This is the website for the Computer Science Club at North Seattle. Besides the website this project exists as a place where people new to Github, Computer Science, and building applications can get involved. 
+This is the website for the Computer Science Club at North Seattle. Besides the website this project exists as a place where people new to Github, Computer Science, and building applications can learn.
 
-### Contributing
+This project is built with React, ChakraUI, and Node.js.
 
-Do not be intimidated or dissuaded if you have little experience with any of the tools or languages involved in this project. There are multiple ways to contribute including editing documentation, design, feature requests, logging bugs, etc. 
+## How to Log a Bug, Ask a Question, and/or Request a Feature
+- Navigate to `Issues`
+- click the `New Issue` button
+- Select `Bug Report`, `Feature Request`, or `Question` from the available options
 
-If you are a student at North Seattle College in any field we encourage you contribute! Please see [contribution guidelines for this project](CONTRIBUTING.md) for a full outline of how to get involved.
+## Contributing
 
-#### Prerequisites
+Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**. All levels welcome! If you are nervous that is okay. The community will help guide you.
 
-##### MacOS
-- XCode Command Line Tools `xcode-select --install`.
-- If you already have the full Xcode installed, go to menu `Xcode -> Open Developer Tool -> More Developer Tools....`.
-- Install Node.js
+Remember that not all contributions are in the form of code. In fact, a great way to learn about the project is dig into the documentation and poke around the website. Then consider submitting a feature request, ask a question, or log a bug if you find one.
 
-##### Windows
-- Install current version of Python from Microsoft Store.
-- Install Visual Studio Code.
-    - Add the Microsoft C/C++ extention.
-- Install Node.js for Windows.
-- OR Install Windows Subsystem for Linux 2 and follow the linux instructions (not recommended unless familiar with WSL already) 
+See [CONTRIBUTING.md](CONTRIBUTING.md) to get setup.
 
-##### Linux
+## Code of Conduct
 
-- Install Python > 3.7
-- Install 'make'
-- A C/C++ compiler toolchain (the GNU Compiler Collection for example)
-
-### Installation
-
-STOP! -> If you plan on collaborating on this project please see the 
-[contribution guidelines](CONTRIBUTING.md). Only follow the steps below if you have direct access to this repository.
-
-- Open a Terminal and navigate to where you want the project repository to exist
-- Clone the repo
-    ```sh
-    git clone https://github.com/NSC-Computer-Science-Club/club_website.git
-    ```
-- Navigate into the root directory
-    ```sh
-    cd club_website
-    ```
-- Install required packages
-    ```sh
-    npm install 
-    ```
-- Start server
-    ```sh
-    npm start dev
-    ```
+Please read our [Code of Conduct](CODE_OF_CONDUCT.md).
 
 ## License
 
-Found [here](LICENSE).
+Covered by MIT license. For full text click [here](LICENSE).
 
-### Contact
-- christopher.hancock@seattlecolleges.edu
+## Contact
+christopher.hancock@seattlecolleges.edu

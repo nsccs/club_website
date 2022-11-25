@@ -1,52 +1,84 @@
-## Welcome
+## Setup for Code Contributions
 
-If you are a student at North Seattle College we welcome you to contribute to our project! Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**. If you are nervous that is okay. The community will help guide you. Mistakes will be made, we will all learn together, and everything will be fine!
-
-Not all contributions are in the form of code. In fact, a great way to learn about the project is dig into the documentation and poke around the website. Then do any of the following:
-
-- Add new or editing existing documentation
-- Submit a bug report
-- Submit a feature request
-- Ask a question
-
-## How to Contribute
-Navigate to the `Issues` tab and use the filters to see open issues. Take note of the `good first issue` and `help wanted` labels.
-
-#### Submit a Bug
-- Navigate to `Issues` and click the `New Issue` button
-- Select `Bug Report`
-
-#### Submit a Feature Request
-- Navigate to `Issues` and click the `New Issue` button
-- Select `Feature Request`
-
-#### Prerequisites
+### Prerequisites
 
 ##### MacOS
-- XCode Command Line Tools `xcode-select --install`.
-- If you already have the full Xcode installed, go to menu `Xcode -> Open Developer Tool -> More Developer Tools....`.
-- Install Node.js
+- XCode Command Line Tools `xcode-select --install`
+- If you already have the full Xcode installed, go to menu `Xcode -> Open Developer Tool -> More Developer Tools....`
+- Install Node.js >= 16
 
 ##### Windows
-- Install current version of Python from Microsoft Store.
-- Install Visual Studio Code.
-    - Add the Microsoft C/C++ extention.
-- Install Node.js for Windows.
-- OR Install Windows Subsystem for Linux 2 and follow the linux instructions (not recommended unless familiar with WSL already) 
+- Install current version of Python3
+- Install Visual Studio Code and add the Microsoft C/C++ extension
+- Install Node.js >= 16
 
 ##### Linux
 
 - Install Python > 3.7
-- Install 'make'
-- A C/C++ compiler toolchain (the GNU Compiler Collection for example)
+- Install `make`, `gcc`, and `g++`
+- Install Node.js >= 16
 
-##### Then
+#### Repository Setup
+- Fork the project.
+- Open a Terminal and navigate to where you want the project repository to exist
+- Clone your forked repository
+    ```sh
+    git clone https://github.com/<your-github-user>/club_website.git
+    ```
+- Navigate into the root directory
+    ```sh
+    cd club_website
+    ```
+- Install required packages
+    ```sh
+    npm install 
+    ```
+- Switch to beta branch
+    ```sh
+    git checkout beta
+    ```
+- Start server
+    ```sh
+    npm run dev
+    ```
+- Set the upstream remote
+    ```sh
+    git remote add upstream https://github.com/NSC-Computer-Science-Club/club_website.git
+    ```
+- Verify
+    ```sh
+    git remote -v
+    ```
 
-- OPen a terminal then fork this project to your projects folder.
-- cd into the root of this project and run `git checkout beta` to switch to the development branch.
-- Create your feature branch `git checkout -b feature/AmazingFeature`.
-- Commit your changes `git commit -m 'Add a clear message about what the commit contains'`.
-- Push to the branch `git push origin feature/AmazingFeature`.
-- Go to the project Github page and open a pull request including all the relevent information asked for in the template.
+#### Find Something to Work On
+Navigate to the `Issues` tab and use the filters to see open issues. Take note of the `good first issue` and `help wanted` labels.
+
+Remember to pull the most recent work from the upstream beta branch before starting your work!
+
+```sh
+git pull upstream beta
+```
+
+#### Submit a Pull Request
+
+- Create your feature branch
+    ```sh
+    git checkout -b <your initials>-<specific_feature>
+    ```
+- Add your work
+    ```sh
+    git add *
+    ```
+- Commit your changes
+    ```sh
+    git commit -m 'Add a clear and specific message about what the commit contains.'
+    ```
+- Push to the branch 
+    ```sh
+    git push origin <your initials>-<specific_feature>
+    ```
+- Go to the project Github page and open a pull request.  including all the relevent information present in the template.
+
+- Request a review from christopher0331, uellenberg, or jaredscarr.
 
 Don't forget to give the project a star! Thanks again!
