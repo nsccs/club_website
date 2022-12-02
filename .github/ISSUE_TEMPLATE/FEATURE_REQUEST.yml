@@ -1,0 +1,21 @@
+name: "Feature Request"
+description: Create a new ticket for a new feature request
+title: "[REQUEST]: "
+labels: ["enhancement", "triage"]
+
+body:
+  - type: textarea
+    id: feature
+    attributes:
+      label: "Feature"
+      description: What feature do you want added?
+      placeholder: Tell us all about it!
+    validations:
+      required: true
+  - type: textarea
+    id: why_feature
+    attributes:
+      label: "Why do you want this feature?"
+      placeholder: Cause it's awesome!
+    validations:
+      required: false
