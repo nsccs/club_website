@@ -6,9 +6,9 @@ This is the website for the Computer Science Club at North Seattle. Besides the 
 
 This project is built with React, ChakraUI, and Node.js.
 
-## How to Log a Bug, Ask a Question, and/or Request a Feature
+## How to: log a bug, ask a question, and request a feature
 - Navigate to `Issues`
-- click the `New Issue` button
+- Click the `New Issue` button
 - Select `Bug Report`, `Feature Request`, or `Question` from the available options
 
 ## Contributing

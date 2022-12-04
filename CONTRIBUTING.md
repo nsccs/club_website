@@ -25,22 +25,6 @@
     ```sh
     git clone https://github.com/<your-github-user>/club_website.git
     ```
-- Navigate into the root directory
-    ```sh
-    cd club_website
-    ```
-- Install required packages
-    ```sh
-    npm install 
-    ```
-- Switch to beta branch
-    ```sh
-    git checkout beta
-    ```
-- Start server
-    ```sh
-    npm run dev
-    ```
 - Set the upstream remote
     ```sh
     git remote add upstream https://github.com/NSC-Computer-Science-Club/club_website.git
@@ -49,6 +33,23 @@
     ```sh
     git remote -v
     ```
+- Navigate into the root directory
+    ```sh
+    cd club_website
+    ```
+- Switch to beta branch
+    ```sh
+    git checkout beta
+    ```
+- Install required packages
+    ```sh
+    npm install 
+    ```
+- Start server
+    ```sh
+    npm run dev
+    ```
+
 
 #### Find Something to Work On
 Navigate to the `Issues` tab and use the filters to see open issues. Take note of the `good first issue` and `help wanted` labels.
@@ -61,9 +62,9 @@ git pull upstream beta
 
 #### Submit a Pull Request
 
-- Create your feature branch
+- Create your feature branch. Please use all lowercase letters with dashes instead of spaces.
     ```sh
-    git checkout -b <your initials>-<specific_feature>
+    git checkout -b <specific-feature>
     ```
 - Add your work
     ```sh
@@ -75,9 +76,15 @@ git pull upstream beta
     ```
 - Push to the branch 
     ```sh
-    git push origin <your initials>-<specific_feature>
+    git push origin <specific-feature>
     ```
-- Go to the project Github page and open a pull request.  including all the relevent information present in the template.
+- Test your feature. Manually test that your feature has not broken anything else in on the site and works as expected.
+    ```sh
+    npm run dev
+    ```
+
+
+- Go to the project Github page to open a pull request. You will select the `NSC-Computer-Science-Club:beta` branch from `<your-repository>:<your-forked-branch>`. Include all the relevent information requested in the template.
 
 - Request a review from christopher0331, uellenberg, or jaredscarr.
 
