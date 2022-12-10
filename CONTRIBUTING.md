@@ -19,23 +19,19 @@
 - Install Node.js >= 16
 
 #### Repository Setup
-- Fork the project.
+- Fork the project and uncheck the box that says "Copy the `main` branch only". This step is vital as you will not be able to checkout the beta branch if you do not deselect this option. If you accidentally left it checked. Delete the fork you just made and start over.
 - Open a Terminal and navigate to where you want the project repository to exist
 - Clone your forked repository
     ```sh
     git clone https://github.com/<your-github-user>/club_website.git
     ```
-- Set the upstream remote
-    ```sh
-    git remote add upstream https://github.com/NSC-Computer-Science-Club/club_website.git
-    ```
-- Verify
-    ```sh
-    git remote -v
-    ```
 - Navigate into the root directory
     ```sh
     cd club_website
+    ```
+- Set the upstream remote
+    ```sh
+    git remote add upstream https://github.com/NSC-Computer-Science-Club/club_website.git
     ```
 - Switch to beta branch
     ```sh
@@ -66,6 +62,10 @@ git pull upstream beta
     ```sh
     git checkout -b <specific-feature>
     ```
+- Test your feature. Manually test that your feature has not broken anything else in on the site and works as expected.
+    ```sh
+    npm run dev
+    ```
 - Add your work
     ```sh
     git add *
@@ -77,10 +77,6 @@ git pull upstream beta
 - Push to the branch 
     ```sh
     git push origin <specific-feature>
-    ```
-- Test your feature. Manually test that your feature has not broken anything else in on the site and works as expected.
-    ```sh
-    npm run dev
     ```
 
 
