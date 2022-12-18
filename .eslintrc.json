@@ -19,7 +19,6 @@
     },
     "plugins": ["react", "@typescript-eslint"],
     "rules": {
-        "linebreak-style": ["error", "unix"],
         "semi": ["error", "always"],
         "object-curly-spacing": ["error", "always"],
         "array-bracket-spacing": ["error", "never"],
