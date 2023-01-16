@@ -1,61 +1,65 @@
 import {
     Box,
+    Button,
     Drawer,
     DrawerBody,
     DrawerCloseButton,
     DrawerContent,
-    DrawerHeader,
     DrawerOverlay,
     Flex,
     HStack,
-    IconButton,
     Text,
     useDisclosure,
     VStack,
 } from "@chakra-ui/react";
 import Image from "next/image";
-import headerLogo from "../../public/North_Seattle_College_Logo_2.jpeg";
-import React from "react";
-import { FaBars } from "react-icons/fa";
+import headerLogo from "../../public/CS_Club_Logo_White.png";
+import React, { useRef } from "react";
 import Link from "next/link";
 
 const menuItems = [
     {
         name: "Home",
         url: "/",
+        outlined: false,
     },
     {
         name: "Resources",
         url: "/resources",
+        outlined: false,
     },
     {
         name: "Events",
         url: "/events",
+        outlined: false,
     },
     {
         name: "News",
         url: "/news",
+        outlined: false,
     },
     {
         name: "Join The Club!",
         url: "/join",
+        outlined: true,
     },
 ];
 
 const Header: React.FC = () => {
     const { isOpen, onOpen, onClose } = useDisclosure();
+    const headerRef = useRef<HTMLDivElement>(null);
 
     return (
-        <Box as="header" w="100%">
+        <Box as="header" w="100%" ref={headerRef}>
             <Flex
                 as="nav"
                 w="100%"
-                minH="100px"
+                minH={{ base: "75px", sm: "87.5px", md: "100px" }}
                 px={{ base: "16px", md: "50px", lg: "100px" }}
                 alignItems="center"
-                bg="blue"
+                bg="#004da8"
             >
-                <Box w={{ base: "50px", md: "75px" }}>
+                <Box w={{ base: "45%", sm: "35%", md: "20%", lg: "25%" }}>
                     <Image src={headerLogo} alt="North Seattle College Logo" />
                 </Box>
 
@@ -65,7 +69,7 @@ const Header: React.FC = () => {
                     display={{ base: "none", md: "initial" }}
                     spacing="40px"
                 >
-                    {menuItems.map(({ name, url }) => (
+                    {menuItems.map(({ name, url, outlined }) => (
                         <Link key={name} href={url}>
                             <Text
                                 as="span"
@@ -75,7 +79,14 @@ const Header: React.FC = () => {
                                     md: "1.4em",
                                     lg: "1.7em",
                                 }}
-                                color="white"
+                                color={outlined ? "#004da8" : "white"}
+                                bg={outlined ? "white" : null}
+                                p={outlined ? "10px" : null}
+                                borderRadius={outlined ? "50px" : null}
+                                _hover={{
+                                    bg: outlined ? "#95ca59" : null,
+                                    color: outlined ? "black" : null,
+                                }}
                             >
                                 {name}
                             </Text>
@@ -84,26 +95,44 @@ const Header: React.FC = () => {
                 </HStack>
 
                 <Box display={{ base: "initial", md: "none" }}>
-                    <IconButton
-                        aria-label="Menu"
-                        icon={<FaBars />}
-                        onClick={onOpen}
-                    />
+                    <Button onClick={onOpen} bg="#95ca59" borderRadius="0px">
+                        Menu
+                    </Button>
                 </Box>
                 <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
                     <DrawerOverlay />
 
                     <DrawerContent>
-                        <DrawerCloseButton />
-                        <DrawerHeader borderBottomWidth="1px">
-                            Menu
-                        </DrawerHeader>
+                        <DrawerCloseButton
+                            right="initial"
+                            top={
+                                // The button is 32px in length.
+                                ((headerRef.current?.clientHeight || 0) - 32) /
+                                    2 +
+                                "px"
+                            }
+                            left="20px"
+                            color="white"
+                            fontSize="20px"
+                        />
 
-                        <DrawerBody>
-                            <VStack spacing="30px">
+                        <DrawerBody p="initial">
+                            <Box
+                                w="100%"
+                                h={headerRef.current?.clientHeight || 0}
+                                bg="#004da8"
+                            />
+
+                            <VStack spacing="30px" p="20px">
                                 {menuItems.map(({ name, url }) => (
-                                    <Link key={name} href={url}>
-                                        <Text fontSize="1.5em">{name}</Text>
+                                    <Link
+                                        style={{ width: "100%" }}
+                                        key={name}
+                                        href={url}
+                                    >
+                                        <Text fontSize="1.5em" color="#004da8">
+                                            {name}
+                                        </Text>
                                     </Link>
                                 ))}
                             </VStack>
