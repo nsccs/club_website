@@ -1,154 +1,31 @@
-# NSC CSC Website
-<div id="top"></div>
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](code_of_conduct.md)
 
+# North Seattle College Computer Science Club Website
 
-<!-- PROJECT LOGO -->
-<br />
-<div align="center">
-<h3 align="center">NSC CSC Website</h3>
+This is the website for the Computer Science Club at North Seattle. Besides the website this project exists as a place where people new to Github, Computer Science, and building applications can learn.
 
-  <p align="center">
-    <description of project?>
-    <br />
-    <a href="GITHUB LINK"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="GITHUB LINK">View Demo</a>
-    ·
-    <a href="GITHUB LINK/issues">Report Bug</a>
-    ·
-    <a href="GITHUB LINK/issues">Request Feature</a>
-  </p>
-</div>
+This project is built with React, ChakraUI, and Node.js.
 
+## How to: log a bug, ask a question, and request a feature
+- Navigate to `Issues`
+- Click the `New Issue` button
+- Select `Bug Report`, `Feature Request`, or `Question` from the available options
 
-
-<!-- TABLE OF CONTENTS -->
-<details>
-  <summary>Table of Contents</summary>
-  <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
-    </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
-  </ol>
-</details>
-
-
-
-<!-- ABOUT THE PROJECT -->
-## About The Project
-Description of project
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
-
-### Built With
-
-* [React](https://reactjs.org/)
-* [Bootstrap](https://getbootstrap.com)
-* [NodeJS](https://nodejs.org/en)
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
-### Prerequisites
-
-
-
-### Installation
-
-1. Contact christopher.hancock@seattlecolleges.edu for project secret keys
-2. Create and navigate into a directory
-   ```sh
-    mkdir club_website
-    cd club_website
-   ```
-3. Clone the repo
-   ```sh
-    git clone https://github.com/NSC-Computer-Science-Club/club_website.git
-   ```
-4. Navigate into the root directory
-  ```sh
-    cd club_website
-  ```
-6. Install required packages
-   ```sh
-    npm install 
-   ```
-7. Start server
-   ```sh
-    npm start
-   ```
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
-<!-- ROADMAP -->
-## Roadmap
-
-See the [open issues]("GITHUB LINK"/issues) for a full list of proposed features (and known issues).
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
-<!-- CONTRIBUTING -->
 ## Contributing
 
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**. All levels welcome! If you are nervous that is okay. The community will help guide you.
 
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-Don't forget to give the project a star! Thanks again!
+Remember that not all contributions are in the form of code. In fact, a great way to learn about the project is dig into the documentation and poke around the website. Then consider submitting a feature request, ask a question, or log a bug if you find one.
 
-1. Fork the Project
-2. ```sh
-   git checkout beta
-   ```
-4. 
-5. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-6. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-7. Push to the Branch (`git push origin feature/AmazingFeature`)
-8. Open a Pull Request
+See [CONTRIBUTING.md](CONTRIBUTING.md) to get setup.
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+## Code of Conduct
 
+Please read our [Code of Conduct](CODE_OF_CONDUCT.md).
 
-<!-- LICENSE -->
 ## License
 
-Distributed under the MIT License. See `LICENSE.txt` for more information.
+Covered by MIT license. For full text click [here](LICENSE).
 
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
-
-<!-- CONTACT -->
 ## Contact
-
-<Member name> - [<twitter handle>](https://twitter.com/<twitter link>) - <member email>
-
-Project Link: [https://github.com/<project link>](https://github.com/<project link>)
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
-
-<!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-
+christopher.hancock@seattlecolleges.edu
