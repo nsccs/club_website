@@ -1,26 +1,26 @@
-name: Bug Report
-description: File a bug report
+name: Question
+description: Ask a question
 title: "[Question]: "
 labels: ["question", "triage"]
 
 body:
-  - type: markdown
-    attributes:
-      value: |
-        Thanks for taking the time to ask a question. We do our best to answer in a timely fashion.
-  - type: textarea
-    id: question
-    attributes:
-      label: Question
-      description: Ask your question here.
-      placeholder: Enter question here.
-    validations:
-      required: true
-  - type: checkboxes
-    id: terms
-    attributes:
-      label: Code of Conduct
-      description: By submitting this issue, you agree to follow our Code of Conduct
-      options:
-        - label: I agree to follow this project's Code of Conduct
+    - type: markdown
+      attributes:
+          value: |
+              Thanks for taking the time to ask a question. We do our best to answer in a timely fashion.
+    - type: textarea
+      id: question
+      attributes:
+          label: Question
+          description: Ask your question here.
+          placeholder: Enter question here.
+      validations:
           required: true
+    - type: checkboxes
+      id: terms
+      attributes:
+          label: Code of Conduct
+          description: By submitting this issue, you agree to follow our Code of Conduct
+          options:
+              - label: I agree to follow this project's Code of Conduct
+                required: true
