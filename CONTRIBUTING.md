@@ -48,9 +48,9 @@
 
 
 #### Find Something to Work On
-Navigate to the `Issues` tab and use the filters to see open issues. Take note of the `good first issue` and `help wanted` labels.
+Navigate to the `Issues` tab and use the filters to see open issues. Take note of the `good first issue` and `help wanted` labels. If you decide to start working on an issue, make sure write a comment to let others know!
 
-Remember to pull the most recent work from the upstream beta branch before starting your work!
+Also, remember to pull the most recent work from the upstream beta branch before starting your work!
 
 ```sh
 git pull upstream beta
