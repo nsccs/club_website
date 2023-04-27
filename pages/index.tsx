@@ -1,11 +1,57 @@
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
-import { Box, Flex, Center, Heading, Text, Link } from "@chakra-ui/react";
+import {
+    Box,
+    Flex,
+    Center,
+    Heading,
+    Text,
+    Link,
+    Wrap,
+    WrapItem,
+    HStack,
+    VStack,
+} from "@chakra-ui/react";
 import Image from "next/image";
 
 import bannerImg from "../img/400.jpeg";
+import PageCard, { PageCardInfo } from "../components/PageCard/PageCard";
 
 const Index = () => {
+    const news: PageCardInfo[] = [
+        {
+            title: "Title Goes Here",
+            time: new Date(),
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            url: "/news/1",
+        },
+        {
+            title: "Title Goes Here",
+            time: new Date(),
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            url: "/news/2",
+        },
+    ];
+
+    const events: PageCardInfo[] = [
+        {
+            title: "Title Goes Here",
+            time: new Date(),
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            url: "/event/1",
+        },
+        {
+            title: "Title Goes Here",
+            time: new Date(),
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            url: "/event/2",
+        },
+    ];
+
     return (
         <Flex flexDir="column" minW="100%" minH="100%">
             <Header />
@@ -111,11 +157,79 @@ const Index = () => {
                     </Text>
                 </Box>
 
+                {/* This needs to be changed. It works for XL and base, but not for anything in between. */}
                 <Box py="30px" px="20px" bg="#004da8">
-                    <Center w="100%" h="100%">
-                        Unfinished - what to put here while we don't have a news
-                        system?
-                    </Center>
+                    <Flex
+                        flexDir={{ base: "column", md: "row" }}
+                        w="100%"
+                        h="100%"
+                    >
+                        <Box
+                            w={{ base: "100%", md: "50%" }}
+                            p={{
+                                base: "10px",
+                                sm: "20px",
+                                md: "30px",
+                                lg: "40px",
+                                xl: "50px",
+                            }}
+                        >
+                            <Heading
+                                as="h2"
+                                color="#698a2c"
+                                py={{ base: "20px", sm: "25px", md: "30px" }}
+                                textAlign="center"
+                                size="2xl"
+                            >
+                                News
+                            </Heading>
+
+                            <VStack spacing="100px">
+                                {news.map((event) => (
+                                    <PageCard
+                                        key={event.url}
+                                        title={event.title}
+                                        time={event.time}
+                                        description={event.description}
+                                        url={event.url}
+                                    />
+                                ))}
+                            </VStack>
+                        </Box>
+
+                        <Box
+                            w={{ base: "100%", md: "50%" }}
+                            p={{
+                                base: "10px",
+                                sm: "20px",
+                                md: "30px",
+                                lg: "40px",
+                                xl: "50px",
+                            }}
+                        >
+                            <Heading
+                                as="h2"
+                                color="#698a2c"
+                                py={{ base: "20px", sm: "25px", md: "30px" }}
+                                textAlign="center"
+                                size="2xl"
+                            >
+                                Upcoming Events
+                            </Heading>
+
+                            <VStack spacing="100px">
+                                {events.map((event) => (
+                                    <PageCard
+                                        key={event.url}
+                                        title={event.title}
+                                        time={event.time}
+                                        description={event.description}
+                                        url={event.url}
+                                    />
+                                ))}
+                            </VStack>
+                        </Box>
+                    </Flex>
                 </Box>
             </Box>
 
