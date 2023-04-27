@@ -3,6 +3,8 @@ import { AppContext, AppInitialProps, AppProps } from "next/app";
 import Head from "next/head";
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 
+import "../style/index.scss";
+
 const App: NextComponentType<AppContext, AppInitialProps, AppProps> = ({
     Component,
     pageProps,

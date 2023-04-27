@@ -13,7 +13,7 @@ import {
     VStack,
 } from "@chakra-ui/react";
 import Image from "next/image";
-import headerLogo from "../../public/CS_Club_Logo_White.png";
+import headerLogo from "../../img/CS_Club_Logo_White.png";
 import React, { useRef } from "react";
 import Link from "next/link";
 
