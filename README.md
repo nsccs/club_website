@@ -28,4 +28,4 @@ Please read our [Code of Conduct](CODE_OF_CONDUCT.md).
 Covered by MIT license. For full text click [here](LICENSE).
 
 ## Contact
-christopher.hancock@seattlecolleges.edu
+https://discord.gg/RV6nbA9UDX
