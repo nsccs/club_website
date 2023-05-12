@@ -1,17 +1,6 @@
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
-import {
-    Box,
-    Flex,
-    Center,
-    Heading,
-    Text,
-    Link,
-    Wrap,
-    WrapItem,
-    HStack,
-    VStack,
-} from "@chakra-ui/react";
+import { Box, Flex, Heading, Text, Link, VStack } from "@chakra-ui/react";
 import Image from "next/image";
 
 import bannerImg from "../img/400.jpeg";
@@ -180,6 +169,7 @@ const Index = () => {
                                 py={{ base: "20px", sm: "25px", md: "30px" }}
                                 textAlign="center"
                                 size="2xl"
+                                whiteSpace="nowrap"
                             >
                                 News
                             </Heading>
@@ -213,6 +203,7 @@ const Index = () => {
                                 py={{ base: "20px", sm: "25px", md: "30px" }}
                                 textAlign="center"
                                 size="2xl"
+                                whiteSpace="nowrap"
                             >
                                 Upcoming Events
                             </Heading>

@@ -44,7 +44,8 @@ const PageCard: React.FC<PageCardInfo> = ({
                 <Heading
                     as="span"
                     color="black"
-                    size={{ base: "md", sm: "lg", md: "xl", lg: "2xl" }}
+                    size={{ base: "md", sm: "lg", md: "lg", lg: "2xl" }}
+                    whiteSpace="nowrap"
                 >
                     {time.toLocaleString("default", {
                         month: "long",
@@ -57,6 +58,7 @@ const PageCard: React.FC<PageCardInfo> = ({
                     as="h3"
                     color="black"
                     size={{ base: "md", sm: "lg", md: "xl", lg: "2xl" }}
+                    textAlign="center"
                 >
                     {title}
                 </Heading>
