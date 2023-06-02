@@ -226,7 +226,7 @@ const Index = () => {
 
             <Box flexGrow={1} />
 
-            <Footer />
+            <Footer whiteBg />
         </Flex>
     );
 };
