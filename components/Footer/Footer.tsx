@@ -13,7 +13,7 @@ const Footer: React.FC<{ whiteBg?: boolean }> = ({ whiteBg }) => {
 
             <Flex p="5px">
                 <Box h="100%" textAlign="center">
-                    <Text fontSize="xl">
+                    <Text fontSize="xl" color={whiteBg ? undefined : "white"}>
                         Questions? Email: nsccs@seattlecolleges.edu
                     </Text>
                 </Box>
@@ -28,6 +28,7 @@ const Footer: React.FC<{ whiteBg?: boolean }> = ({ whiteBg }) => {
                     <Text
                         h="100%"
                         textAlign="center"
+                        color={whiteBg ? undefined : "white"}
                         fontSize="xl"
                         display="flex"
                         alignItems="center"
