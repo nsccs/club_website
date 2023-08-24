@@ -1,10 +1,10 @@
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
-import { Box, Flex, Heading, Text, Link, VStack } from "@chakra-ui/react";
-import Image from "next/image";
-
-import bannerImg from "../img/400.jpeg";
 import PageCard, { PageCardInfo } from "../components/PageCard/PageCard";
+import { Box, Flex, Heading, Text, VStack } from "@chakra-ui/react";
+import Link from "next/link";
+import Image from "next/image";
+import bannerImg from "../img/400.jpeg";
 
 const Index = () => {
     const news: PageCardInfo[] = [
@@ -85,7 +85,7 @@ const Index = () => {
                         Inspirational and Welcoming Words!
                     </Heading>
                     <Box textAlign="center">
-                        <Link href="/join">
+                        <Link href="/join" style={{ textDecoration: "none" }}>
                             <Text
                                 as="span"
                                 fontSize={{
@@ -96,11 +96,12 @@ const Index = () => {
                                 }}
                                 color="white"
                                 bg="#004da8"
-                                p="10px"
+                                p="15px"
                                 borderRadius="50px"
+                                transition="all 0.3s ease"
                                 _hover={{
-                                    bg: "black",
-                                    color: "#95ca59",
+                                    bg: "#95ca59",
+                                    color: "black",
                                 }}
                             >
                                 Join The Club!
@@ -122,7 +123,7 @@ const Index = () => {
                 >
                     <Heading
                         as="h2"
-                        color="#698a2c"
+                        color="#95ca59"
                         py={{ base: "20px", sm: "25px", md: "30px" }}
                         textAlign="center"
                         size="2xl"
@@ -146,15 +147,14 @@ const Index = () => {
                     </Text>
                 </Box>
 
-                {/* This needs to be changed. It works for XL and base, but not for anything in between. */}
                 <Box py="30px" px="20px" bg="#004da8">
                     <Flex
-                        flexDir={{ base: "column", md: "row" }}
+                        flexDir={{ base: "column", lg: "row" }}
                         w="100%"
                         h="100%"
                     >
                         <Box
-                            w={{ base: "100%", md: "50%" }}
+                            w={{ base: "100%", lg: "50%" }}
                             p={{
                                 base: "10px",
                                 sm: "20px",
@@ -165,7 +165,7 @@ const Index = () => {
                         >
                             <Heading
                                 as="h2"
-                                color="#698a2c"
+                                color="#95ca59"
                                 py={{ base: "20px", sm: "25px", md: "30px" }}
                                 textAlign="center"
                                 size="2xl"
@@ -188,7 +188,7 @@ const Index = () => {
                         </Box>
 
                         <Box
-                            w={{ base: "100%", md: "50%" }}
+                            w={{ base: "100%", lg: "50%" }}
                             p={{
                                 base: "10px",
                                 sm: "20px",
@@ -199,7 +199,7 @@ const Index = () => {
                         >
                             <Heading
                                 as="h2"
-                                color="#698a2c"
+                                color="#95ca59"
                                 py={{ base: "20px", sm: "25px", md: "30px" }}
                                 textAlign="center"
                                 size="2xl"

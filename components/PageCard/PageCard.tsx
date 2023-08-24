@@ -1,5 +1,13 @@
 import React from "react";
-import { Box, Flex, Heading, Link, Text } from "@chakra-ui/react";
+import {
+    Card,
+    CardBody,
+    CardFooter,
+    CardHeader,
+    Heading,
+    Link,
+    Text,
+} from "@chakra-ui/react";
 
 export interface PageCardInfo {
     title: string;
@@ -24,15 +32,8 @@ const PageCard: React.FC<PageCardInfo> = ({
     url,
 }) => {
     return (
-        <Flex
+        <Card
             w="100%"
-            h={{
-                base: "150px",
-                sm: "200px",
-                md: "250px",
-                lg: "275px",
-                xl: "300px",
-            }}
             bg="white"
             borderRadius={{ base: "40px", sm: "60px", md: "80px", lg: "100px" }}
             flexDir="column"
@@ -40,62 +41,63 @@ const PageCard: React.FC<PageCardInfo> = ({
             py="7.5%"
             boxShadow="0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"
         >
-            <Flex w="100%" flexDir="row">
-                <Heading
+            <CardHeader>
+                <Text
                     as="span"
                     color="black"
-                    size={{ base: "md", sm: "lg", md: "lg", lg: "2xl" }}
+                    fontSize={{ base: "md", sm: "lg", md: "lg", lg: "2xl" }}
+                    fontStyle="italic"
                     whiteSpace="nowrap"
                 >
                     {time.toLocaleString("default", {
                         month: "long",
                         day: "numeric",
                     })}
-                </Heading>
-                <Box flexGrow={1} />
+                </Text>
 
                 <Heading
                     as="h3"
                     color="black"
-                    size={{ base: "md", sm: "lg", md: "xl", lg: "2xl" }}
+                    size={{ base: "lg", md: "xl", lg: "2xl" }}
+                    paddingTop="20px"
                     textAlign="center"
                 >
                     {title}
                 </Heading>
-            </Flex>
+            </CardHeader>
 
-            <Box w="100%">
-                <Text fontSize={{ base: "md", sm: "lg", md: "2xl", lg: "4xl" }}>
+            <CardBody>
+                <Text fontSize={{ base: "lg", md: "2xl", lg: "4xl" }}>
                     {description}
                 </Text>
-            </Box>
+            </CardBody>
 
-            <Flex w="100%" flexDir="row">
-                <Box flexGrow={1} />
-
-                <Link href={url}>
+            <CardFooter justifyContent={{ base: "center", md: "right" }}>
+                <Link href={url} style={{ textDecoration: "none" }}>
                     <Text
                         as="span"
                         fontSize={{
-                            base: "1.5em",
-                            sm: "1.8em",
-                            md: "2.1em",
-                            lg: "2.4em",
+                            base: "1.75em",
+                            sm: "2.3em",
+                            md: "2.6em",
+                            lg: "2.9em",
                         }}
                         color="black"
                         bg="#95ca59"
-                        p="10px"
-                        borderRadius="50px"
+                        py={{ base: "10px", md: "15px" }}
+                        px={{ base: "25px", md: "15px" }}
+                        borderRadius="10px"
+                        transition="all 0.3s ease"
                         _hover={{
                             bg: "#004da8",
                             color: "white",
                         }}
                     >
-                        Join The Club!
+                        View
                     </Text>
                 </Link>
-            </Flex>
-        </Flex>
+            </CardFooter>
+        </Card>
     );
 };
 

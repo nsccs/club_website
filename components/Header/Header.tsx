@@ -16,32 +16,29 @@ import Image from "next/image";
 import headerLogo from "../../img/CS_Club_Logo_White.png";
 import React, { useRef } from "react";
 import Link from "next/link";
+import linkUnderline from "../../style/link-underline.module.scss";
+import { FaBars } from "react-icons/fa";
 
 const menuItems = [
     {
         name: "Home",
         url: "/",
-        outlined: false,
     },
     {
         name: "Resources",
         url: "/resources",
-        outlined: false,
     },
     {
         name: "Events",
         url: "/events",
-        outlined: false,
     },
     {
         name: "News",
         url: "/news",
-        outlined: false,
     },
     {
-        name: "Join The Club!",
+        name: "Join",
         url: "/join",
-        outlined: true,
     },
 ];
 
@@ -66,11 +63,15 @@ const Header: React.FC = () => {
                 <Box flexGrow={1} />
 
                 <HStack
-                    display={{ base: "none", md: "initial" }}
+                    display={{ base: "none", md: "inherit" }}
                     spacing="40px"
                 >
-                    {menuItems.map(({ name, url, outlined }) => (
-                        <Link key={name} href={url}>
+                    {menuItems.map(({ name, url }) => (
+                        <Link
+                            key={name}
+                            href={url}
+                            className={linkUnderline.main}
+                        >
                             <Text
                                 as="span"
                                 fontSize={{
@@ -79,14 +80,7 @@ const Header: React.FC = () => {
                                     md: "1.4em",
                                     lg: "1.7em",
                                 }}
-                                color={outlined ? "#004da8" : "white"}
-                                bg={outlined ? "white" : null}
-                                p={outlined ? "10px" : null}
-                                borderRadius={outlined ? "50px" : null}
-                                _hover={{
-                                    bg: outlined ? "#95ca59" : null,
-                                    color: outlined ? "black" : null,
-                                }}
+                                color="white"
                             >
                                 {name}
                             </Text>
@@ -95,8 +89,8 @@ const Header: React.FC = () => {
                 </HStack>
 
                 <Box display={{ base: "initial", md: "none" }}>
-                    <Button onClick={onOpen} bg="#95ca59" borderRadius="0px">
-                        Menu
+                    <Button onClick={onOpen} bg="#95ca59" borderRadius="3px">
+                        <FaBars />
                     </Button>
                 </Box>
                 <Drawer isOpen={isOpen} placement="right" onClose={onClose}>

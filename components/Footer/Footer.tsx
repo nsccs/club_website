@@ -34,7 +34,6 @@ const Footer: React.FC<{ whiteBg?: boolean }> = ({ whiteBg }) => {
                         alignItems="center"
                         justifyContent="center"
                     >
-                        Discord:{" "}
                         <IoLogoDiscord
                             style={{
                                 display: "inline",
