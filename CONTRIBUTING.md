@@ -31,7 +31,7 @@
     ```
 - Set the upstream remote
     ```sh
-    git remote add upstream https://github.com/NSC-Computer-Science-Club/club_website.git
+    git remote add upstream https://github.com/nsccs/club_website.git
     ```
 - Switch to beta branch
     ```sh
@@ -80,7 +80,7 @@ git pull upstream beta
     ```
 
 
-- Go to the project Github page to open a pull request. You will select the `NSC-Computer-Science-Club:beta` branch from `<your-repository>:<your-forked-branch>`. Include all the relevent information requested in the template.
+- Go to the project Github page to open a pull request. You will select the `nsccs:beta` branch from `<your-repository>:<your-forked-branch>`. Include all the relevent information requested in the template.
 
 - Request a review from christopher0331, uellenberg, or jaredscarr.
 

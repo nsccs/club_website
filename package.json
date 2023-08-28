@@ -11,14 +11,14 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/NSC-Computer-Science-Club/club_website.git"
+        "url": "git+https://github.com/nsccs/club_website.git"
     },
     "author": "North Seattle Computer Science Club",
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/NSC-Computer-Science-Club/club_website/issues"
+        "url": "https://github.com/nsccs/club_website/issues"
     },
-    "homepage": "https://github.com/NSC-Computer-Science-Club/club_website#readme",
+    "homepage": "https://github.com/nsccs/club_website#readme",
     "dependencies": {
         "@chakra-ui/react": "^2.8.0",
         "@emotion/react": "^11.11.1",
