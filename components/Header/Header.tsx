@@ -57,7 +57,12 @@ const Header: React.FC = () => {
                 bg="#004da8"
             >
                 <Box w={{ base: "45%", sm: "35%", md: "20%", lg: "25%" }}>
-                    <Image src={headerLogo} alt="North Seattle College Logo" />
+                    <Link href="/">
+                        <Image
+                            src={headerLogo}
+                            alt="North Seattle College Logo"
+                        />
+                    </Link>
                 </Box>
 
                 <Box flexGrow={1} />
