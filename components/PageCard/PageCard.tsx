@@ -67,7 +67,7 @@ const PageCard: React.FC<PageCardInfo> = ({
             </CardHeader>
 
             <CardBody>
-                <Text fontSize={{ base: "lg", md: "2xl", lg: "4xl" }}>
+                <Text fontSize={{ base: "lg", md: "xl", lg: "2xl" }}>
                     {description}
                 </Text>
             </CardBody>
@@ -76,12 +76,7 @@ const PageCard: React.FC<PageCardInfo> = ({
                 <Link href={url} style={{ textDecoration: "none" }}>
                     <Text
                         as="span"
-                        fontSize={{
-                            base: "1.75em",
-                            sm: "2.3em",
-                            md: "2.6em",
-                            lg: "2.9em",
-                        }}
+                        fontSize={{ base: "xl", md: "2xl", lg: "3xl" }}
                         color="black"
                         bg="#95ca59"
                         py={{ base: "10px", md: "15px" }}
