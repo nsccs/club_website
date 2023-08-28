@@ -68,7 +68,7 @@ git pull upstream beta
     ```
 - Add your work
     ```sh
-    git add *
+    git add .
     ```
 - Commit your changes
     ```sh
