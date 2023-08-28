@@ -14,7 +14,7 @@ const Footer: React.FC<{ whiteBg?: boolean }> = ({ whiteBg }) => {
             <Flex p="5px">
                 <Box h="100%" textAlign="center">
                     <Text fontSize="xl" color={whiteBg ? undefined : "white"}>
-                        Questions? Email: nsccs@seattlecolleges.edu
+                        Questions? Email: csclub.north@seattlecolleges.edu
                     </Text>
                 </Box>
 
