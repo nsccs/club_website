@@ -1,57 +1,15 @@
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
-import {
-    Box,
-    Flex,
-    Center,
-    Heading,
-    Text,
-    Link,
-    Wrap,
-    WrapItem,
-    HStack,
-    VStack,
-} from "@chakra-ui/react";
+import PageCard from "../components/PageCard/PageCard";
+import { Box, Flex, Heading, Text, VStack } from "@chakra-ui/react";
+import Link from "next/link";
 import Image from "next/image";
-
 import bannerImg from "../img/400.jpeg";
-import PageCard, { PageCardInfo } from "../components/PageCard/PageCard";
+import { GetServerSideProps } from "next";
+import { getNewsCards, NewsCard } from "../lib/News";
+import { EventCard, getEventCards } from "../lib/Event";
 
-const Index = () => {
-    const news: PageCardInfo[] = [
-        {
-            title: "Title Goes Here",
-            time: new Date(),
-            description:
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            url: "/news/1",
-        },
-        {
-            title: "Title Goes Here",
-            time: new Date(),
-            description:
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            url: "/news/2",
-        },
-    ];
-
-    const events: PageCardInfo[] = [
-        {
-            title: "Title Goes Here",
-            time: new Date(),
-            description:
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            url: "/event/1",
-        },
-        {
-            title: "Title Goes Here",
-            time: new Date(),
-            description:
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            url: "/event/2",
-        },
-    ];
-
+const Index = ({ news, events }: { news: NewsCard[]; events: EventCard[] }) => {
     return (
         <Flex flexDir="column" minW="100%" minH="100%">
             <Header />
@@ -96,7 +54,7 @@ const Index = () => {
                         Inspirational and Welcoming Words!
                     </Heading>
                     <Box textAlign="center">
-                        <Link href="/join">
+                        <Link href="/join" style={{ textDecoration: "none" }}>
                             <Text
                                 as="span"
                                 fontSize={{
@@ -107,11 +65,12 @@ const Index = () => {
                                 }}
                                 color="white"
                                 bg="#004da8"
-                                p="10px"
+                                p="15px"
                                 borderRadius="50px"
+                                transition="all 0.3s ease"
                                 _hover={{
-                                    bg: "black",
-                                    color: "#95ca59",
+                                    bg: "#95ca59",
+                                    color: "black",
                                 }}
                             >
                                 Join The Club!
@@ -133,7 +92,7 @@ const Index = () => {
                 >
                     <Heading
                         as="h2"
-                        color="#698a2c"
+                        color="#95ca59"
                         py={{ base: "20px", sm: "25px", md: "30px" }}
                         textAlign="center"
                         size="2xl"
@@ -157,15 +116,14 @@ const Index = () => {
                     </Text>
                 </Box>
 
-                {/* This needs to be changed. It works for XL and base, but not for anything in between. */}
                 <Box py="30px" px="20px" bg="#004da8">
                     <Flex
-                        flexDir={{ base: "column", md: "row" }}
+                        flexDir={{ base: "column", lg: "row" }}
                         w="100%"
                         h="100%"
                     >
                         <Box
-                            w={{ base: "100%", md: "50%" }}
+                            w={{ base: "100%", lg: "50%" }}
                             p={{
                                 base: "10px",
                                 sm: "20px",
@@ -176,29 +134,30 @@ const Index = () => {
                         >
                             <Heading
                                 as="h2"
-                                color="#698a2c"
+                                color="#95ca59"
                                 py={{ base: "20px", sm: "25px", md: "30px" }}
                                 textAlign="center"
                                 size="2xl"
+                                whiteSpace="nowrap"
                             >
                                 News
                             </Heading>
 
                             <VStack spacing="100px">
-                                {news.map((event) => (
+                                {news.map((newsItem) => (
                                     <PageCard
-                                        key={event.url}
-                                        title={event.title}
-                                        time={event.time}
-                                        description={event.description}
-                                        url={event.url}
+                                        key={newsItem.id}
+                                        title={newsItem.title}
+                                        time={new Date(newsItem.date * 1000)}
+                                        description={newsItem.description}
+                                        url={"/news/" + newsItem.id}
                                     />
                                 ))}
                             </VStack>
                         </Box>
 
                         <Box
-                            w={{ base: "100%", md: "50%" }}
+                            w={{ base: "100%", lg: "50%" }}
                             p={{
                                 base: "10px",
                                 sm: "20px",
@@ -209,22 +168,27 @@ const Index = () => {
                         >
                             <Heading
                                 as="h2"
-                                color="#698a2c"
+                                color="#95ca59"
                                 py={{ base: "20px", sm: "25px", md: "30px" }}
                                 textAlign="center"
                                 size="2xl"
+                                whiteSpace="nowrap"
                             >
                                 Upcoming Events
                             </Heading>
 
                             <VStack spacing="100px">
-                                {events.map((event) => (
+                                {events.map((eventItem) => (
+                                    // TODO: Use event images.
                                     <PageCard
-                                        key={event.url}
-                                        title={event.title}
-                                        time={event.time}
-                                        description={event.description}
-                                        url={event.url}
+                                        key={eventItem.id}
+                                        title={eventItem.title}
+                                        time={new Date(eventItem.date * 1000)}
+                                        description={eventItem.description}
+                                        url={
+                                            "https://gdsc.community.dev/events/details/" +
+                                            eventItem.id
+                                        }
                                     />
                                 ))}
                             </VStack>
@@ -235,9 +199,21 @@ const Index = () => {
 
             <Box flexGrow={1} />
 
-            <Footer />
+            <Footer whiteBg />
         </Flex>
     );
+};
+
+export const getServerSideProps: GetServerSideProps = async (props) => {
+    const news = await getNewsCards(2);
+    const events = await getEventCards(2);
+
+    return {
+        props: {
+            news,
+            events,
+        },
+    };
 };
 
 export default Index;

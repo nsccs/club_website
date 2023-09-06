@@ -8,3 +8,4 @@ yarn.lock
 .env*.local
 *.swp
 *.DS_Store
+static/
