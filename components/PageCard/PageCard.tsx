@@ -52,6 +52,11 @@ const PageCard: React.FC<PageCardInfo> = ({
                     {time.toLocaleString("default", {
                         month: "long",
                         day: "numeric",
+                        // Show years only if the date refers to a future year.
+                        year:
+                            new Date().getFullYear() === time.getFullYear()
+                                ? undefined
+                                : "numeric",
                     })}
                 </Text>
 

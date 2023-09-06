@@ -1,46 +1,15 @@
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
-import PageCard, { PageCardInfo } from "../components/PageCard/PageCard";
+import PageCard from "../components/PageCard/PageCard";
 import { Box, Flex, Heading, Text, VStack } from "@chakra-ui/react";
 import Link from "next/link";
 import Image from "next/image";
 import bannerImg from "../img/400.jpeg";
+import { GetServerSideProps } from "next";
+import { getNewsCards, NewsCard } from "../lib/News";
+import { EventCard, getEventCards } from "../lib/Event";
 
-const Index = () => {
-    const news: PageCardInfo[] = [
-        {
-            title: "Title Goes Here",
-            time: new Date(),
-            description:
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            url: "/news/1",
-        },
-        {
-            title: "Title Goes Here",
-            time: new Date(),
-            description:
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            url: "/news/2",
-        },
-    ];
-
-    const events: PageCardInfo[] = [
-        {
-            title: "Title Goes Here",
-            time: new Date(),
-            description:
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            url: "/event/1",
-        },
-        {
-            title: "Title Goes Here",
-            time: new Date(),
-            description:
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            url: "/event/2",
-        },
-    ];
-
+const Index = ({ news, events }: { news: NewsCard[]; events: EventCard[] }) => {
     return (
         <Flex flexDir="column" minW="100%" minH="100%">
             <Header />
@@ -175,13 +144,13 @@ const Index = () => {
                             </Heading>
 
                             <VStack spacing="100px">
-                                {news.map((event) => (
+                                {news.map((newsItem) => (
                                     <PageCard
-                                        key={event.url}
-                                        title={event.title}
-                                        time={event.time}
-                                        description={event.description}
-                                        url={event.url}
+                                        key={newsItem.id}
+                                        title={newsItem.title}
+                                        time={new Date(newsItem.date * 1000)}
+                                        description={newsItem.description}
+                                        url={"/news/" + newsItem.id}
                                     />
                                 ))}
                             </VStack>
@@ -209,13 +178,17 @@ const Index = () => {
                             </Heading>
 
                             <VStack spacing="100px">
-                                {events.map((event) => (
+                                {events.map((eventItem) => (
+                                    // TODO: Use event images.
                                     <PageCard
-                                        key={event.url}
-                                        title={event.title}
-                                        time={event.time}
-                                        description={event.description}
-                                        url={event.url}
+                                        key={eventItem.id}
+                                        title={eventItem.title}
+                                        time={new Date(eventItem.date * 1000)}
+                                        description={eventItem.description}
+                                        url={
+                                            "https://gdsc.community.dev/events/details/" +
+                                            eventItem.id
+                                        }
                                     />
                                 ))}
                             </VStack>
@@ -229,6 +202,18 @@ const Index = () => {
             <Footer whiteBg />
         </Flex>
     );
+};
+
+export const getServerSideProps: GetServerSideProps = async (props) => {
+    const news = await getNewsCards(2);
+    const events = await getEventCards(2);
+
+    return {
+        props: {
+            news,
+            events,
+        },
+    };
 };
 
 export default Index;
