@@ -60,7 +60,7 @@ const Header: React.FC = () => {
                     <Link href="/" style={{ height: "inherit" }}>
                         <Image
                             src={headerLogo}
-                            alt="North Seattle College Logo"
+                            alt="North Seattle College CS Club Logo"
                             style={{
                                 height: "inherit",
                                 objectFit: "scale-down",
