@@ -4,7 +4,8 @@ import PageCard from "../components/PageCard/PageCard";
 import { Box, Flex, Heading, Text, VStack } from "@chakra-ui/react";
 import Link from "next/link";
 import Image from "next/image";
-import bannerImg from "../img/400.jpeg";
+import bannerImg from "../img/Homepage-Background.svg";
+import bannerImgCover from "../img/Homepage-Background-Text.svg";
 import { GetServerSideProps } from "next";
 import { getNewsCards, NewsCard } from "../lib/News";
 import { EventCard, getEventCards } from "../lib/Event";
@@ -30,7 +31,7 @@ const Index = ({ news, events }: { news: NewsCard[]; events: EventCard[] }) => {
                 >
                     <Image
                         src={bannerImg}
-                        alt="FILL LATER"
+                        alt=""
                         style={{
                             objectFit: "cover",
                             userSelect: "none",
@@ -42,13 +43,26 @@ const Index = ({ news, events }: { news: NewsCard[]; events: EventCard[] }) => {
                         }}
                     />
 
-                    <Box h={{ base: "30%", md: "40%", lg: "50%" }} />
+                    <Image
+                        src={bannerImgCover}
+                        alt=""
+                        style={{
+                            userSelect: "none",
+                            pointerEvents: "none",
+                            position: "absolute",
+                            zIndex: "-999",
+                            width: "100%",
+                            height: "100%",
+                        }}
+                    />
+
+                    <Box h={{ base: "25%", md: "30%", lg: "35%" }} />
 
                     <Heading
                         as="h1"
-                        pb={{ base: "30px", md: "40px", lg: "50px" }}
+                        mx="10%"
+                        pb={{ base: "30px", md: "70px", lg: "100px" }}
                         textAlign="center"
-                        color="white"
                         size={{ base: "xl", sm: "2xl", md: "3xl", lg: "4xl" }}
                     >
                         Inspirational and Welcoming Words!
@@ -58,7 +72,7 @@ const Index = ({ news, events }: { news: NewsCard[]; events: EventCard[] }) => {
                             <Text
                                 as="span"
                                 fontSize={{
-                                    base: "1.5em",
+                                    base: "1.3em",
                                     sm: "1.8em",
                                     md: "2.1em",
                                     lg: "2.4em",

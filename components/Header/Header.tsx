@@ -56,7 +56,7 @@ const Header: React.FC = () => {
                 alignItems="center"
                 bg="#004da8"
             >
-                <Box w={{ base: "45%", sm: "35%", md: "20%", lg: "25%" }}>
+                <Box w={{ base: "45%", sm: "35%", md: "25%" }}>
                     <Link href="/">
                         <Image
                             src={headerLogo}
