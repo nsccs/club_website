@@ -52,15 +52,20 @@ const Header: React.FC = () => {
                 as="nav"
                 w="100%"
                 minH={{ base: "75px", sm: "87.5px", md: "100px" }}
-                px={{ base: "16px", md: "50px", lg: "100px" }}
+                px={{ base: "16px", md: "25px", lg: "100px" }}
                 alignItems="center"
                 bg="#004da8"
             >
-                <Box w={{ base: "45%", sm: "35%", md: "25%" }}>
-                    <Link href="/">
+                <Box h={{ base: "70px", sm: "82.5px", md: "90px" }}>
+                    <Link href="/" style={{ height: "inherit" }}>
                         <Image
                             src={headerLogo}
                             alt="North Seattle College Logo"
+                            style={{
+                                height: "inherit",
+                                objectFit: "scale-down",
+                                objectPosition: "left center",
+                            }}
                         />
                     </Link>
                 </Box>
@@ -70,6 +75,7 @@ const Header: React.FC = () => {
                 <HStack
                     display={{ base: "none", md: "inherit" }}
                     spacing="40px"
+                    pl={{ base: "20px", lg: "5px" }}
                 >
                     {menuItems.map(({ name, url }) => (
                         <Link
@@ -93,7 +99,7 @@ const Header: React.FC = () => {
                     ))}
                 </HStack>
 
-                <Box display={{ base: "initial", md: "none" }}>
+                <Box display={{ base: "initial", md: "none" }} pl="20px">
                     <Button onClick={onOpen} bg="#95ca59" borderRadius="3px">
                         <FaBars />
                     </Button>
