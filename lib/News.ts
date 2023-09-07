@@ -15,7 +15,8 @@ export interface NewsCard {
 
 /** The data needed for a full news page. */
 export interface NewsItem extends NewsCard {
-    // TODO: News author.
+    /** The news item's author (name). */
+    author: string;
 
     /** The text (as markdown) to display on the news item's page. */
     content: string;
@@ -32,6 +33,7 @@ export async function getNewsItem(id: number): Promise<NewsItem | null> {
         date: 1693961460,
         title: "This is a News Item",
         description: "A sample news item to use.",
+        author: "Test Author",
         content: "# News Item\nWith **markdown** support!",
     };
 }
