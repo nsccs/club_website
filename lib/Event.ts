@@ -1,3 +1,5 @@
+import { DAY, redisClient } from "./redis";
+
 /** The data needed for an event card. */
 export interface EventCard {
     /** The event item's ID/URL slug (in Bevy) for the short URL. */
@@ -37,9 +39,9 @@ interface RequestEventsData {
         id: number;
         title: string;
         /** ISO */
-        start_data: string;
+        start_date: string;
         /** ISO */
-        end_data: string;
+        end_date: string;
         url: string;
     }[];
 }
@@ -63,7 +65,7 @@ async function getPartialEvents(): Promise<
             id: result.id,
             title: result.title,
             // Date.parse returns a timestamp with milliseconds.
-            date: Math.floor(Date.parse(result.start_data) / 1000),
+            date: Math.floor(Date.parse(result.start_date) / 1000),
         }));
     } catch (e) {
         console.error(e);
@@ -94,19 +96,28 @@ async function fixPartialEvents(
 ): Promise<EventData[] | null> {
     try {
         const events: EventData[] = [];
+        const promises = [];
 
         // This is cached, so we aren't spamming the API.
+        // These requests are executed in parallel.
         for (const partialEvent of partialEvents) {
-            const data = (await fetch(GET_EVENT_URL_PRE + partialEvent.id).then(
-                (res) => res.json(),
-            )) as GetEventData;
-
-            events.push({
-                ...partialEvent,
-                description: data.description_short,
-                slugID: data.short_id,
-            });
+            promises.push(
+                fetch(GET_EVENT_URL_PRE + partialEvent.id)
+                    .then((res) => res.json())
+                    .then((data: GetEventData) => {
+                        events.push({
+                            ...partialEvent,
+                            description: data.description_short,
+                            slugID: data.short_id,
+                        });
+                    }),
+            );
         }
+
+        await Promise.all(promises);
+
+        // Sort (descending) because concurrency doesn't preserve ordering.
+        events.sort((a, b) => (a.date > b.date ? -1 : 1));
 
         return events;
     } catch (e) {
@@ -131,23 +142,26 @@ function dataToCard(data: EventData): EventCard {
 /**
  * Gets the data needed to display several event cards.
  * @param count - is the maximum number of entries to return.
+ *                This MUST not be determined by the user, as it
+ *                is used as a cache key.
  */
 export async function getEventCards(count: number): Promise<EventCard[]> {
-    // TODO: Implement.
-    return [
-        {
-            id: "example-item",
-            image: null,
-            date: 1693961460,
-            title: "This is an Event Item",
-            description: "A sample event item to use.",
-        },
-        {
-            id: "example-item-2",
-            image: null,
-            date: 1793961460,
-            title: "This is a Second Event Item",
-            description: "A second sample event item to use.",
-        },
-    ];
+    // Try to use cached data.
+    const cached = await redisClient.get("cache_event_cards:" + count);
+    if (cached) {
+        return JSON.parse(cached);
+    }
+
+    const data = await getPartialEvents()
+        .then((events) => fixPartialEvents(events.slice(0, count)))
+        .then((events) => events.map(dataToCard));
+
+    // Save the data in the cache.
+    await redisClient.setex(
+        "cache_event_cards:" + count,
+        DAY,
+        JSON.stringify(data),
+    );
+
+    return data;
 }

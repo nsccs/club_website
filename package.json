@@ -24,6 +24,7 @@
         "@emotion/react": "^11.11.1",
         "@emotion/styled": "^11.11.0",
         "framer-motion": "^10.16.1",
+        "ioredis": "^5.3.2",
         "ncp": "^2.0.0",
         "next": "^13.4.19",
         "react": "^18.2.0",

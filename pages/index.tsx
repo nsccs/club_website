@@ -218,15 +218,15 @@ const Index = ({ news, events }: { news: NewsCard[]; events: EventCard[] }) => {
                                     {events.map((eventItem) => (
                                         // TODO: Use event images.
                                         <PageCard
-                                            key={eventItem.id}
+                                            key={eventItem.slugID}
                                             title={eventItem.title}
                                             time={
                                                 new Date(eventItem.date * 1000)
                                             }
                                             description={eventItem.description}
                                             url={
-                                                "https://gdsc.community.dev/events/details/" +
-                                                eventItem.id
+                                                "https://gdsc.community.dev/e/" +
+                                                eventItem.slugID
                                             }
                                         />
                                     ))}
