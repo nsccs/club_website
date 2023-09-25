@@ -2,7 +2,7 @@ import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
 import PageCard from "../components/PageCard/PageCard";
 import { Box, Flex, Heading, Text, VStack } from "@chakra-ui/react";
-import Link from "next/link";
+import NextLink from "next/link";
 import Image from "next/image";
 import bannerImg from "../img/Homepage-Background.svg";
 import bannerImgCover from "../img/Homepage-Background-Text.svg";
@@ -77,7 +77,7 @@ const Index = ({ news, events }: { news: NewsCard[]; events: EventCard[] }) => {
                             Inspirational and Welcoming Words!
                         </Heading>
                         <Box textAlign="center">
-                            <Link
+                            <NextLink
                                 href="/join"
                                 style={{ textDecoration: "none" }}
                             >
@@ -101,7 +101,7 @@ const Index = ({ news, events }: { news: NewsCard[]; events: EventCard[] }) => {
                                 >
                                     Join The Club!
                                 </Text>
-                            </Link>
+                            </NextLink>
                         </Box>
                     </Box>
 
@@ -126,20 +126,25 @@ const Index = ({ news, events }: { news: NewsCard[]; events: EventCard[] }) => {
                             Who We Are
                         </Heading>
                         <Text
+                            pb="15px"
+                            textAlign="center"
+                            fontSize={{ base: "xl", sm: "2xl", md: "3xl" }}
+                        >
+                            The North Seattle College CS Club is a group of people on campus with a passion for Computer Science. 
+                            It's open to people of all skill levels, and we don't have any attendance or 
+                            participation requirements. Our Discord (<NextLink href="/join">join here</NextLink>) is where 
+                            we coordinate, chat, ask questions, and announce upcoming events. You can use the Discord 
+                            to meet and talk to like-minded individuals, seek support from your peers, share interesting 
+                            things, and really, anything else!
+                        </Text>
+                        <Text
                             pb="30px"
                             textAlign="center"
                             fontSize={{ base: "xl", sm: "2xl", md: "3xl" }}
                         >
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit. Donec at ipsum convallis, pretium ex vitae,
-                            malesuada est. Suspendisse vitae fermentum justo, ut
-                            elementum justo. In ligula ante, sagittis id nulla
-                            ac, rhoncus congue ante. Proin sollicitudin sapien
-                            eget viverra eleifend. Aliquam quis sem ut diam
-                            porttitor consequat nec id urna. Donec venenatis
-                            commodo sem, id volutpat neque ullamcorper
-                            elementum. Mauris in lorem at turpis elementum
-                            aliquam. Ut blandit pretium accumsan.
+                            We also frequently host events like workshops, meetings / game nights, and club projects (like this website!). 
+                            You can see some of our events below (and on the <NextLink href="/events">events page</NextLink>), and if you have any 
+                            ideas or suggestions, feel free to post them on our Discord. We can't wait to meet you!
                         </Text>
                     </Box>
 

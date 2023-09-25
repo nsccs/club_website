@@ -5,6 +5,7 @@ import {
     Text,
     useBreakpointValue,
     Heading,
+    Link,
 } from "@chakra-ui/react";
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
@@ -72,13 +73,14 @@ const Join = () => {
                             pt="30px"
                             pb="20px"
                         >
-                            Information About Us
+                            Having Trouble?
                         </Heading>
                     </Center>
                 </Box>
 
                 <Text textAlign="center" fontSize="lg">
-                    Lorem Ipsum Text Goes Here
+                    Click the "Join Discord" button above. Alternatively, you can go to 
+                    <Link href="https://discord.gg/PG2re4Zb4h" isExternal>https://discord.gg/PG2re4Zb4h</Link>.
                 </Text>
 
                 <Box flexGrow={1} />

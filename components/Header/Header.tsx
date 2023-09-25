@@ -15,7 +15,7 @@ import {
 import Image from "next/image";
 import headerLogo from "../../img/CS_Club_Logo_White.png";
 import React, { useRef } from "react";
-import Link from "next/link";
+import NextLink from "next/link";
 import linkUnderline from "../../style/link-underline.module.scss";
 import { FaBars } from "react-icons/fa";
 
@@ -57,7 +57,7 @@ const Header: React.FC = () => {
                 bg="#004da8"
             >
                 <Box h={{ base: "70px", sm: "82.5px", md: "90px" }}>
-                    <Link href="/" style={{ height: "inherit" }}>
+                    <NextLink href="/" style={{ height: "inherit" }}>
                         <Image
                             src={headerLogo}
                             alt="North Seattle College CS Club Logo"
@@ -67,7 +67,7 @@ const Header: React.FC = () => {
                                 objectPosition: "left center",
                             }}
                         />
-                    </Link>
+                    </NextLink>
                 </Box>
 
                 <Box flexGrow={1} />
@@ -78,7 +78,7 @@ const Header: React.FC = () => {
                     pl={{ base: "20px", lg: "5px" }}
                 >
                     {menuItems.map(({ name, url }) => (
-                        <Link
+                        <NextLink
                             key={name}
                             href={url}
                             className={linkUnderline.main}
@@ -95,7 +95,7 @@ const Header: React.FC = () => {
                             >
                                 {name}
                             </Text>
-                        </Link>
+                        </NextLink>
                     ))}
                 </HStack>
 
@@ -130,7 +130,7 @@ const Header: React.FC = () => {
 
                             <VStack spacing="30px" p="20px">
                                 {menuItems.map(({ name, url }) => (
-                                    <Link
+                                    <NextLink
                                         style={{ width: "100%" }}
                                         key={name}
                                         href={url}
@@ -138,7 +138,7 @@ const Header: React.FC = () => {
                                         <Text fontSize="1.5em" color="#004da8">
                                             {name}
                                         </Text>
-                                    </Link>
+                                    </NextLink>
                                 ))}
                             </VStack>
                         </DrawerBody>
