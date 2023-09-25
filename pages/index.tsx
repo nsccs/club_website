@@ -74,7 +74,8 @@ const Index = ({ news, events }: { news: NewsCard[]; events: EventCard[] }) => {
                                 lg: "4xl",
                             }}
                         >
-                            Inspirational and Welcoming Words!
+                            {/* TODO: Change this to something better. */}
+                            Turn Your Theory Into Practice
                         </Heading>
                         <Box textAlign="center">
                             <NextLink
