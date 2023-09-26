@@ -22,20 +22,30 @@ export interface NewsItem extends NewsCard {
     content: string;
 }
 
+const tempNewsItems = [
+    {
+        id: 0,
+        date: 1693961460,
+        title: "The Club Website is Up and Running!",
+        description: "The CS Club has a brand new website so people can learn about the club and events without needing a Discord account.",
+        author: "Jonah Uellenberg",
+        content: `# Club Website
+The club website is still a work-in-progress, but it's officially complete enough to serve as the club's front page! Currently, the website supports
+giving people information about the club, directing them towards joining the Discord server, and showing recent events/news.
+
+## Contributing
+There's still a lot that can be added to the website. If you're interested in learning about web development and working on the website with other students, then
+stay tuned for a Club Website event. Alternatively, you can view and contribute to the website's source code at https://github.com/nsccs/club_website.`,
+    }
+];
+
 /**
  * Gets a news item, or null if it doesn't exist.
  * @param id - is the ID to look up the news item.
  */
 export async function getNewsItem(id: number): Promise<NewsItem | null> {
     // TODO: Implement.
-    return {
-        id: 0,
-        date: 1693961460,
-        title: "This is a News Item",
-        description: "A sample news item to use.",
-        author: "Test Author",
-        content: "# News Item\nWith **markdown** support!",
-    };
+    return tempNewsItems[id] || null;
 }
 
 /**
@@ -44,18 +54,5 @@ export async function getNewsItem(id: number): Promise<NewsItem | null> {
  */
 export async function getNewsCards(count: number): Promise<NewsCard[]> {
     // TODO: Implement.
-    return [
-        {
-            id: 0,
-            date: 1693961460,
-            title: "This is a News Item",
-            description: "A sample news item to use.",
-        },
-        {
-            id: 0,
-            date: 1793961460,
-            title: "This is a Second News Item",
-            description: "A second sample news item to use.",
-        },
-    ];
+    return tempNewsItems;
 }
