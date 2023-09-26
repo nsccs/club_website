@@ -131,21 +131,39 @@ const Index = ({ news, events }: { news: NewsCard[]; events: EventCard[] }) => {
                             textAlign="center"
                             fontSize={{ base: "xl", sm: "2xl", md: "3xl" }}
                         >
-                            The North Seattle College CS Club is a group of people on campus with a passion for Computer Science. 
-                            It's open to people of all skill levels, and we don't have any attendance or 
-                            participation requirements. Our Discord (<NextLink href="/join">join here</NextLink>) is where 
-                            we coordinate, chat, ask questions, and announce upcoming events. You can use the Discord 
-                            to meet and talk to like-minded individuals, seek support from your peers, share interesting 
-                            things, and really, anything else!
+                            The North Seattle College CS Club is a group of
+                            people on campus with a passion for Computer
+                            Science. It{"'"}s open to people of all skill
+                            levels, and we don{"'"}t have any attendance or
+                            participation requirements. Our Discord (
+                            <NextLink href="/join">
+                                <Text as="span" color="cyan.600">
+                                    join here
+                                </Text>
+                            </NextLink>
+                            ) is where we coordinate, chat, ask questions, and
+                            announce upcoming events. You can use the Discord to
+                            meet and talk to like-minded individuals, seek
+                            support from your peers, share interesting things,
+                            and really, anything else!
                         </Text>
                         <Text
                             pb="30px"
                             textAlign="center"
                             fontSize={{ base: "xl", sm: "2xl", md: "3xl" }}
                         >
-                            We also frequently host events like workshops, meetings / game nights, and club projects (like this website!). 
-                            You can see some of our events below (and on the <NextLink href="/events">events page</NextLink>), and if you have any 
-                            ideas or suggestions, feel free to post them on our Discord. We can't wait to meet you!
+                            We also frequently host events like workshops,
+                            meetings / game nights, and club projects (like this
+                            website!). You can see some of our events below (and
+                            on the{" "}
+                            <NextLink href="/events">
+                                <Text as="span" color="cyan.600">
+                                    events page
+                                </Text>
+                            </NextLink>
+                            ), and if you have any ideas or suggestions, feel
+                            free to post them on our Discord. We can{"'"}t wait
+                            to meet you!
                         </Text>
                     </Box>
 

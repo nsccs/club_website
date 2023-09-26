@@ -11,7 +11,9 @@ const SEO: React.FC<{
     const newTitle = title === undefined ? "NSC Computer Science Club" : title;
     const newURL = url || null;
     const newDescription =
-        description === undefined ? "Welcome to the North Seattle College CS Club! We're a group of people on campus with a passion for Computer Science. The club is open to people of all skill levels, and we don't have any attendance or participation requirements. Join today!" : description;
+        description === undefined
+            ? "Welcome to the North Seattle College CS Club! We're a group of people on campus with a passion for Computer Science. The club is open to people of all skill levels, and we don't have any attendance or participation requirements. Join today!"
+            : description;
 
     return (
         <>

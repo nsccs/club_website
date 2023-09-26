@@ -7,9 +7,10 @@ This is the website for the Computer Science Club at North Seattle. Besides the 
 This project is built with React, ChakraUI, and Node.js.
 
 ## How to: log a bug, ask a question, and request a feature
-- Navigate to `Issues`
-- Click the `New Issue` button
-- Select `Bug Report`, `Feature Request`, or `Question` from the available options
+
+-   Navigate to `Issues`
+-   Click the `New Issue` button
+-   Select `Bug Report`, `Feature Request`, or `Question` from the available options
 
 ## Contributing
 
@@ -28,4 +29,5 @@ Please read our [Code of Conduct](CODE_OF_CONDUCT.md).
 Covered by MIT license. For full text click [here](LICENSE).
 
 ## Contact
+
 https://discord.gg/RV6nbA9UDX

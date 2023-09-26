@@ -78,9 +78,15 @@ const Join = () => {
                     </Center>
                 </Box>
 
-                <Text textAlign="center" fontSize="lg">
-                    Click the "Join Discord" button above. Alternatively, you can go to 
-                    <Link href="https://discord.gg/PG2re4Zb4h" isExternal>https://discord.gg/PG2re4Zb4h</Link>.
+                <Text textAlign="center" fontSize="xl" pb="20px">
+                    Click the {'"'}Join Discord{'"'} button above.
+                    Alternatively, you can go to{" "}
+                    <Link href="https://discord.gg/PG2re4Zb4h" isExternal>
+                        <Text as="span" color="cyan.600">
+                            https://discord.gg/PG2re4Zb4h
+                        </Text>
+                    </Link>
+                    .
                 </Text>
 
                 <Box flexGrow={1} />
