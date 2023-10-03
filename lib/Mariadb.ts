@@ -36,9 +36,13 @@ export async function getNews(count: number): Promise<NewsItem[]> {
     conn = await pool.getConnection();
     rows = await conn.query("SELECT * FROM news LIMIT ?;", [count]);
   } catch (err) {
-    console.log("NO DATABASE CONNECTION WILL USE MOCK NEWS ITEMS.");
-    console.log("If this is not what you expected inspect your database configuration.");
-    return tempNewsItems;
+    if (process.env.NODE_ENV === "production") {
+      return null;
+    } else {
+      console.log("NO DATABASE CONNECTION WILL USE MOCK NEWS ITEMS.");
+      console.log("If this is not what you expected inspect your database configuration.");
+      return tempNewsItems;
+    }
   } finally {
     if (conn) {
       conn.end();

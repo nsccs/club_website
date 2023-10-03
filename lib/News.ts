@@ -1,3 +1,4 @@
+import { DAY, redisClient } from "./redis";
 import { getNews } from "./Mariadb";
 
 /** The data needed for a news card. */
@@ -29,10 +30,21 @@ export interface NewsItem extends NewsCard {
  * @param count - is the maximum number of entries to return.
  */
 export async function getNewsCards(count: number): Promise<NewsItem[] | null> {
+    // Try to use cached data.
+    const cached = await redisClient.get("cache_news_cards:" + count);
+    if (cached) {
+        return JSON.parse(cached);
+    }
     const news = await getNews(count);
     news.map(row => {
         row.date = row.date.toString();
         return row;
     });
+    // Save the data in the cache.
+    await redisClient.setex(
+      "cache_news_cards:" + count,
+      DAY,
+      JSON.stringify(news),
+    );
     return news;
 }
