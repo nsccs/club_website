@@ -49,6 +49,33 @@
     npm run dev
     ```
 
+#### Optional Local Database Setup
+
+Only do these steps if you are actively working on database changes.
+
+- Install [mariadb community edition](https://mariadb.com/downloads/) for your platform
+- Run the server
+- Run club_website.sql script to add the database and tables. The recommended way is to import the data with mySQL WorkBench.
+- Create a `.env.local` file and add:
+
+```shell
+DB_HOST=localhost
+DB_PORT=3306
+DB_USER=<database user>
+DB_PASSWORD=<database password>
+DB_NAME=club_website
+```
+
+If any changes are made to the database please remember to update the setup.sql file to reflect these changes.
+Recommended method is with mySQL WorkBench
+
+- Select _Server_ menu item
+- Select _Data Export_
+- Select the box for _club_website_ and to the right select _Dump Structure Only_
+- Under _Export Options_ select _Export to Self Contained file_ and make sure the path and filename are `<path_to_file>/club_website.sql`
+- Click _Start Export_ button
+- Include file in Pull Request
+
 #### Find Something to Work On
 
 Navigate to the `Issues` tab and use the filters to see open issues. Take note of the `good first issue` and `help wanted` labels. If you decide to start working on an issue, make sure write a comment to let others know!
@@ -83,7 +110,7 @@ git pull upstream beta
     git push origin <specific-feature>
     ```
 
--   Go to the project Github page to open a pull request. You will select the `nsccs:beta` branch from `<your-repository>:<your-forked-branch>`. Include all the relevent information requested in the template.
+-   Go to the project Github page to open a pull request. You will select the `nsccs:beta` branch from `<your-repository>:<your-forked-branch>`. Include all the relevant information requested in the template.
 
 -   Request a review from christopher0331, uellenberg, or jaredscarr.
 
