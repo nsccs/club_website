@@ -53,14 +53,13 @@ stay tuned for a Club Website event. Alternatively, you can view and contribute 
 export async function getNews(count: number): Promise<NewsItem[]> {
     try {
         const rows = await pool.query("SELECT * FROM news LIMIT ?;", [count]);
-        rows.map(row => ({
+        return rows.map(row => ({
             date: row["date"].toString(),
             title: row["title"],
             description: row["description"],
             author: row["author"],
             content: row["content"],
         }));
-        return rows;
     } catch (err) {
         if (process.env.NODE_ENV === "production") {
             throw err;
