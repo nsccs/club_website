@@ -204,7 +204,7 @@ const Index = ({ news, events }: { news: NewsCard[]; events: EventCard[] }) => {
                                             key={newsItem.id}
                                             title={newsItem.title}
                                             time={
-                                                new Date(newsItem.date * 1000)
+                                                new Date(newsItem.date)
                                             }
                                             description={newsItem.description}
                                             url={"/news/" + newsItem.id}
