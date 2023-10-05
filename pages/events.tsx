@@ -1,11 +1,11 @@
 import React from "react";
 import { GetServerSideProps } from "next";
-import CardList from "../components/ItemList/CardList";
 import SEO from "../components/SEO/SEO";
 import Header from "../components/Header/Header";
-import { Heading } from "@chakra-ui/react";
+import { Heading, SimpleGrid } from "@chakra-ui/react";
 import Footer from "../components/Footer/Footer";
 import { EventCard, getEventCards } from "../lib/Event";
+import PageCard from "../components/PageCard/PageCard";
 
 /**
  * Events page that displays n events where n is the count passed to getEventCards within getServerSideProps.
@@ -28,7 +28,17 @@ const Events: React.FC<{ events: EventCard[]}> = ({ events }) => {
       >
         Events
       </Heading>
-      <CardList listItems={events} urlPrefix="/events/" />
+      <SimpleGrid columns={{ sm: 1, md: 1, lg: 3 }} spacing={10} m={20}>
+        {events.map((listItem) => (
+          <PageCard
+            key={listItem.slugID}
+            title={listItem.title}
+            time={new Date(listItem.date)}
+            description={listItem.description}
+            url={"https://gdsc.community.dev/e/" + listItem.slugID}
+          />
+        ))}
+      </SimpleGrid>
       <Footer />
     </>
   );

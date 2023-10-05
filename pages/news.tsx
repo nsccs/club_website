@@ -1,11 +1,11 @@
 import React from "react";
 import { GetServerSideProps } from "next";
 import { getNewsCards, NewsCard } from "../lib/News";
-import CardList from "../components/ItemList/CardList";
 import SEO from "../components/SEO/SEO";
 import Header from "../components/Header/Header";
-import { Heading } from "@chakra-ui/react";
+import { Heading, SimpleGrid } from "@chakra-ui/react";
 import Footer from "../components/Footer/Footer";
+import PageCard from "../components/PageCard/PageCard";
 
 /**
  * Events page that displays n events where n is the count passed to getNewsCards within getServerSideProps.
@@ -28,7 +28,17 @@ const News: React.FC<{ news: NewsCard[]}> = ({ news }) => {
             >
                 News
             </Heading>
-            <CardList listItems={news} urlPrefix="/news/" />
+            <SimpleGrid columns={{ sm: 1, md: 1, lg: 3 }} spacing={10} m={20}>
+              {news.map((listItem) => (
+                <PageCard
+                  key={listItem.id}
+                  title={listItem.title}
+                  time={new Date(listItem.date)}
+                  description={listItem.description}
+                  url={"/news/" + listItem.id}
+                />
+              ))}
+            </SimpleGrid>
             <Footer />
         </>
     );

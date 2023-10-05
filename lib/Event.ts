@@ -2,8 +2,6 @@ import { HOUR, redisClient } from "./redis";
 
 /** The data needed for an event card. */
 export interface EventCard {
-    /** id */
-    id: number;
 
     /** The event item's ID/URL slug (in Bevy) for the short URL. */
     slugID: string;
@@ -135,7 +133,6 @@ async function fixPartialEvents(
  */
 function dataToCard(data: EventData): EventCard {
     return {
-        id: data.id,
         slugID: data.slugID,
         date: data.date,
         title: data.title,
