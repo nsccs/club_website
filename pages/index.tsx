@@ -10,27 +10,6 @@ import { GetServerSideProps } from "next";
 import { getNewsCards, NewsCard } from "../lib/News";
 import { EventCard, getEventCards } from "../lib/Event";
 import SEO from "../components/SEO/SEO";
-import { max } from "@popperjs/core/lib/utils/math";
-
-/**
- * Truncate the description if over max characters allowed.
- * If the description character length is over max then split on white space
- * and return full words under max and append "..." to the end.
- * @param desc - description string
- * @param maxCharLength - integer number for max allowable chars
- */
-function truncateDescription(desc: string, maxCharLength: number) {
-    if (desc.length > maxCharLength) {
-        const splitDesc = desc.slice(0, maxCharLength).split(" ");
-        const minWordsArray = splitDesc.slice(0, -2);
-        console.log(minWordsArray);
-        minWordsArray.push("...");
-        const joined = minWordsArray.join(" ");
-        console.log(joined);
-        return joined;
-    }
-    return desc;
-}
 
 const Index = ({ news, events }: { news: NewsCard[]; events: EventCard[] }) => {
     return (
@@ -264,7 +243,7 @@ const Index = ({ news, events }: { news: NewsCard[]; events: EventCard[] }) => {
                                             key={eventItem.slugID}
                                             title={eventItem.title}
                                             time={
-                                                new Date(eventItem.date * 1000)
+                                                new Date(eventItem.date)
                                             }
                                             description={eventItem.description}
                                             url={

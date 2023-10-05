@@ -12,10 +12,10 @@ import Footer from "../components/Footer/Footer";
  * @param news
  * @constructor
  */
-const News = ({ news }: { news: NewsCard[] }) => {
+const News: React.FC<{ news: NewsCard[]}> = ({ news }) => {
     return (
         <>
-            <SEO url="https://northcs.org" />
+            <SEO url="https://northcs.org/news" />
             <Header />
             <Heading
                 as="h2"
@@ -28,8 +28,8 @@ const News = ({ news }: { news: NewsCard[] }) => {
             >
                 News
             </Heading>
-            <CardList listItems={news} />
-            <Footer whiteBg />
+            <CardList listItems={news} urlPrefix="/news/" />
+            <Footer />
         </>
     );
 };

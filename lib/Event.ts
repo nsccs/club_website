@@ -69,8 +69,6 @@ async function getPartialEvents(): Promise<
             id: result.id,
             title: result.title,
             date: result.start_date,
-            // Date.parse returns a timestamp with milliseconds.
-            // date: Math.floor(Date.parse(result.start_date) / 1000),
         }));
     } catch (e) {
         console.error(e);

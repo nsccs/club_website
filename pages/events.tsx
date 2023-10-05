@@ -12,10 +12,10 @@ import { EventCard, getEventCards } from "../lib/Event";
  * @param events
  * @constructor
  */
-const Events = ({ events }: { events: EventCard[] }) => {
+const Events: React.FC<{ events: EventCard[]}> = ({ events }) => {
   return (
     <>
-      <SEO url="https://northcs.org" />
+      <SEO url="https://northcs.org/events" />
       <Header />
       <Heading
         as="h2"
@@ -28,8 +28,8 @@ const Events = ({ events }: { events: EventCard[] }) => {
       >
         Events
       </Heading>
-      <CardList listItems={events} />
-      <Footer whiteBg />
+      <CardList listItems={events} urlPrefix="/events/" />
+      <Footer />
     </>
   );
 };
