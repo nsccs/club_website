@@ -54,6 +54,7 @@ export async function getNews(count: number): Promise<NewsItem[]> {
     try {
         const rows = await pool.query("SELECT * FROM news LIMIT ?;", [count]);
         return rows.map(row => ({
+            id: row["id"],
             date: row["date"].toString(),
             title: row["title"],
             description: row["description"],

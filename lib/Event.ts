@@ -1,7 +1,8 @@
-import { DAY, redisClient } from "./redis";
+import { HOUR, redisClient } from "./redis";
 
 /** The data needed for an event card. */
 export interface EventCard {
+
     /** The event item's ID/URL slug (in Bevy) for the short URL. */
     slugID: string;
 
@@ -10,7 +11,8 @@ export interface EventCard {
     // image: string | null;
 
     /** The date when the event item starts as a unix timestamp. */
-    date: number;
+    // date: number;
+    date: string;
 
     /** The event item's title/headline. */
     title: string;
@@ -64,8 +66,7 @@ async function getPartialEvents(): Promise<
         return data.results.map((result) => ({
             id: result.id,
             title: result.title,
-            // Date.parse returns a timestamp with milliseconds.
-            date: Math.floor(Date.parse(result.start_date) / 1000),
+            date: result.start_date,
         }));
     } catch (e) {
         console.error(e);
@@ -86,7 +87,7 @@ interface GetEventData {
 }
 
 /**
- * "Fixes" partial events so they have all the required data.
+ * "Fixes" partial events, so they have all the required data.
  *
  * If an error occurs, null is returned.
  * @param partialEvents - is the list of partial events to "fix".
@@ -159,7 +160,7 @@ export async function getEventCards(count: number): Promise<EventCard[]> {
     // Save the data in the cache.
     await redisClient.setex(
         "cache_event_cards:" + count,
-        DAY,
+        HOUR,
         JSON.stringify(data),
     );
 

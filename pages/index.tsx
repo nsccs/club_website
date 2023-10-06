@@ -203,9 +203,7 @@ const Index = ({ news, events }: { news: NewsCard[]; events: EventCard[] }) => {
                                         <PageCard
                                             key={newsItem.id}
                                             title={newsItem.title}
-                                            time={
-                                                new Date(newsItem.date)
-                                            }
+                                            time={new Date(newsItem.date)}
                                             description={newsItem.description}
                                             url={"/news/" + newsItem.id}
                                         />
@@ -245,7 +243,7 @@ const Index = ({ news, events }: { news: NewsCard[]; events: EventCard[] }) => {
                                             key={eventItem.slugID}
                                             title={eventItem.title}
                                             time={
-                                                new Date(eventItem.date * 1000)
+                                                new Date(eventItem.date)
                                             }
                                             description={eventItem.description}
                                             url={

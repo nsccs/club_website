@@ -31,73 +31,73 @@ const PageCard: React.FC<PageCardInfo> = ({
     description,
     url,
 }) => {
+
     return (
-        <Card
-            w="100%"
-            bg="white"
-            borderRadius={{ base: "40px", sm: "60px", md: "80px", lg: "100px" }}
-            flexDir="column"
-            px="7.5%"
-            py="7.5%"
-            boxShadow="0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"
-        >
-            <CardHeader>
-                <Text
+      <Card
+        w="100%"
+        bg="white"
+        borderRadius={{ base: "40px", sm: "60px", md: "80px", lg: "100px" }}
+        flexDir="column"
+        px="7.5%"
+        py="7.5%"
+        boxShadow="0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"
+      >
+          <CardHeader>
+              <Text
+                as="span"
+                color="black"
+                fontSize={{ base: "md", sm: "lg", md: "lg", lg: "2xl" }}
+                fontStyle="italic"
+                whiteSpace="nowrap"
+              >
+                  {time.toLocaleString("default", {
+                      month: "long",
+                      day: "numeric",
+                      // Show years only if the date refers to a future year.
+                      year:
+                        new Date().getFullYear() === time.getFullYear()
+                          ? undefined
+                          : "numeric",
+                  })}
+              </Text>
+
+              <Heading
+                as="h3"
+                color="black"
+                size={{ base: "xs", md: "sm", lg: "md" }}
+                paddingTop="20px"
+                textAlign="left"
+              >
+                  {title}
+              </Heading>
+          </CardHeader>
+          <CardBody>
+              <Text fontSize={{ base: "lg", md: "xl", lg: "2xl" }} noOfLines={2}>
+                  {description}
+              </Text>
+          </CardBody>
+
+          <CardFooter justifyContent={{ base: "center", md: "right" }}>
+              <Link href={url} style={{ textDecoration: "none" }} boxShadow="2xl">
+                  <Text
                     as="span"
+                    fontSize={{ base: "lg", md: "xl", lg: "2xl" }}
                     color="black"
-                    fontSize={{ base: "md", sm: "lg", md: "lg", lg: "2xl" }}
-                    fontStyle="italic"
-                    whiteSpace="nowrap"
-                >
-                    {time.toLocaleString("default", {
-                        month: "long",
-                        day: "numeric",
-                        // Show years only if the date refers to a future year.
-                        year:
-                            new Date().getFullYear() === time.getFullYear()
-                                ? undefined
-                                : "numeric",
-                    })}
-                </Text>
-
-                <Heading
-                    as="h3"
-                    color="black"
-                    size={{ base: "lg", md: "xl", lg: "2xl" }}
-                    paddingTop="20px"
-                    textAlign="center"
-                >
-                    {title}
-                </Heading>
-            </CardHeader>
-
-            <CardBody>
-                <Text fontSize={{ base: "lg", md: "xl", lg: "2xl" }}>
-                    {description}
-                </Text>
-            </CardBody>
-
-            <CardFooter justifyContent={{ base: "center", md: "right" }}>
-                <Link href={url} style={{ textDecoration: "none" }}>
-                    <Text
-                        as="span"
-                        fontSize={{ base: "xl", md: "2xl", lg: "3xl" }}
-                        color="black"
-                        bg="#95ca59"
-                        py={{ base: "10px", md: "15px" }}
-                        px={{ base: "25px", md: "15px" }}
-                        borderRadius="10px"
-                        transition="all 0.3s ease"
-                        _hover={{
-                            bg: "#004da8",
-                            color: "white",
-                        }}
-                    >
-                        View
-                    </Text>
-                </Link>
-            </CardFooter>
-        </Card>
+                    bg="#95ca59"
+                    py={{ base: "10px", md: "12px" }}
+                    px={{ base: "25px", md: "15px" }}
+                    borderRadius="10px"
+                    transition="all 0.3s ease"
+                    _hover={{
+                        bg: "#004da8",
+                        color: "white",
+                    }}
+                  >
+                      View
+                  </Text>
+              </Link>
+          </CardFooter>
+      </Card>
     );
 };
 
