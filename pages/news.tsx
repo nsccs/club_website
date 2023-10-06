@@ -3,7 +3,7 @@ import { GetServerSideProps } from "next";
 import { getNewsCards, NewsCard } from "../lib/News";
 import SEO from "../components/SEO/SEO";
 import Header from "../components/Header/Header";
-import { Heading, SimpleGrid } from "@chakra-ui/react";
+import { Box, Heading, SimpleGrid } from "@chakra-ui/react";
 import Footer from "../components/Footer/Footer";
 import PageCard from "../components/PageCard/PageCard";
 
@@ -13,33 +13,41 @@ import PageCard from "../components/PageCard/PageCard";
  * @constructor
  */
 const News: React.FC<{ news: NewsCard[]}> = ({ news }) => {
+
     return (
         <>
             <SEO url="https://northcs.org/news" />
             <Header />
-            <Heading
-                as="h2"
-                color="#95ca59"
-                textShadow="1px 1px #000000"
-                textAlign="center"
-                size="2xl"
-                whiteSpace="nowrap"
-                m={20}
-            >
-                News
-            </Heading>
-            <SimpleGrid columns={{ sm: 1, md: 1, lg: 3 }} spacing={10} m={20}>
-              {news.map((listItem) => (
-                <PageCard
-                  key={listItem.id}
-                  title={listItem.title}
-                  time={new Date(listItem.date)}
-                  description={listItem.description}
-                  url={"/news/" + listItem.id}
-                />
-              ))}
-            </SimpleGrid>
-            <Footer />
+            <Box mt={0.5} pt={2} pb={2} bg="#95ca59">
+              <Heading
+                  as="h2"
+                  color="#black"
+                  textAlign="center"
+                  size="lg"
+                  whiteSpace="nowrap"
+              >
+                  News
+              </Heading>
+            </Box>
+            <Box bg="#dff0d8" pt={10} pb={10}>
+              <SimpleGrid
+                columns={{ sm: 1, md: 1, lg: 2 }}
+                spacing={10}
+                ml={ 10 }
+                mr={ 10 }
+              >
+                {news.map((listItem) => (
+                  <PageCard
+                    key={listItem.id}
+                    title={listItem.title}
+                    time={new Date(listItem.date)}
+                    description={listItem.description}
+                    url={"/news/" + listItem.id}
+                  />
+                ))}
+              </SimpleGrid>
+            </Box>
+            <Footer whiteBg />
         </>
     );
 };

@@ -26,11 +26,11 @@ export interface PageCardInfo {
  * @param url {string} - is the URL for the page.
  */
 const PageCard: React.FC<PageCardInfo> = ({
-                                              title,
-                                              time,
-                                              description,
-                                              url,
-                                          }) => {
+    title,
+    time,
+    description,
+    url,
+}) => {
 
     return (
       <Card
