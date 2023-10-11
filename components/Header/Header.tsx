@@ -25,10 +25,6 @@ const menuItems = [
         url: "/",
     },
     {
-        name: "Resources",
-        url: "/resources",
-    },
-    {
         name: "Events",
         url: "/events",
     },
