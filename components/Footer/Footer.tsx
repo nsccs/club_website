@@ -1,6 +1,7 @@
 import React from "react";
 import { Box, Flex, Link, Text } from "@chakra-ui/react";
 import { IoLogoDiscord } from "react-icons/io5";
+import { FaGithubSquare } from "react-icons/fa";
 
 const Footer: React.FC<{ whiteBg?: boolean }> = ({ whiteBg }) => {
     return (
@@ -40,6 +41,29 @@ const Footer: React.FC<{ whiteBg?: boolean }> = ({ whiteBg }) => {
                                 fontSize: "32px",
                                 marginLeft: "6px",
                             }}
+                        />
+                    </Text>
+                </Link>
+                <Link
+                  href="https://github.com/nsccs"
+                  isExternal
+                  _hover={{ textDecoration: "none" }}
+                >
+                    <Text
+                      h="100%"
+                      textAlign="center"
+                      color={whiteBg ? undefined : "white"}
+                      fontSize="xl"
+                      display="flex"
+                      alignItems="center"
+                      justifyContent="center"
+                    >
+                        <FaGithubSquare
+                          style={{
+                              display: "inline",
+                              fontSize: "32px",
+                              marginLeft: "6px",
+                          }}
                         />
                     </Text>
                 </Link>
