@@ -40,7 +40,8 @@ const Events: React.FC<{ events: EventCard[]}> = ({ events }) => {
             <PageCard
               key={listItem.slugID}
               title={listItem.title}
-              time={new Date(listItem.date)}
+              // Convert Unix timestamp (s) to JavaScript timestamp (ms).
+              time={new Date(listItem.date * 1000)}
               description={listItem.description}
               url={"https://gdsc.community.dev/e/" + listItem.slugID}
             />
