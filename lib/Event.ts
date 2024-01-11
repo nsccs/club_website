@@ -10,8 +10,7 @@ export interface EventCard {
     /** The URL of this event's image. */
     // image: string | null;
 
-    /** The date when the event item starts as a unix timestamp. */
-    // date: number;
+    /** The date when the event item starts as an ISO datetime. */
     date: string;
 
     /** The event item's title/headline. */
@@ -153,16 +152,23 @@ export async function getEventCards(count: number): Promise<EventCard[]> {
         return JSON.parse(cached);
     }
 
-    const data = await getPartialEvents()
-        .then((events) => fixPartialEvents(events.slice(0, count)))
+    const data = await getPartialEvents();
+
+    // Sort (ascending) by events closest to the current timestamp.
+    // Dates will be put into a more correct order later on, but this ensures
+    // that the most relevant events are shown to the user.
+    const curDate = new Date();
+    data.sort((a, b) => (Math.abs(new Date(b.date) - curDate) > Math.abs(new Date(a.date) - curDate) ? -1 : 1));
+
+    const fixedData = await fixPartialEvents(data.slice(0, count))
         .then((events) => events.map(dataToCard));
 
     // Save the data in the cache.
     await redisClient.setex(
         "cache_event_cards:" + count,
         HOUR,
-        JSON.stringify(data),
+        JSON.stringify(fixedData),
     );
 
-    return data;
+    return fixedData;
 }
