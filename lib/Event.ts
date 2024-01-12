@@ -157,8 +157,8 @@ export async function getEventCards(count: number): Promise<EventCard[]> {
     // Sort (ascending) by events closest to the current timestamp.
     // Dates will be put into a more correct order later on, but this ensures
     // that the most relevant events are shown to the user.
-    const curDate = new Date();
-    data.sort((a, b) => (Math.abs(new Date(b.date) - curDate) > Math.abs(new Date(a.date) - curDate) ? -1 : 1));
+    const curDate = new Date().getTime();
+    data.sort((a, b) => (Math.abs(new Date(b.date).getTime() - curDate) > Math.abs(new Date(a.date).getTime() - curDate) ? -1 : 1));
 
     const fixedData = await fixPartialEvents(data.slice(0, count))
         .then((events) => events.map(dataToCard));
