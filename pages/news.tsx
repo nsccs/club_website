@@ -47,7 +47,7 @@ const News: React.FC<{ news: NewsCard[]}> = ({ news }) => {
                 ))}
               </SimpleGrid>
             </Box>
-            <Footer whiteBg />
+            <Footer brightBg />
         </>
     );
 };

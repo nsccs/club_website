@@ -260,7 +260,7 @@ const Index = ({ news, events }: { news: NewsCard[]; events: EventCard[] }) => {
 
                 <Box flexGrow={1} />
 
-                <Footer whiteBg />
+                <Footer brightBg />
             </Flex>
         </>
     );
