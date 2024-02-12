@@ -50,15 +50,12 @@ const Gamedev = () => {
                 <Flex
                     flexDir="column"
                     backgroundImage={greetingBackground.src}
-                    backgroundSize="inherit"
+                    backgroundSize="cover"
                     backgroundRepeat="no-repeat"
                     backgroundAttachment="fixed"
                     backgroundPosition="bottom"
                     flexGrow={1}
                     pb="20px"
-                    style={{
-                        backgroundSize: "100% auto",
-                    }}
                 >
                     <Heading
                         as="h1"
