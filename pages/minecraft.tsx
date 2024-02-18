@@ -2,10 +2,8 @@ import React, { CSSProperties } from "react";
 
 import {
     Box,
-    Button,
     Flex,
     Grid,
-    HStack,
     Heading,
     Modal,
     ModalBody,
@@ -21,7 +19,6 @@ import {
     PopoverTrigger,
     Stack,
     Text,
-    VStack,
     useDisclosure,
 } from "@chakra-ui/react";
 import Image, { StaticImageData } from "next/image";
@@ -54,6 +51,13 @@ const textAnimVariants: Variants = {
     },
 };
 
+/**
+ * A viewable image that can be maximized
+ * @param daImage the image that will be viewed
+ * @param altText accesability text for the image
+ * @param buttonStyle CSS properties to be applied to the preview
+ * @param imageTitle Title of the image in the maximized view
+ */
 const ViewableImage: React.FC<{
     daImage?: StaticImageData;
     altText?: string;
@@ -63,6 +67,7 @@ const ViewableImage: React.FC<{
     const { isOpen, onOpen, onClose } = useDisclosure();
     return (
         <>
+            {/* image preview */}
             <button onClick={onOpen} style={buttonStyle}>
                 <Box borderRadius="10px" overflow="hidden" marginX="10%">
                     <Image
@@ -77,6 +82,8 @@ const ViewableImage: React.FC<{
                     />
                 </Box>
             </button>
+
+            {/* maximized image section */}
             <Modal
                 closeOnOverlayClick={true}
                 isOpen={isOpen}
@@ -107,6 +114,7 @@ const Minecraft = () => {
         <>
             <SEO url="https://northcs.org/minecraft" />
             <Header />
+            {/* top of page */}
             <Flex
                 w="100vw"
                 h="100vh"
@@ -148,6 +156,7 @@ const Minecraft = () => {
                         variants={textAnimVariants}
                         style={{ marginTop: "3%" }}
                     >
+                        {/* buttons in top of page */}
                         <Stack
                             direction={{ base: "column", md: "row" }}
                             marginTop="2vh"
@@ -157,6 +166,7 @@ const Minecraft = () => {
                             <motion.div variants={textAnimVariants}>
                                 <NextLink
                                     href="/join"
+                                    target="_blank"
                                     style={{ textDecoration: "none" }}
                                 >
                                     <Text
@@ -185,6 +195,7 @@ const Minecraft = () => {
                             <motion.div variants={textAnimVariants}>
                                 <NextLink
                                     href="https://modrinth.com/modpack/rubberducky"
+                                    target="_blank"
                                     style={{ textDecoration: "none" }}
                                 >
                                     <Text
@@ -269,6 +280,7 @@ const Minecraft = () => {
                 direction="column"
                 backgroundImage="linear-gradient(to bottom, #2F2FBF, #FFFFFF, #000000)"
             >
+                {/* header part */}
                 <motion.div
                     variants={textAnimVariants}
                     style={{ marginTop: "3%", alignSelf: "center" }}
@@ -353,6 +365,10 @@ const Minecraft = () => {
                     </Grid>
                 </motion.div>
             </Flex>
+
+            {/* integraged mc map */}
+            <iframe src="/mcmap" style={{ height: "100vh", width: "100vw" }} />
+
             <Footer brightBg={false} bg={"black"} />
         </>
     );
