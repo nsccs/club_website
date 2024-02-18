@@ -1,12 +1,11 @@
-import React, {
-    CSSProperties,
-} from "react";
+import React, { CSSProperties } from "react";
 
 import {
     Box,
     Button,
     Flex,
     Grid,
+    HStack,
     Heading,
     Modal,
     ModalBody,
@@ -14,12 +13,20 @@ import {
     ModalContent,
     ModalHeader,
     ModalOverlay,
+    Popover,
+    PopoverArrow,
+    PopoverCloseButton,
+    PopoverContent,
+    PopoverHeader,
+    PopoverTrigger,
     Stack,
     Text,
     VStack,
     useDisclosure,
 } from "@chakra-ui/react";
 import Image, { StaticImageData } from "next/image";
+import NextLink from "next/link";
+
 import { Variants, motion, spring } from "framer-motion";
 import SEO from "../components/SEO/SEO";
 import Header from "../components/Header/Header";
@@ -41,9 +48,8 @@ const textAnimVariants: Variants = {
             type: "spring",
             bounce: 0.4,
             duration: 2,
-            staggerChildren: 0.5,
-            delayChildren: 0.5,
-            when: "afterChildren",
+            staggerChildren: 0.2,
+            delayChildren: 0.1,
         },
     },
 };
@@ -106,6 +112,10 @@ const Minecraft = () => {
                 h="100vh"
                 justifyContent="center"
                 backgroundImage={greetingBackground.src}
+                backgroundSize="cover"
+                backgroundRepeat="no-repeat"
+                backgroundAttachment="fixed"
+                backgroundPosition="bottom"
             >
                 <motion.div
                     style={{
@@ -133,6 +143,120 @@ const Minecraft = () => {
                         <Heading as="h2">
                             A server made by <i>you</i>
                         </Heading>
+                    </motion.div>
+                    <motion.div
+                        variants={textAnimVariants}
+                        style={{ marginTop: "3%" }}
+                    >
+                        <Stack
+                            direction={{ base: "column", md: "row" }}
+                            marginTop="2vh"
+                            rowGap="5vh"
+                            columnGap="20px"
+                        >
+                            <motion.div variants={textAnimVariants}>
+                                <NextLink
+                                    href="/join"
+                                    style={{ textDecoration: "none" }}
+                                >
+                                    <Text
+                                        as="span"
+                                        fontSize={{
+                                            base: "1.3em",
+                                            sm: "1.8em",
+                                            md: "2.1em",
+                                            lg: "2.4em",
+                                        }}
+                                        color="white"
+                                        bg="#004da8"
+                                        p="15px"
+                                        whiteSpace="nowrap"
+                                        borderRadius="50px"
+                                        transition="all 0.3s ease"
+                                        _hover={{
+                                            bg: "#95ca59",
+                                            color: "black",
+                                        }}
+                                    >
+                                        Join The Club!
+                                    </Text>
+                                </NextLink>
+                            </motion.div>
+                            <motion.div variants={textAnimVariants}>
+                                <NextLink
+                                    href="https://modrinth.com/modpack/rubberducky"
+                                    style={{ textDecoration: "none" }}
+                                >
+                                    <Text
+                                        as="span"
+                                        fontSize={{
+                                            base: "1.3em",
+                                            sm: "1.8em",
+                                            md: "2.1em",
+                                            lg: "2.4em",
+                                        }}
+                                        color="white"
+                                        bg="#004da8"
+                                        p="15px"
+                                        whiteSpace="nowrap"
+                                        borderRadius="50px"
+                                        transition="all 0.3s ease"
+                                        _hover={{
+                                            bg: "#95ca59",
+                                            color: "black",
+                                        }}
+                                    >
+                                        Download The ModPack!
+                                    </Text>
+                                </NextLink>
+                            </motion.div>
+                            <motion.div variants={textAnimVariants}>
+                                <Popover>
+                                    <PopoverTrigger>
+                                        <button
+                                            onClick={() => {
+                                                navigator.clipboard.writeText(
+                                                    "mc.northcs.org",
+                                                );
+                                            }}
+                                        >
+                                            <Text
+                                                as="span"
+                                                fontSize={{
+                                                    base: "1.3em",
+                                                    sm: "1.8em",
+                                                    md: "2.1em",
+                                                    lg: "2.4em",
+                                                }}
+                                                color="white"
+                                                bg="#004da8"
+                                                p="15px"
+                                                whiteSpace="nowrap"
+                                                borderRadius="50px"
+                                                transition="all 0.3s ease"
+                                                _hover={{
+                                                    bg: "#95ca59",
+                                                    color: "black",
+                                                }}
+                                            >
+                                                Join the server
+                                            </Text>
+                                        </button>
+                                    </PopoverTrigger>
+                                    <PopoverContent>
+                                        <PopoverArrow />
+                                        <PopoverCloseButton />
+                                        <PopoverHeader>
+                                            Copied to clipboard!
+                                        </PopoverHeader>
+                                        <PopoverContent>
+                                            Paste the server address into the
+                                            address bar when adding the server
+                                        </PopoverContent>
+                                    </PopoverContent>
+                                </Popover>
+                            </motion.div>
+                        </Stack>
                     </motion.div>
                 </motion.div>
             </Flex>
@@ -169,9 +293,13 @@ const Minecraft = () => {
                     viewport={{ once: true, amount: 0.8 }}
                 >
                     <Grid
-                        gridAutoFlow={{ base: "column", md: "row" }}
-                        gridTemplateColumns="repeat(4, 1fr)"
-                        rowGap="30%"
+                        gridAutoFlow="row"
+                        gridTemplateColumns={{
+                            base: "repeat(2, 1fr)",
+                            sm: "repeat(3, 1fr)",
+                            md: "repeat(4, 1fr)",
+                        }}
+                        rowGap="10vmin"
                         width="auto"
                         height="auto"
                         marginY="20px"
@@ -180,6 +308,7 @@ const Minecraft = () => {
                         <ViewableImage
                             daImage={LucHouse}
                             buttonStyle={{}}
+                            imageTitle="VP's Cliffside House"
                         ></ViewableImage>
                         <ViewableImage
                             daImage={greetingBackground}
