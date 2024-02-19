@@ -111,7 +111,7 @@ const Index = ({ news, events }: { news: NewsCard[]; events: EventCard[] }) => {
                             </Box>
                             <Box textAlign="center">
                                 <NextLink
-                                    href="/join"
+                                    href="/minecraft"
                                     style={{ textDecoration: "none" }}
                                 >
                                     <Text

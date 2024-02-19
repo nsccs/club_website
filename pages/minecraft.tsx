@@ -31,7 +31,7 @@ import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
 import greetingBackground from "../img/Homepage-Background.svg";
 
-import LucHouse from "../img/MCScreenShots/LucHouse.png";
+import mcImages from "../components/Helper/MCSreenshots";
 
 const textAnimVariants: Variants = {
     offscreen: {
@@ -318,46 +318,46 @@ const Minecraft = () => {
                         marginX="5%"
                     >
                         <ViewableImage
-                            daImage={LucHouse}
+                            daImage={mcImages.LucHouse}
                             buttonStyle={{}}
                             imageTitle="VP's Cliffside House"
                         ></ViewableImage>
                         <ViewableImage
-                            daImage={greetingBackground}
+                            daImage={mcImages.SpawnBridge}
                             buttonStyle={{
                                 width: "inherit",
                             }}
                         ></ViewableImage>
                         <ViewableImage
-                            daImage={greetingBackground}
+                            daImage={mcImages.TheDarkThiefPowerStation}
                             buttonStyle={{
                                 width: "auto",
                             }}
                         ></ViewableImage>
                         <ViewableImage
-                            daImage={greetingBackground}
+                            daImage={mcImages.aFactory}
                             buttonStyle={{
                                 width: "auto",
                             }}
                         ></ViewableImage>
                         <ViewableImage
-                            daImage={LucHouse}
-                            buttonStyle={{}}
+                            daImage={mcImages.TheDarkThiefHome}
+                            imageTitle="TheDarkThief's Hobbit Home"
                         ></ViewableImage>
                         <ViewableImage
-                            daImage={greetingBackground}
+                            daImage={mcImages.openSubmission}
                             buttonStyle={{
                                 width: "inherit",
                             }}
                         ></ViewableImage>
                         <ViewableImage
-                            daImage={greetingBackground}
+                            daImage={mcImages.openSubmission}
                             buttonStyle={{
                                 width: "auto",
                             }}
                         ></ViewableImage>
                         <ViewableImage
-                            daImage={greetingBackground}
+                            daImage={mcImages.openSubmission}
                             buttonStyle={{
                                 width: "auto",
                             }}
