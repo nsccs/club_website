@@ -99,8 +99,20 @@ const ViewableImage: React.FC<{
                             borderRadius="20px"
                             overflow="hidden"
                             marginX="10%"
+                            height="auto"
+                            width="auto"
                         >
-                            <Image src={daImage} alt={altText} />
+                            <Image
+                                src={daImage}
+                                alt={altText}
+                                style={{
+                                    display: "block",
+                                    maxHeight: "100%",
+                                    maxWidth: "100%",
+                                    width: "100%",
+                                    height: "auto",
+                                }}
+                            />
                         </Box>
                     </ModalBody>
                 </ModalContent>
