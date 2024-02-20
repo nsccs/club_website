@@ -29,8 +29,7 @@ import SEO from "../components/SEO/SEO";
 import Header from "../components/Header/Header";
 
 import Footer from "../components/Footer/Footer";
-import greetingBackground from "../img/Homepage-Background.svg";
-
+import greetingBackground from "../img/VeryNiceGreeting.gif";
 import mcImages from "../components/Helper/MCSreenshots";
 
 const textAnimVariants: Variants = {
@@ -127,15 +126,55 @@ const Minecraft = () => {
             <SEO url="https://northcs.org/minecraft" />
             <Header />
             {/* top of page */}
+            <div
+                style={{
+                    position: "fixed",
+                    overflow: "hidden",
+                    zIndex: -90,
+                    width: "100vw",
+                    height: "100vh",
+                    top: "0",
+                    left: "0",
+                }}
+            >
+                <Image
+                    src={greetingBackground}
+                    alt="background"
+                    style={{
+                        minHeight: "100%",
+                        minWidth: "100%",
+                        width: "auto",
+                        height: "auto",
+                        maxWidth: "none",
+                        maxHeight: "none",
+                        position: "absolute",
+                    }}
+                />
+                <video
+                    muted
+                    autoPlay
+                    controlsList="nodownload, nofullscreen, noremoteplayback"
+                    disablePictureInPicture
+                    loop
+                    style={{
+                        minHeight: "100%",
+                        minWidth: "100%",
+                        width: "auto",
+                        height: "auto",
+                        maxWidth: "none",
+                        maxHeight: "none",
+                        position: "absolute",
+                        pointerEvents: "none",
+                    }}
+                >
+                    <source src="../Minecraft-cinematic.mp4" />
+                </video>
+            </div>
             <Flex
                 w="100vw"
                 h="100vh"
                 justifyContent="center"
-                backgroundImage={greetingBackground.src}
-                backgroundSize="cover"
-                backgroundRepeat="no-repeat"
-                backgroundAttachment="fixed"
-                backgroundPosition="bottom"
+                backdropFilter="blur(5px)"
             >
                 <motion.div
                     style={{
