@@ -80,7 +80,7 @@ const Index = ({ news, events }: { news: NewsCard[]; events: EventCard[] }) => {
                         <Stack
                             direction={{ base: "column", md: "row" }}
                             justifyContent="center"
-                            rowGap="5vmin"
+                            rowGap={{ md: "5vmin" }}
                         >
                             <Box textAlign="center">
                                 <NextLink
@@ -109,7 +109,10 @@ const Index = ({ news, events }: { news: NewsCard[]; events: EventCard[] }) => {
                                     </Text>
                                 </NextLink>
                             </Box>
-                            <Box textAlign="center">
+                            <Box
+                                textAlign="center"
+                                pt={{ base: "12.5px", sm: "0px" }}
+                            >
                                 <NextLink
                                     href="/minecraft"
                                     style={{ textDecoration: "none" }}
@@ -117,14 +120,14 @@ const Index = ({ news, events }: { news: NewsCard[]; events: EventCard[] }) => {
                                     <Text
                                         as="span"
                                         fontSize={{
-                                            base: "1.3em",
+                                            base: "1em",
                                             sm: "1.8em",
                                             md: "2.1em",
                                             lg: "2.4em",
                                         }}
                                         color="white"
                                         bg="#004da8"
-                                        p="15px"
+                                        p={{ base: "5px", md: "15px" }}
                                         borderRadius="50px"
                                         transition="all 0.3s ease"
                                         _hover={{

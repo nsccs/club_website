@@ -30,7 +30,7 @@ import Header from "../components/Header/Header";
 
 import Footer from "../components/Footer/Footer";
 import greetingBackground from "../img/VeryNiceGreeting.gif";
-import mcImages from "../components/Helper/MCSreenshots";
+import mcImages from "../lib/MCScreenshots";
 
 const textAnimVariants: Variants = {
     offscreen: {
