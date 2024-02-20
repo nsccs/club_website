@@ -1,7 +1,7 @@
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
 import PageCard from "../components/PageCard/PageCard";
-import { Box, Flex, Heading, Text, VStack } from "@chakra-ui/react";
+import { Box, Flex, Heading, Stack, Text, VStack } from "@chakra-ui/react";
 import NextLink from "next/link";
 import Image from "next/image";
 import bannerImg from "../img/Homepage-Background.svg";
@@ -77,33 +77,66 @@ const Index = ({ news, events }: { news: NewsCard[]; events: EventCard[] }) => {
                             {/* TODO: Change this to something better. */}
                             Turn Your Theory Into Practice
                         </Heading>
-                        <Box textAlign="center">
-                            <NextLink
-                                href="/join"
-                                style={{ textDecoration: "none" }}
-                            >
-                                <Text
-                                    as="span"
-                                    fontSize={{
-                                        base: "1.3em",
-                                        sm: "1.8em",
-                                        md: "2.1em",
-                                        lg: "2.4em",
-                                    }}
-                                    color="white"
-                                    bg="#004da8"
-                                    p="15px"
-                                    borderRadius="50px"
-                                    transition="all 0.3s ease"
-                                    _hover={{
-                                        bg: "#95ca59",
-                                        color: "black",
-                                    }}
+                        <Stack
+                            direction={{ base: "column", md: "row" }}
+                            justifyContent="center"
+                            rowGap="5vmin"
+                        >
+                            <Box textAlign="center">
+                                <NextLink
+                                    href="/join"
+                                    style={{ textDecoration: "none" }}
                                 >
-                                    Join The Club!
-                                </Text>
-                            </NextLink>
-                        </Box>
+                                    <Text
+                                        as="span"
+                                        fontSize={{
+                                            base: "1.3em",
+                                            sm: "1.8em",
+                                            md: "2.1em",
+                                            lg: "2.4em",
+                                        }}
+                                        color="white"
+                                        bg="#004da8"
+                                        p="15px"
+                                        borderRadius="50px"
+                                        transition="all 0.3s ease"
+                                        _hover={{
+                                            bg: "#95ca59",
+                                            color: "black",
+                                        }}
+                                    >
+                                        Join The Club!
+                                    </Text>
+                                </NextLink>
+                            </Box>
+                            <Box textAlign="center">
+                                <NextLink
+                                    href="/minecraft"
+                                    style={{ textDecoration: "none" }}
+                                >
+                                    <Text
+                                        as="span"
+                                        fontSize={{
+                                            base: "1.3em",
+                                            sm: "1.8em",
+                                            md: "2.1em",
+                                            lg: "2.4em",
+                                        }}
+                                        color="white"
+                                        bg="#004da8"
+                                        p="15px"
+                                        borderRadius="50px"
+                                        transition="all 0.3s ease"
+                                        _hover={{
+                                            bg: "#95ca59",
+                                            color: "black",
+                                        }}
+                                    >
+                                        Here For MC?
+                                    </Text>
+                                </NextLink>
+                            </Box>
+                        </Stack>
                     </Box>
 
                     <Box
@@ -242,9 +275,7 @@ const Index = ({ news, events }: { news: NewsCard[]; events: EventCard[] }) => {
                                         <PageCard
                                             key={eventItem.slugID}
                                             title={eventItem.title}
-                                            time={
-                                                new Date(eventItem.date)
-                                            }
+                                            time={new Date(eventItem.date)}
                                             description={eventItem.description}
                                             url={
                                                 "https://gdsc.community.dev/e/" +
@@ -260,7 +291,7 @@ const Index = ({ news, events }: { news: NewsCard[]; events: EventCard[] }) => {
 
                 <Box flexGrow={1} />
 
-                <Footer whiteBg />
+                <Footer brightBg />
             </Flex>
         </>
     );

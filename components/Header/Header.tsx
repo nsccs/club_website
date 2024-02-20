@@ -33,6 +33,10 @@ const menuItems = [
         url: "/news",
     },
     {
+        name: "Minecraft",
+        url: "/minecraft",
+    },
+    {
         name: "Join",
         url: "/join",
     },
