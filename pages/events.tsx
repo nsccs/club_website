@@ -47,7 +47,7 @@ const Events: React.FC<{ events: EventCard[]}> = ({ events }) => {
           ))}
         </SimpleGrid>
       </Box>
-      <Footer whiteBg />
+      <Footer brightBg />
     </>
   );
 };
