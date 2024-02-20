@@ -37,6 +37,10 @@ const menuItems = [
         url: "/minecraft",
     },
     {
+        name: "Game Dev",
+        url: "/gamedev",
+    },
+    {
         name: "Join",
         url: "/join",
     },
