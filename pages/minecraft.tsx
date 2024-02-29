@@ -19,6 +19,7 @@ import {
     PopoverTrigger,
     Stack,
     Text,
+    VStack,
     useDisclosure,
 } from "@chakra-ui/react";
 import Image, { StaticImageData } from "next/image";
@@ -165,17 +166,13 @@ const Minecraft = () => {
                         maxHeight: "none",
                         position: "absolute",
                         pointerEvents: "none",
+                        filter: "blur(5px)",
                     }}
                 >
                     <source src="../Minecraft-cinematic.mp4" />
                 </video>
             </div>
-            <Flex
-                w="100vw"
-                h="100vh"
-                justifyContent="center"
-                backdropFilter="blur(5px)"
-            >
+            <Flex w="100vw" h="100vh" justifyContent="center">
                 <motion.div
                     style={{
                         display: "flex",
@@ -329,7 +326,7 @@ const Minecraft = () => {
                 h="100vh"
                 justifyContent="center"
                 direction="column"
-                backgroundImage="linear-gradient(to bottom, #2F2FBF, #FFFFFF, #000000)"
+                backgroundImage="linear-gradient(to bottom, #80ADFE00, #80ADFEEE, #2F2FBFAA, #000000D9)"
             >
                 {/* header part */}
                 <motion.div
@@ -418,7 +415,33 @@ const Minecraft = () => {
             </Flex>
 
             {/* integraged mc map */}
-            <iframe src="/mcmap" style={{ height: "100vh", width: "100vw" }} />
+            <VStack
+                w="100vw"
+                h="100vh"
+                justifyContent="center"
+                backgroundImage="linear-gradient(to bottom, #000000D9 10%, #302008E9, #6F3F1AFF 30%, #5F5F5EFF , #000000FF)"
+            >
+                <motion.div
+                    variants={textAnimVariants}
+                    style={{ marginTop: "3%", alignSelf: "center" }}
+                    initial="offscreen"
+                    whileInView="onscreen"
+                    viewport={{ once: true, amount: 0.8 }}
+                >
+                    <Heading as="h2" color="white">
+                        Live map
+                    </Heading>
+                </motion.div>
+                <iframe
+                    src="/mcmap"
+                    style={{
+                        height: "80%",
+                        width: "80%",
+                        verticalAlign: "center",
+                        borderRadius: "20px",
+                    }}
+                />
+            </VStack>
 
             <Footer brightBg={false} bg={"black"} />
         </>
