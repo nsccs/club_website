@@ -83,8 +83,10 @@ const Gamedev = () => {
                                     }}
                                 />
                                 <Box flexGrow={1} />
-                                <Link href="https://forms.office.com/Pages/ResponsePage.aspx?id=OP_YAhHXMU6pFWy1z_eI3wVkLwZrVwRFqtH05cTl-O5URDFDTUczTzBNM0xZWVo2STVBVEZHMk9LSS4u">
-                                    <Button {...buttonSettings}>RSVP</Button>
+                                <Link href="404">
+                                    <Button {...buttonSettings}>
+                                        Returning Spring Quarter
+                                    </Button>
                                 </Link>
                             </Flex>
                             <Flex flexDir="column" h="100%" alignItems="center">
