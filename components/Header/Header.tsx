@@ -1,3 +1,5 @@
+"use client";
+
 import {
     Box,
     Button,
@@ -13,7 +15,7 @@ import {
     VStack,
 } from "@chakra-ui/react";
 import Image from "next/image";
-import headerLogo from "../../img/CS_Club_Logo_White.png";
+import headerLogo from "../../public/img/CS_Club_Logo_White.png";
 import React, { useRef } from "react";
 import NextLink from "next/link";
 import linkUnderline from "../../style/link-underline.module.scss";

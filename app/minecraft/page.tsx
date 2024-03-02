@@ -25,13 +25,13 @@ import {
 import Image, { StaticImageData } from "next/image";
 import NextLink from "next/link";
 
-import { Variants, motion, spring } from "framer-motion";
-import SEO from "../components/SEO/SEO";
-import Header from "../components/Header/Header";
+import { Variants, motion } from "framer-motion";
+import SEO from "../../components/SEO/SEO";
+import Header from "../../components/Header/Header";
 
-import Footer from "../components/Footer/Footer";
-import greetingBackground from "../img/VeryNiceGreeting.gif";
-import mcImages from "../lib/MCScreenshots";
+import Footer from "../../components/Footer/Footer";
+import greetingBackground from "../../public/img/VeryNiceGreeting.gif";
+import mcImages from "../../lib/MCScreenshots";
 
 const textAnimVariants: Variants = {
     offscreen: {
@@ -59,12 +59,13 @@ const textAnimVariants: Variants = {
  * @param imageTitle Title of the image in the maximized view
  */
 const ViewableImage: React.FC<{
-    daImage?: StaticImageData;
+    daImage: StaticImageData;
     altText?: string;
     buttonStyle?: CSSProperties;
     imageTitle?: string;
 }> = ({ daImage, altText, buttonStyle, imageTitle }) => {
     const { isOpen, onOpen, onClose } = useDisclosure();
+    altText = altText == null ? "A screenshot from the server" : altText;
     return (
         <>
             {/* image preview */}

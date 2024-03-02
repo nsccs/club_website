@@ -12,16 +12,16 @@ import {
 } from "@chakra-ui/react";
 import Image from "next/image";
 import Link from "next/link";
-import Header from "../components/Header/Header";
-import Footer from "../components/Footer/Footer";
-import SEO from "../components/SEO/SEO";
+import Header from "../../components/Header/Header";
+import Footer from "../../components/Footer/Footer";
+import SEO from "../../components/SEO/SEO";
 
-import renpyLogo from "../img/RenpyLogo.png";
-import godotLogo from "../img/GodotIcon.svg";
-import greetingBackground from "../img/Homepage-Background.svg";
+import renpyLogo from "../../public/img/RenpyLogo.png";
+import godotLogo from "../../public/img/GodotIcon.svg";
+import greetingBackground from "../../public/img/Homepage-Background.svg";
 
-import renpyExampleImg from "../img/RenpyScreenshotExample.png";
-import godotExampleImg from "../img/GodotScreenshotExample.png";
+import renpyExampleImg from "../../public/img/RenpyScreenshotExample.png";
+import godotExampleImg from "../../public/img/GodotScreenshotExample.png";
 
 const textSettings = {
     fontSize: { base: "xl", sm: "2xl", md: "3xl" },
