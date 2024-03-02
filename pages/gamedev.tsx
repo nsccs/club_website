@@ -83,11 +83,9 @@ const Gamedev = () => {
                                     }}
                                 />
                                 <Box flexGrow={1} />
-                                <Link href="404">
-                                    <Button {...buttonSettings}>
-                                        Returning Spring Quarter
-                                    </Button>
-                                </Link>
+                                <Button {...buttonSettings}>
+                                    Returning Spring Quarter
+                                </Button>
                             </Flex>
                             <Flex flexDir="column" h="100%" alignItems="center">
                                 <Image
