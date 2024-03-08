@@ -4,11 +4,8 @@ import {
     Flex,
     Text,
     Heading,
-    HStack,
     Button,
-    VStack,
     Stack,
-    extendTheme,
 } from "@chakra-ui/react";
 import Image from "next/image";
 import Link from "next/link";

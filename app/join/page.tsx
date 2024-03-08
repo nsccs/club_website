@@ -1,3 +1,4 @@
+"use client";
 import {
     Box,
     Center,
@@ -7,9 +8,9 @@ import {
     Heading,
     Link,
 } from "@chakra-ui/react";
-import Header from "../components/Header/Header";
-import Footer from "../components/Footer/Footer";
-import SEO from "../components/SEO/SEO";
+import Header from "../../components/Header/Header";
+import Footer from "../../components/Footer/Footer";
+import SEO from "../../components/SEO/SEO";
 
 const Join = () => {
     return (
