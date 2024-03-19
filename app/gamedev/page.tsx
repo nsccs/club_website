@@ -164,15 +164,10 @@ const Gamedev = () => {
                             Recommended: CSC 110
                             <br /> Minimum: Passion ;)
                         </Text>
-                        <Link
-                            href="https://forms.office.com/Pages/ResponsePage.aspx?id=OP_YAhHXMU6pFWy1z_eI3wVkLwZrVwRFqtH05cTl-O5URDFDTUczTzBNM0xZWVo2STVBVEZHMk9LSS4u"
-                            style={{
-                                alignSelf: "center",
-                                marginBottom: "20px",
-                            }}
-                        >
-                            <Button {...buttonSettings}>RSVP</Button>
-                        </Link>
+
+                        <Button {...buttonSettings}>
+                            Returning Spring Quarter
+                        </Button>
                     </Stack>
                     <Stack w={{ base: "inherit", md: "45%" }}>
                         <Heading as="h2" textAlign="center">

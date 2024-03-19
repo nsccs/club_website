@@ -269,7 +269,7 @@ const Minecraft = () => {
                     viewport={{ once: true, amount: 0.8 }}
                 >
                     <Heading as="h2" color="white">
-                        Gallery
+                        Gallary
                     </Heading>
                 </motion.div>
 
