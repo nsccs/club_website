@@ -1,31 +1,24 @@
 "use client";
-import {
-    Box,
-    Center,
-    Flex,
-    Text,
-    useBreakpointValue,
-    Heading,
-    Link,
-} from "@chakra-ui/react";
+
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import SEO from "../../components/SEO/SEO";
+import { Box, Center, Flex, styled } from "../../styled-system/jsx";
+import Link from "next/link";
 
 const Join = () => {
     return (
         <>
-            <SEO
+            {/* <SEO
                 title="Join | NSC Computer Science Club"
                 url="https://northcs.org/join"
-            />
+            /> */}
 
             <Flex flexDir="column" minW="100%" minH="100%">
                 <Header />
 
                 <Box>
-                    <Heading
-                        as="h1"
+                    <styled.h1
                         fontSize="5xl"
                         fontWeight="400"
                         color="#004da8"
@@ -33,7 +26,7 @@ const Join = () => {
                         textAlign="center"
                     >
                         We Sure Hope You Find Us Amicable
-                    </Heading>
+                    </styled.h1>
                 </Box>
 
                 <Box w="100%" py="20px">
@@ -67,28 +60,26 @@ const Join = () => {
 
                 <Box>
                     <Center>
-                        <Heading
-                            as="h2"
+                        <styled.h2
                             fontSize="3xl"
                             fontWeight="400"
                             pt="30px"
                             pb="20px"
                         >
                             Having Trouble?
-                        </Heading>
+                        </styled.h2>
                     </Center>
                 </Box>
 
-                <Text textAlign="center" fontSize="xl" pb="20px">
+                <styled.p textAlign="center" fontSize="xl" pb="20px">
                     Click the {'"'}Join Discord{'"'} button above.
                     Alternatively, you can go to{" "}
-                    <Link href="https://discord.gg/PG2re4Zb4h" isExternal>
-                        <Text as="span" color="cyan.600">
+                    <Link href="https://discord.gg/PG2re4Zb4h">
+                        <styled.span color="cyan.600">
                             https://discord.gg/PG2re4Zb4h
-                        </Text>
+                        </styled.span>
                     </Link>
-                    .
-                </Text>
+                </styled.p>
 
                 <Box flexGrow={1} />
 

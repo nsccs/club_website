@@ -1,25 +1,12 @@
-"use client";
-
-import {
-    Box,
-    Button,
-    Drawer,
-    DrawerBody,
-    DrawerCloseButton,
-    DrawerContent,
-    DrawerOverlay,
-    Flex,
-    HStack,
-    Text,
-    useDisclosure,
-    VStack,
-} from "@chakra-ui/react";
 import Image from "next/image";
 import headerLogo from "../../public/img/CS_Club_Logo_White.png";
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import NextLink from "next/link";
 import linkUnderline from "../../style/link-underline.module.scss";
 import { FaBars } from "react-icons/fa";
+import { HStack, VStack, styled } from "../../styled-system/jsx";
+import { css } from "../../styled-system/css";
+import { Menu, Presence } from "@ark-ui/react";
 
 const menuItems = [
     {
@@ -49,20 +36,20 @@ const menuItems = [
 ];
 
 const Header: React.FC = () => {
-    const { isOpen, onOpen, onClose } = useDisclosure();
-    const headerRef = useRef<HTMLDivElement>(null);
+    // const headerRef = useRef<HTMLDivElement>(null);
 
     return (
-        <Box as="header" w="100%" ref={headerRef}>
-            <Flex
-                as="nav"
+        <header className={css({ w: "100%" })}>
+            <styled.nav
                 w="100%"
                 minH={{ base: "75px", sm: "87.5px", md: "100px" }}
                 px={{ base: "16px", md: "25px", lg: "100px" }}
                 alignItems="center"
                 bg="#004da8"
+                display="flex"
+                flexDirection="row"
             >
-                <Box h={{ base: "70px", sm: "82.5px", md: "90px" }}>
+                <styled.div h={{ base: "70px", sm: "82.5px", md: "90px" }}>
                     <NextLink href="/" style={{ height: "inherit" }}>
                         <Image
                             src={headerLogo}
@@ -74,13 +61,13 @@ const Header: React.FC = () => {
                             }}
                         />
                     </NextLink>
-                </Box>
+                </styled.div>
 
-                <Box flexGrow={1} />
+                <styled.div flexGrow={1} />
 
                 <HStack
                     display={{ base: "none", md: "inherit" }}
-                    spacing="40px"
+                    gap="40px"
                     pl={{ base: "20px", lg: "5px" }}
                 >
                     {menuItems.map(({ name, url }) => (
@@ -89,8 +76,7 @@ const Header: React.FC = () => {
                             href={url}
                             className={linkUnderline.main}
                         >
-                            <Text
-                                as="span"
+                            <styled.span
                                 fontSize={{
                                     base: "1.2em",
                                     sm: "1.3em",
@@ -100,58 +86,46 @@ const Header: React.FC = () => {
                                 color="white"
                             >
                                 {name}
-                            </Text>
+                            </styled.span>
                         </NextLink>
                     ))}
                 </HStack>
 
-                <Box display={{ base: "initial", md: "none" }} pl="20px">
-                    <Button onClick={onOpen} bg="#95ca59" borderRadius="3px">
+                {/* <styled.div display={{ base: "initial", md: "none" }} pl="20px">
+                    <button
+                        onClick={() => setPresent(!present)}
+                        className={css({ bg: "#95ca59", borderRadius: "3px" })}
+                    >
                         <FaBars />
-                    </Button>
-                </Box>
-                <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
-                    <DrawerOverlay />
-
-                    <DrawerContent>
-                        <DrawerCloseButton
-                            right="initial"
-                            top={
-                                // The button is 32px in length.
-                                ((headerRef.current?.clientHeight || 0) - 32) /
-                                    2 +
-                                "px"
-                            }
-                            left="20px"
-                            color="white"
-                            fontSize="20px"
-                        />
-
-                        <DrawerBody p="initial">
-                            <Box
-                                w="100%"
-                                h={headerRef.current?.clientHeight || 0}
-                                bg="#004da8"
-                            />
-
-                            <VStack spacing="30px" p="20px">
-                                {menuItems.map(({ name, url }) => (
+                    </button>
+                </styled.div> */}
+                <Menu.Root>
+                    <Menu.Trigger asChild>
+                        <FaBars />
+                    </Menu.Trigger>
+                    <Menu.Positioner>
+                        <Menu.Content>
+                            {menuItems.map(({ name, url }) => (
+                                <Menu.Item id={name} key={name}>
                                     <NextLink
                                         style={{ width: "100%" }}
                                         key={name}
                                         href={url}
                                     >
-                                        <Text fontSize="1.5em" color="#004da8">
+                                        <styled.p
+                                            fontSize="1.5em"
+                                            color="#004da8"
+                                        >
                                             {name}
-                                        </Text>
+                                        </styled.p>
                                     </NextLink>
-                                ))}
-                            </VStack>
-                        </DrawerBody>
-                    </DrawerContent>
-                </Drawer>
-            </Flex>
-        </Box>
+                                </Menu.Item>
+                            ))}
+                        </Menu.Content>
+                    </Menu.Positioner>
+                </Menu.Root>
+            </styled.nav>
+        </header>
     );
 };
 

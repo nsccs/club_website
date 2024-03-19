@@ -1,6 +1,5 @@
-import "../style/index.scss";
+import "../style/index.css";
 import { Metadata } from "next";
-import Providers from "./providers";
 
 export const metadata: Metadata = {
     title: "NSC Computer Science Club",
@@ -17,9 +16,7 @@ export const metadata: Metadata = {
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
     return (
         <html>
-            <body>
-                <Providers>{children}</Providers>
-            </body>
+            <body>{children}</body>
         </html>
     );
 };

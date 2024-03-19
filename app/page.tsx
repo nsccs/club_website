@@ -1,7 +1,10 @@
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
 import PageCard from "../components/PageCard/PageCard";
-import { Box, Flex, Heading, Stack, Text, VStack } from "@chakra-ui/react";
+
+import { flex, vstack } from "../styled-system/patterns";
+import { Box, Center, Flex, Stack, styled, VStack } from "../styled-system/jsx";
+
 import NextLink from "next/link";
 import Image from "next/image";
 import bannerImg from "../public/img/Homepage-Background.svg";
@@ -10,13 +13,24 @@ import { GetServerSideProps } from "next";
 import { getNewsCards, NewsCard } from "../lib/News";
 import { EventCard, getEventCards } from "../lib/Event";
 import SEO from "../components/SEO/SEO";
+import { ScriptProps } from "next/script";
+import newsCardsComponet from "./newsCardSection";
+import { Suspense } from "react";
+import NewsCardsComponet from "./newsCardSection";
+import { css } from "../styled-system/css";
 
-const Index = ({ news, events }: { news: NewsCard[]; events: EventCard[] }) => {
+const Index = () => {
     return (
         <>
-            <SEO url="https://northcs.org" />
+            {/* <SEO url="https://northcs.org" /> */}
 
-            <Flex flexDir="column" minW="100%" minH="100%">
+            <div
+                className={flex({
+                    flexDir: "column",
+                    minW: "100%",
+                    minH: "100%",
+                })}
+            >
                 <Header />
 
                 <Box>
@@ -62,21 +76,23 @@ const Index = ({ news, events }: { news: NewsCard[]; events: EventCard[] }) => {
 
                         <Box h={{ base: "25%", md: "30%", lg: "35%" }} />
 
-                        <Heading
-                            as="h1"
+                        <styled.h1
                             mx="10%"
                             pb={{ base: "30px", md: "70px", lg: "100px" }}
                             textAlign="center"
-                            size={{
-                                base: "xl",
-                                sm: "2xl",
-                                md: "3xl",
-                                lg: "4xl",
-                            }}
+                            // size={{
+                            //     base: "xl",
+                            //     sm: "2xl",
+                            //     md: "3xl",
+                            //     lg: "4xl",
+                            // }}
+                            fontSize="7xl"
+                            fontWeight="bold"
+                            fontFamily="sans"
                         >
                             {/* TODO: Change this to something better. */}
                             Turn Your Theory Into Practice
-                        </Heading>
+                        </styled.h1>
                         <Stack
                             direction={{ base: "column", md: "row" }}
                             justifyContent="center"
@@ -87,8 +103,7 @@ const Index = ({ news, events }: { news: NewsCard[]; events: EventCard[] }) => {
                                     href="/join"
                                     style={{ textDecoration: "none" }}
                                 >
-                                    <Text
-                                        as="span"
+                                    <styled.span
                                         fontSize={{
                                             base: "1.3em",
                                             sm: "1.8em",
@@ -106,7 +121,7 @@ const Index = ({ news, events }: { news: NewsCard[]; events: EventCard[] }) => {
                                         }}
                                     >
                                         Join The Club!
-                                    </Text>
+                                    </styled.span>
                                 </NextLink>
                             </Box>
                             <Box
@@ -117,8 +132,7 @@ const Index = ({ news, events }: { news: NewsCard[]; events: EventCard[] }) => {
                                     href="/minecraft"
                                     style={{ textDecoration: "none" }}
                                 >
-                                    <Text
-                                        as="span"
+                                    <styled.span
                                         fontSize={{
                                             base: "1em",
                                             sm: "1.8em",
@@ -136,7 +150,7 @@ const Index = ({ news, events }: { news: NewsCard[]; events: EventCard[] }) => {
                                         }}
                                     >
                                         Here For MC?
-                                    </Text>
+                                    </styled.span>
                                 </NextLink>
                             </Box>
                         </Stack>
@@ -153,16 +167,15 @@ const Index = ({ news, events }: { news: NewsCard[]; events: EventCard[] }) => {
                         }}
                         bg="white"
                     >
-                        <Heading
-                            as="h2"
+                        <styled.h2
                             color="#95ca59"
                             py={{ base: "20px", sm: "25px", md: "30px" }}
                             textAlign="center"
-                            size="2xl"
+                            // size="2xl"
                         >
                             Who We Are
-                        </Heading>
-                        <Text
+                        </styled.h2>
+                        <styled.p
                             pb="15px"
                             textAlign="center"
                             fontSize={{ base: "xl", sm: "2xl", md: "3xl" }}
@@ -173,17 +186,17 @@ const Index = ({ news, events }: { news: NewsCard[]; events: EventCard[] }) => {
                             levels, and we don{"'"}t have any attendance or
                             participation requirements. Our Discord (
                             <NextLink href="/join">
-                                <Text as="span" color="cyan.600">
+                                <span style={{ color: "cyan.600" }}>
                                     join here
-                                </Text>
+                                </span>
                             </NextLink>
                             ) is where we coordinate, chat, ask questions, and
                             announce upcoming events. You can use the Discord to
                             meet and talk to like-minded individuals, seek
                             support from your peers, share interesting things,
                             and really, anything else!
-                        </Text>
-                        <Text
+                        </styled.p>
+                        <styled.p
                             pb="30px"
                             textAlign="center"
                             fontSize={{ base: "xl", sm: "2xl", md: "3xl" }}
@@ -193,123 +206,50 @@ const Index = ({ news, events }: { news: NewsCard[]; events: EventCard[] }) => {
                             website!). You can see some of our events below (and
                             on the{" "}
                             <NextLink href="/events">
-                                <Text as="span" color="cyan.600">
+                                <span style={{ color: "cyan.600" }}>
                                     events page
-                                </Text>
+                                </span>
                             </NextLink>
                             ), and if you have any ideas or suggestions, feel
                             free to post them on our Discord. We can{"'"}t wait
                             to meet you!
-                        </Text>
+                        </styled.p>
                     </Box>
-
-                    <Box py="30px" px="20px" bg="#004da8">
-                        <Flex
-                            flexDir={{ base: "column", lg: "row" }}
-                            w="100%"
-                            h="100%"
-                        >
-                            <Box
-                                w={{ base: "100%", lg: "50%" }}
-                                p={{
-                                    base: "10px",
-                                    sm: "20px",
-                                    md: "30px",
-                                    lg: "40px",
-                                    xl: "50px",
-                                }}
+                    <Suspense
+                        fallback={
+                            <Center
+                                className={css({
+                                    width: "100vw",
+                                    height: "40vw",
+                                    bg: "#004da8",
+                                })}
                             >
-                                <Heading
-                                    as="h2"
-                                    color="#95ca59"
-                                    py={{
-                                        base: "20px",
-                                        sm: "25px",
-                                        md: "30px",
-                                    }}
-                                    textAlign="center"
-                                    size="2xl"
-                                    whiteSpace="nowrap"
-                                >
-                                    News
-                                </Heading>
-
-                                <VStack spacing="100px">
-                                    {news.map((newsItem) => (
-                                        <PageCard
-                                            key={newsItem.id}
-                                            title={newsItem.title}
-                                            time={new Date(newsItem.date)}
-                                            description={newsItem.description}
-                                            url={"/news/" + newsItem.id}
-                                        />
-                                    ))}
-                                </VStack>
-                            </Box>
-
-                            <Box
-                                w={{ base: "100%", lg: "50%" }}
-                                p={{
-                                    base: "10px",
-                                    sm: "20px",
-                                    md: "30px",
-                                    lg: "40px",
-                                    xl: "50px",
-                                }}
-                            >
-                                <Heading
-                                    as="h2"
-                                    color="#95ca59"
-                                    py={{
-                                        base: "20px",
-                                        sm: "25px",
-                                        md: "30px",
-                                    }}
-                                    textAlign="center"
-                                    size="2xl"
-                                    whiteSpace="nowrap"
-                                >
-                                    Upcoming Events
-                                </Heading>
-
-                                <VStack spacing="100px">
-                                    {events.map((eventItem) => (
-                                        // TODO: Use event images.
-                                        <PageCard
-                                            key={eventItem.slugID}
-                                            title={eventItem.title}
-                                            time={new Date(eventItem.date)}
-                                            description={eventItem.description}
-                                            url={
-                                                "https://gdsc.community.dev/e/" +
-                                                eventItem.slugID
-                                            }
-                                        />
-                                    ))}
-                                </VStack>
-                            </Box>
-                        </Flex>
-                    </Box>
+                                Loading news
+                            </Center>
+                        }
+                    >
+                        <NewsCardsComponet />
+                    </Suspense>
                 </Box>
 
-                <Box flexGrow={1} />
+                <styled.div flexGrow={1} />
 
                 <Footer brightBg />
-            </Flex>
+            </div>
         </>
     );
 };
 
-export const getServerSideProps: GetServerSideProps = async (props) => {
-    const news = await getNewsCards(2);
-    const events = await getEventCards(2);
+// export const getServerSideProps: GetServerSideProps = async (props) => {
+//     const news = await getNewsCards(2);
+//     const events = await getEventCards(2);
 
-    return {
-        props: {
-            news,
-            events,
-        },
-    };
-};
+//     return {
+//         props: {
+//             news,
+//             events,
+//         },
+//     };
+// };
 
 export default Index;

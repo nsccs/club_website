@@ -2,8 +2,9 @@ import React from "react";
 import { IoLogoDiscord } from "react-icons/io5";
 import { FaGithubSquare } from "react-icons/fa";
 import { flex } from "../../styled-system/patterns";
-import { Box, styled } from "../../styled-system/jsx";
+import { Box, HStack, styled } from "../../styled-system/jsx";
 import { css } from "../../styled-system/css";
+import Link from "next/link";
 
 /**
  * The footer, used on all pages.
@@ -21,16 +22,16 @@ const Footer: React.FC<{ brightBg?: boolean; bg?: string }> = ({
     const textColor = brightBg ? undefined : "white";
 
     return (
-        <div
+        <footer
             className={flex({
-                direction: "column",
+                flexDirection: "column",
                 h: "75px",
                 backgroundColor: bgColor,
             })}
         >
             <Box flexGrow={1} />
 
-            <div className={css({ p: "5px" })}>
+            <HStack className={css({ p: "5px" })}>
                 <Box h="100%" textAlign="center">
                     <styled.p fontSize="xl" color={textColor}>
                         Questions? Email: csclub.north@seattlecolleges.edu
@@ -39,7 +40,7 @@ const Footer: React.FC<{ brightBg?: boolean; bg?: string }> = ({
 
                 <div className={css({ flexGrow: 1 })} />
 
-                <a
+                <Link
                     href="https://discord.gg/PG2re4Zb4h"
                     target="_blank"
                     className={css({ _hover: { textDecoration: "none" } })}
@@ -61,8 +62,8 @@ const Footer: React.FC<{ brightBg?: boolean; bg?: string }> = ({
                             }}
                         />
                     </styled.p>
-                </a>
-                <a
+                </Link>
+                <Link
                     href="https://github.com/nsccs"
                     target="_blank"
                     className={css({ _hover: { textDecoration: "none" } })}
@@ -84,11 +85,11 @@ const Footer: React.FC<{ brightBg?: boolean; bg?: string }> = ({
                             }}
                         />
                     </styled.p>
-                </a>
-            </div>
+                </Link>
+            </HStack>
 
             <div className={css({ flexGrow: 1 })} />
-        </div>
+        </footer>
     );
 };
 

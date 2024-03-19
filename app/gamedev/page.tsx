@@ -7,6 +7,9 @@ import {
     Button,
     Stack,
 } from "@chakra-ui/react";
+
+import { styled } from "../../styled-system/jsx";
+
 import Image from "next/image";
 import Link from "next/link";
 import Header from "../../components/Header/Header";
@@ -42,7 +45,7 @@ const Gamedev = () => {
                 url="https://northcs.org/gamedev"
             />
             <Header />
-            <Flex flexDir="column" minW="100%" minH="100%">
+            <styled.div flexDir="column" minW="100%" minH="100%">
                 {/* Top of the page including the Renpy and godot logo */}
                 <Flex
                     flexDir="column"
@@ -54,15 +57,14 @@ const Gamedev = () => {
                     flexGrow={1}
                     pb="20px"
                 >
-                    <Heading
-                        as="h1"
+                    <h1
                         style={{
                             textAlign: "center",
                             fontSize: "4rem",
                         }}
                     >
                         Welcome creators
-                    </Heading>
+                    </h1>
                     <Center flexGrow={1}>
                         <Stack
                             direction={{ base: "column", md: "row" }}
@@ -209,7 +211,7 @@ const Gamedev = () => {
                     </Stack>
                 </Stack>
                 <Footer />
-            </Flex>
+            </styled.div>
         </>
     );
 };
