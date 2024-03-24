@@ -24,6 +24,14 @@ const Impactathon = () => {
             <SEO
                 title="Impactathon | NSC Computer Science Club"
                 url="https://northcs.org/impactathon"
+                description="Get ready for an exhilarating and impactful journey at the Data-Centric Social Justice Hackathon!"
+                image={{
+                    url: ImpactathonBanner.src,
+                    width: ImpactathonBanner.width,
+                    height: ImpactathonBanner.height,
+                    alt: 'An image with text reading "Impactathon 2024".',
+                    large: true,
+                }}
             />
 
             <Flex flexDir="column" minW="100%" minH="100%">
