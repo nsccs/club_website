@@ -2,9 +2,7 @@ import { Box, Center, Flex, Stack, styled } from "../../styled-system/jsx";
 
 import Image from "next/image";
 import Link from "next/link";
-import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
-import SEO from "../../components/SEO/SEO";
 
 import renpyLogo from "../../public/img/RenpyLogo.png";
 import godotLogo from "../../public/img/GodotIcon.svg";
@@ -19,8 +17,17 @@ const textSettings = {
 };
 
 const buttonStyle = css({
+    fontSize: {
+        base: "0.5em",
+        sm: "0.8em",
+        md: "1em",
+        lg: "1.2em",
+    },
     color: "white",
-    bg: "#004da8",
+    bg: "CSClubBlue",
+    p: "15px",
+    width: "auto",
+    borderRadius: "50px",
     transition: "all 0.3s ease",
     _hover: {
         bg: "#95ca59",
@@ -39,7 +46,7 @@ const Gamedev = () => {
                 {/* Top of the page including the Renpy and godot logo */}
                 <Flex
                     flexDir="column"
-                    backgroundImage={greetingBackground.src}
+                    backgroundImage={greetingBackground.url}
                     backgroundSize="cover"
                     backgroundRepeat="no-repeat"
                     backgroundAttachment="fixed"
@@ -152,10 +159,17 @@ const Gamedev = () => {
                             Recommended: CSC 110
                             <br /> Minimum: Passion ;)
                         </p>
-
-                        <button className={buttonStyle}>
-                            Returning Spring Quarter
-                        </button>
+                        <Link
+                            href="404"
+                            style={{
+                                alignSelf: "center",
+                                marginBottom: "20px",
+                            }}
+                        >
+                            <button className={buttonStyle}>
+                                Returning Spring Quarter
+                            </button>
+                        </Link>
                     </Stack>
                     <Stack w={{ base: "inherit", md: "45%" }}>
                         <styled.h2 textAlign="center">Godot</styled.h2>

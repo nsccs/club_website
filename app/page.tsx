@@ -12,6 +12,24 @@ import { Suspense } from "react";
 import NewsCards from "../components/PageCard/NewsCards";
 import EventCards from "../components/PageCard/EventCards";
 
+const buttonStyling = css({
+    fontSize: {
+        base: "1.3em",
+        sm: "1.8em",
+        md: "2.1em",
+        lg: "2.4em",
+    },
+    color: "white",
+    bg: "CSClubBlue",
+    p: "15px",
+    borderRadius: "50px",
+    transition: "all 0.3s ease",
+    _hover: {
+        bg: "#95ca59",
+        color: "black",
+    },
+});
+
 const Index = () => {
     return (
         <>
@@ -87,25 +105,7 @@ const Index = () => {
                                     href="/join"
                                     style={{ textDecoration: "none" }}
                                 >
-                                    <styled.span
-                                        className={css({
-                                            fontSize: {
-                                                base: "1.3em",
-                                                sm: "1.8em",
-                                                md: "2.1em",
-                                                lg: "2.4em",
-                                            },
-                                            color: "white",
-                                            bg: "CSClubBlue",
-                                            p: "15px",
-                                            borderRadius: "50px",
-                                            transition: "all 0.3s ease",
-                                            _hover: {
-                                                bg: "#95ca59",
-                                                color: "black",
-                                            },
-                                        })}
-                                    >
+                                    <styled.span className={buttonStyling}>
                                         Join The Club!
                                     </styled.span>
                                 </NextLink>
@@ -118,25 +118,9 @@ const Index = () => {
                                     href="/minecraft"
                                     style={{ textDecoration: "none" }}
                                 >
-                                    <styled.span
-                                        fontSize={{
-                                            base: "1em",
-                                            sm: "1.8em",
-                                            md: "2.1em",
-                                            lg: "2.4em",
-                                        }}
-                                        color="white"
-                                        bg="#004da8"
-                                        p={{ base: "5px", md: "15px" }}
-                                        borderRadius="50px"
-                                        transition="all 0.3s ease"
-                                        _hover={{
-                                            bg: "#95ca59",
-                                            color: "black",
-                                        }}
-                                    >
+                                    <span className={buttonStyling}>
                                         Here For MC?
-                                    </styled.span>
+                                    </span>
                                 </NextLink>
                             </Box>
                         </Stack>
