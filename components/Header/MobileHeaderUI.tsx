@@ -15,13 +15,17 @@ const MobileMenuStyle = sva({
                 sm: "inherit",
                 md: "none",
             },
-            h: "60px",
-            minW: "60px",
-            border: "green",
-            borderRadius: "20px",
+            aspectRatio: "1.5 / 1",
+            h: "auto",
+            marginLeft: "10%",
+            minW: "20%",
+            border: "lime.400",
+            borderRadius: "10px",
             borderStyle: "solid",
             boxSizing: "border-box",
-            bg: "green",
+            bg: "lime.400",
+            alignItems: "center",
+            justifyContent: "center",
         },
         item: {
             fontSize: {
@@ -32,7 +36,7 @@ const MobileMenuStyle = sva({
             },
             marginTop: "4vh",
             color: "black",
-            _highlighted: { color: "green" },
+            _highlighted: { color: "lime.400" },
         },
         content: {
             position: "fixed",
@@ -75,7 +79,6 @@ const MobileHeaderUI: React.FC<{
         menu.machine({
             id: useId(),
             onOpenChange(details) {
-                console.log(details.open);
                 if (details.open) {
                     openWindow();
                 } else {
