@@ -2,6 +2,7 @@ import React from "react";
 
 import { Box, Flex, Stack, styled, VStack } from "../../styled-system/jsx";
 import Link from "next/link";
+import { css } from "../../styled-system/css";
 
 export interface PageCardInfo {
     title: string;
@@ -56,29 +57,46 @@ const PageCard: React.FC<PageCardInfo> = ({
                 {title}
             </styled.h3>
 
-            <styled.p fontSize={{ base: "lg", md: "xl", lg: "2xl" }}>
-                {description}
-            </styled.p>
-            <Link
-                href={url}
-                style={{ textDecoration: "none", boxShadow: "2xl" }}
+            <p
+                className={css({
+                    fontSize: { base: "lg", md: "xl", lg: "2xl" },
+                    display: "-webkit-box",
+                    overflow: "hidden",
+                    lineClamp: "2",
+                    boxSizing: "border-box",
+                    textOverflow: "ellipsis",
+                    wordWrap: "break-word",
+                })}
             >
-                <styled.span
-                    fontSize={{ base: "lg", md: "xl", lg: "2xl" }}
-                    color="black"
-                    bg="#95ca59"
-                    py={{ base: "10px", md: "12px" }}
-                    px={{ base: "25px", md: "15px" }}
-                    borderRadius="10px"
-                    transition="all 0.3s ease"
-                    _hover={{
-                        bg: "#004da8",
-                        color: "white",
-                    }}
+                {description}
+            </p>
+            <div className={css({ marginTop: "30px" })}>
+                <Link
+                    href={url}
+                    className={css({
+                        textDecoration: "none",
+                        float: "right",
+                    })}
                 >
-                    View
-                </styled.span>
-            </Link>
+                    <span
+                        className={css({
+                            fontSize: { base: "lg", md: "xl", lg: "2xl" },
+                            color: "black",
+                            bg: "#95ca59",
+                            py: { base: "10px", md: "12px" },
+                            px: { base: "25px", md: "15px" },
+                            borderRadius: "10px",
+                            transition: "all 0.3s ease",
+                            _hover: {
+                                bg: "CSClubBlue",
+                                color: "white",
+                            },
+                        })}
+                    >
+                        View
+                    </span>
+                </Link>
+            </div>
         </styled.div>
     );
 };

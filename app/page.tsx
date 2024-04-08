@@ -1,23 +1,16 @@
-import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
-import PageCard from "../components/PageCard/PageCard";
 
-import { flex, vstack } from "../styled-system/patterns";
+import { flex } from "../styled-system/patterns";
 import { Box, Center, Flex, Stack, styled, VStack } from "../styled-system/jsx";
+import { css } from "../styled-system/css";
 
 import NextLink from "next/link";
 import Image from "next/image";
 import bannerImg from "../public/img/Homepage-Background.svg";
 import bannerImgCover from "../public/img/Homepage-Background-Text.svg";
-import { GetServerSideProps } from "next";
-import { getNewsCards, NewsCard } from "../lib/News";
-import { EventCard, getEventCards } from "../lib/Event";
-import SEO from "../components/SEO/SEO";
-import { ScriptProps } from "next/script";
-import newsCardsComponet from "./newsCardSection";
 import { Suspense } from "react";
-import NewsCardsComponet from "./newsCardSection";
-import { css } from "../styled-system/css";
+import NewsCards from "../components/PageCard/NewsCards";
+import EventCards from "../components/PageCard/EventCards";
 
 const Index = () => {
     return (
@@ -31,8 +24,6 @@ const Index = () => {
                     minH: "100%",
                 })}
             >
-                <Header />
-
                 <Box>
                     {/* I don't like using pixels here, but the flex breaks percentages. */}
                     <Box
@@ -80,13 +71,6 @@ const Index = () => {
                             mx="10%"
                             pb={{ base: "30px", md: "70px", lg: "100px" }}
                             textAlign="center"
-                            // size={{
-                            //     base: "xl",
-                            //     sm: "2xl",
-                            //     md: "3xl",
-                            //     lg: "4xl",
-                            // }}
-                            fontSize="7xl"
                             fontWeight="bold"
                             fontFamily="sans"
                         >
@@ -104,21 +88,23 @@ const Index = () => {
                                     style={{ textDecoration: "none" }}
                                 >
                                     <styled.span
-                                        fontSize={{
-                                            base: "1.3em",
-                                            sm: "1.8em",
-                                            md: "2.1em",
-                                            lg: "2.4em",
-                                        }}
-                                        color="white"
-                                        bg="#004da8"
-                                        p="15px"
-                                        borderRadius="50px"
-                                        transition="all 0.3s ease"
-                                        _hover={{
-                                            bg: "#95ca59",
-                                            color: "black",
-                                        }}
+                                        className={css({
+                                            fontSize: {
+                                                base: "1.3em",
+                                                sm: "1.8em",
+                                                md: "2.1em",
+                                                lg: "2.4em",
+                                            },
+                                            color: "white",
+                                            bg: "CSClubBlue",
+                                            p: "15px",
+                                            borderRadius: "50px",
+                                            transition: "all 0.3s ease",
+                                            _hover: {
+                                                bg: "#95ca59",
+                                                color: "black",
+                                            },
+                                        })}
                                     >
                                         Join The Club!
                                     </styled.span>
@@ -228,7 +214,71 @@ const Index = () => {
                             </Center>
                         }
                     >
-                        <NewsCardsComponet />
+                        <Box py="30px" px="20px" bg="#004da8">
+                            <Flex
+                                flexDir={{ base: "column", lg: "row" }}
+                                w="100%"
+                                h="100%"
+                            >
+                                <Box
+                                    w={{ base: "100%", lg: "50%" }}
+                                    p={{
+                                        base: "10px",
+                                        sm: "20px",
+                                        md: "30px",
+                                        lg: "40px",
+                                        xl: "50px",
+                                    }}
+                                >
+                                    <styled.h2
+                                        color="#95ca59"
+                                        py={{
+                                            base: "20px",
+                                            sm: "25px",
+                                            md: "30px",
+                                        }}
+                                        textAlign="center"
+                                        // size="2xl"
+                                        whiteSpace="nowrap"
+                                    >
+                                        News
+                                    </styled.h2>
+
+                                    <VStack gap="100px">
+                                        <NewsCards />
+                                    </VStack>
+                                </Box>
+
+                                <Box
+                                    w={{ base: "100%", lg: "50%" }}
+                                    p={{
+                                        base: "10px",
+                                        sm: "20px",
+                                        md: "30px",
+                                        lg: "40px",
+                                        xl: "50px",
+                                    }}
+                                >
+                                    <styled.h2
+                                        color="#95ca59"
+                                        py={{
+                                            base: "20px",
+                                            sm: "25px",
+                                            md: "30px",
+                                        }}
+                                        textAlign="center"
+                                        // size="2xl"
+                                        whiteSpace="nowrap"
+                                    >
+                                        Upcoming Events
+                                    </styled.h2>
+
+                                    <VStack gap={100}>
+                                        <EventCards />
+                                    </VStack>
+                                </Box>
+                            </Flex>
+                        </Box>
                     </Suspense>
                 </Box>
 
@@ -239,17 +289,5 @@ const Index = () => {
         </>
     );
 };
-
-// export const getServerSideProps: GetServerSideProps = async (props) => {
-//     const news = await getNewsCards(2);
-//     const events = await getEventCards(2);
-
-//     return {
-//         props: {
-//             news,
-//             events,
-//         },
-//     };
-// };
 
 export default Index;

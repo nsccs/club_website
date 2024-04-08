@@ -1,31 +1,17 @@
 "use client";
 import React from "react";
 
-import {
-    Flex,
-    Grid,
-    Heading,
-    Popover,
-    PopoverArrow,
-    PopoverCloseButton,
-    PopoverContent,
-    PopoverHeader,
-    PopoverTrigger,
-    Stack,
-    Text,
-    VStack,
-} from "@chakra-ui/react";
 import Image from "next/image";
 import NextLink from "next/link";
 
 import { Variants, motion } from "framer-motion";
 import SEO from "../../components/SEO/SEO";
-import Header from "../../components/Header/Header";
 
 import Footer from "../../components/Footer/Footer";
 import greetingBackground from "../../public/img/VeryNiceGreeting.gif";
 import mcImages from "../../lib/MCScreenshots";
 import ViewableImage from "./ViewableImage";
+import { Flex, Grid, Stack, VStack, styled } from "../../styled-system/jsx";
 
 const textAnimVariants: Variants = {
     offscreen: {
@@ -57,7 +43,6 @@ const Minecraft = () => {
     return (
         <>
             <SEO url="https://northcs.org/minecraft" />
-            <Header />
             {/* top of page */}
             <div
                 style={{
@@ -119,18 +104,17 @@ const Minecraft = () => {
                     viewport={{ once: false, amount: 0.9 }}
                 >
                     <motion.div variants={textAnimVariants}>
-                        <Heading
-                            as="h1"
+                        <styled.h1
                             fontFamily={'"Impact", sans-serif'}
                             color="white"
                         >
                             <b>NSC MODDED MC SERVER</b>
-                        </Heading>
+                        </styled.h1>
                     </motion.div>
                     <motion.div variants={textAnimVariants}>
-                        <Heading as="h2">
+                        <h2>
                             A server made by <i>you</i>
-                        </Heading>
+                        </h2>
                     </motion.div>
                     <motion.div
                         variants={textAnimVariants}
@@ -149,8 +133,7 @@ const Minecraft = () => {
                                     target="_blank"
                                     style={{ textDecoration: "none" }}
                                 >
-                                    <Text
-                                        as="span"
+                                    <styled.span
                                         fontSize={{
                                             base: "1.3em",
                                             sm: "1.8em",
@@ -169,7 +152,7 @@ const Minecraft = () => {
                                         }}
                                     >
                                         Join The Club!
-                                    </Text>
+                                    </styled.span>
                                 </NextLink>
                             </motion.div>
                             <motion.div variants={textAnimVariants}>
@@ -178,8 +161,7 @@ const Minecraft = () => {
                                     target="_blank"
                                     style={{ textDecoration: "none" }}
                                 >
-                                    <Text
-                                        as="span"
+                                    <styled.span
                                         fontSize={{
                                             base: "1.3em",
                                             sm: "1.8em",
@@ -198,54 +180,44 @@ const Minecraft = () => {
                                         }}
                                     >
                                         Download The ModPack!
-                                    </Text>
+                                    </styled.span>
                                 </NextLink>
                             </motion.div>
                             <motion.div variants={textAnimVariants}>
-                                <Popover>
-                                    <PopoverTrigger>
-                                        <button
-                                            onClick={() => {
-                                                navigator.clipboard.writeText(
-                                                    "mc.northcs.org",
-                                                );
-                                            }}
-                                        >
-                                            <Text
-                                                as="span"
-                                                fontSize={{
-                                                    base: "1.3em",
-                                                    sm: "1.8em",
-                                                    md: "2.1em",
-                                                    lg: "2.4em",
-                                                }}
-                                                color="white"
-                                                bg="#004da8"
-                                                p="15px"
-                                                whiteSpace="nowrap"
-                                                borderRadius="50px"
-                                                transition="all 0.3s ease"
-                                                _hover={{
-                                                    bg: "#95ca59",
-                                                    color: "black",
-                                                }}
-                                            >
-                                                Join the server
-                                            </Text>
-                                        </button>
-                                    </PopoverTrigger>
-                                    <PopoverContent>
-                                        <PopoverArrow />
-                                        <PopoverCloseButton />
-                                        <PopoverHeader>
-                                            Copied to clipboard!
-                                        </PopoverHeader>
-                                        <PopoverContent>
+                                <button
+                                    onClick={() => {
+                                        navigator.clipboard.writeText(
+                                            "mc.northcs.org",
+                                        );
+                                    }}
+                                >
+                                    <styled.span
+                                        fontSize={{
+                                            base: "1.3em",
+                                            sm: "1.8em",
+                                            md: "2.1em",
+                                            lg: "2.4em",
+                                        }}
+                                        color="white"
+                                        bg="#004da8"
+                                        p="15px"
+                                        whiteSpace="nowrap"
+                                        borderRadius="50px"
+                                        transition="all 0.3s ease"
+                                        _hover={{
+                                            bg: "#95ca59",
+                                            color: "black",
+                                        }}
+                                    >
+                                        Join the server
+                                    </styled.span>
+                                </button>
+
+                                {/* Copied to clipboard!
+
                                             Paste the server address into the
                                             address bar when adding the server
-                                        </PopoverContent>
-                                    </PopoverContent>
-                                </Popover>
+                                    */}
                             </motion.div>
                         </Stack>
                     </motion.div>
@@ -268,9 +240,7 @@ const Minecraft = () => {
                     whileInView="onscreen"
                     viewport={{ once: true, amount: 0.8 }}
                 >
-                    <Heading as="h2" color="white">
-                        Gallery
-                    </Heading>
+                    <styled.h2 color="white">Gallery</styled.h2>
                 </motion.div>
 
                 {/* Images part*/}
@@ -360,9 +330,7 @@ const Minecraft = () => {
                     whileInView="onscreen"
                     viewport={{ once: true, amount: 0.8 }}
                 >
-                    <Heading as="h2" color="white">
-                        Live map
-                    </Heading>
+                    <styled.h2 color="white">Live map</styled.h2>
                 </motion.div>
                 <iframe
                     src="/mcmap"

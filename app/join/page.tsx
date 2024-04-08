@@ -5,6 +5,7 @@ import Footer from "../../components/Footer/Footer";
 import SEO from "../../components/SEO/SEO";
 import { Box, Center, Flex, styled } from "../../styled-system/jsx";
 import Link from "next/link";
+import { css } from "../../styled-system/css";
 
 const Join = () => {
     return (
@@ -15,8 +16,6 @@ const Join = () => {
             /> */}
 
             <Flex flexDir="column" minW="100%" minH="100%">
-                <Header />
-
                 <Box>
                     <styled.h1
                         fontSize="5xl"
@@ -42,14 +41,16 @@ const Join = () => {
                         >
                             <iframe
                                 src="https://discord.com/widget?id=564559681339785228&theme=dark"
-                                width="100%"
-                                height={useBreakpointValue({
-                                    base: "700",
-                                    sm: "600",
-                                    md: "550",
-                                    lg: "500",
-                                    xl: "450",
+                                className={css({
+                                    height: {
+                                        base: "700",
+                                        sm: "600",
+                                        md: "550",
+                                        lg: "500",
+                                        xl: "450",
+                                    },
                                 })}
+                                width="100%"
                                 allowTransparency
                                 frameBorder="0"
                                 sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"

@@ -1,3 +1,4 @@
+import Header from "../components/Header/Header";
 import "../style/index.css";
 import { Metadata } from "next";
 
@@ -16,7 +17,10 @@ export const metadata: Metadata = {
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
     return (
         <html>
-            <body>{children}</body>
+            <body>
+                <Header />
+                {children}
+            </body>
         </html>
     );
 };
