@@ -9,6 +9,7 @@ export const keyframes = defineKeyframes({
 
 const globalCss = defineGlobalStyles({
   h1:{
+    fontWeight:"bold",
     fontSize:{
       base: "xl",
       sm: "3xl",
@@ -18,6 +19,7 @@ const globalCss = defineGlobalStyles({
   },
 
   h2:{
+    fontWeight:"bold",
     fontSize:{
       base: "md",
       sm: "2md",

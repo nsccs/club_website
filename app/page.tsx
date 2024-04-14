@@ -176,7 +176,7 @@ const Index = () => {
                             website!). You can see some of our events below (and
                             on the{" "}
                             <NextLink href="/events">
-                                <span style={{ color: "cyan.600" }}>
+                                <span className={css({ color: "cyan.600" })}>
                                     events page
                                 </span>
                             </NextLink>

@@ -1,8 +1,67 @@
 "use client";
+import * as dialog from "@zag-js/dialog";
+import { useMachine, normalizeProps, Portal } from "@zag-js/react";
+import { GrClose } from "react-icons/gr";
+
 import Image, { StaticImageData } from "next/image";
-import { CSSProperties, useState } from "react";
-import { Box, HStack } from "../../styled-system/jsx";
-import { css } from "../../styled-system/css";
+import { CSSProperties, useId } from "react";
+import { Box, Flex, Grid, HStack, VStack } from "../../styled-system/jsx";
+import { css, sva } from "../../styled-system/css";
+
+const imageModalStylesFunc = sva({
+    slots: ["backdrop", "positioner", "closeButton", "contentWrapper", "title"],
+    base: {
+        backdrop: {
+            position: "fixed",
+            display: "block",
+
+            top: "0px",
+            left: "0px",
+
+            width: "100vw",
+            height: "100vh",
+
+            backdropFilter: "auto",
+            backdropBlur: "2xl",
+
+            transitionDuration: "500ms",
+        },
+        positioner: {
+            position: "fixed",
+            display: "block",
+
+            top: "0px",
+            left: "0px",
+
+            // justifyContent: "center",
+            // alignContent: "center",
+        },
+
+        contentWrapper: {
+            transitionDuration: "500ms",
+            scale: "0",
+            maxH: "95vh",
+            _closed: { scale: "0" },
+            _open: { scale: "1" },
+        },
+
+        title: {
+            color: "white",
+            fontWeight: "bold",
+        },
+        closeButton: {
+            display: "inline",
+            marginLeft: "auto",
+            height: "4vh",
+            alignSelf: "center",
+            scale: 1,
+            transitionDuration: "300ms",
+            _hover: {
+                scale: 1.5,
+            },
+        },
+    },
+});
 
 const ViewableImage: React.FC<{
     daImage: StaticImageData;
@@ -11,16 +70,17 @@ const ViewableImage: React.FC<{
     imageTitle?: string;
 }> = ({ daImage, altText, buttonStyle, imageTitle }) => {
     altText = altText == null ? "A screenshot from the server" : altText;
+    const [state, send] = useMachine(
+        dialog.machine({ id: useId(), closeOnInteractOutside: true }),
+    );
+    const api = dialog.connect(state, send, normalizeProps);
 
-    const [isImageMaximized, toggleImage] = useState(false);
-    const toggleImageFunc = () => {
-        toggleImage(!isImageMaximized);
-    };
+    const imageModalStyles = imageModalStylesFunc();
     return (
         <>
             {/* image preview */}
 
-            <button style={buttonStyle} onClick={toggleImageFunc}>
+            <button style={buttonStyle} {...api.triggerProps}>
                 <Box borderRadius="10px" overflow="hidden" marginX="10%">
                     <Image
                         src={daImage}
@@ -36,43 +96,67 @@ const ViewableImage: React.FC<{
             </button>
 
             {/* Maximized Image*/}
-            <div
-                className={css({
-                    display: isImageMaximized ? "block" : "none",
-                    position: "fixed",
-                    top: "0",
-                    left: "0",
-                })}
-                onClick={toggleImageFunc}
-            >
-                <Box
-                    backdropFilter="blur(20px)"
-                    w="100vw"
-                    h="100vh"
-                    zIndex={-1}
-                />
-                <HStack margin="10%">
-                    <h2>{imageTitle}</h2>
-                    <Box
-                        borderRadius="20px"
-                        overflow="hidden"
-                        height="auto"
-                        width="auto"
+            {api.isOpen && (
+                <Portal>
+                    <div
+                        {...api.backdropProps}
+                        className={imageModalStyles.backdrop}
+                    />
+                    <div
+                        {...api.positionerProps}
+                        className={imageModalStyles.positioner}
                     >
-                        <Image
-                            src={daImage}
-                            alt={altText}
-                            style={{
-                                display: "block",
-                                maxHeight: "100%",
-                                maxWidth: "100%",
-                                width: "100%",
-                                height: "auto",
-                            }}
-                        />
-                    </Box>
-                </HStack>
-            </div>
+                        <div
+                            {...api.contentProps}
+                            className={imageModalStyles.contentWrapper}
+                        >
+                            <VStack
+                                padding="2%"
+                                width="auto"
+                                height="auto"
+                                maxH="95vh"
+                            >
+                                <Flex
+                                    width="100%"
+                                    columnCount={2}
+                                    {...api.titleProps}
+                                    className={imageModalStyles.title}
+                                >
+                                    <h2>{imageTitle}</h2>
+                                    <button
+                                        {...api.closeTriggerProps}
+                                        className={imageModalStyles.closeButton}
+                                    >
+                                        <GrClose stroke="red" size="100%" />
+                                    </button>
+                                </Flex>
+
+                                <Flex
+                                    borderRadius="20px"
+                                    overflow="hidden"
+                                    height="auto"
+                                    marginTop="2%"
+                                    marginX="5%"
+                                >
+                                    <Image
+                                        src={daImage}
+                                        alt={altText}
+                                        style={{
+                                            display: "block",
+                                            justifySelf: "center",
+                                            alignSelf: "center",
+                                            maxWidth: "100%",
+                                            maxHeight: "100%",
+                                            width: "auto",
+                                            height: "auto",
+                                        }}
+                                    />
+                                </Flex>
+                            </VStack>
+                        </div>
+                    </div>
+                </Portal>
+            )}
         </>
     );
 };

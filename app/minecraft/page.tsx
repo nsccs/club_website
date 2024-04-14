@@ -5,7 +5,6 @@ import Image from "next/image";
 import NextLink from "next/link";
 
 import { Variants, motion } from "framer-motion";
-import SEO from "../../components/SEO/SEO";
 
 import Footer from "../../components/Footer/Footer";
 import greetingBackground from "../../public/img/VeryNiceGreeting.gif";
@@ -42,7 +41,6 @@ const textAnimVariants: Variants = {
 const Minecraft = () => {
     return (
         <>
-            <SEO url="https://northcs.org/minecraft" />
             {/* top of page */}
             <div
                 style={{

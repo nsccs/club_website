@@ -1,5 +1,5 @@
 import Footer from "../../components/Footer/Footer";
-import SEO from "../../components/SEO/SEO";
+// import SEO from "../../components/SEO/SEO";
 
 import Link from "next/link";
 
@@ -9,6 +9,12 @@ import React from "react";
 import { FaCalendar, FaClock, FaLocationDot } from "react-icons/fa6";
 import { Box, Flex, Stack } from "../../styled-system/jsx";
 import { css } from "../../styled-system/css";
+
+const iconStyle = css({
+    alignSelf: "center",
+    fontSize: "25px",
+    display: "inline",
+});
 
 const Impactathon = () => {
     return (
@@ -87,27 +93,21 @@ const Impactathon = () => {
                     />
                     <Box w={{ base: "100%", md: "30%" }} p="20px">
                         <Box display="flex">
-                            <FaLocationDot
-                                style={{ fontSize: "25px", display: "inline" }}
-                            />
+                            <FaLocationDot className={iconStyle} />
                             <Box pl="5px">
                                 <p>9600 College Way N, Seattle, WA 98103</p>
                             </Box>
                         </Box>
 
                         <Box display="flex" pt="40px">
-                            <FaCalendar
-                                style={{ fontSize: "25px", display: "inline" }}
-                            />
+                            <FaCalendar className={iconStyle} />
                             <Box pl="5px">
                                 <p>4/20/2024 and 4/21/2024</p>
                             </Box>
                         </Box>
 
                         <Box display="flex" pt="40px">
-                            <FaClock
-                                style={{ fontSize: "25px", display: "inline" }}
-                            />
+                            <FaClock className={iconStyle} />
                             <Box pl="5px">
                                 <p>9 AM to 7 PM</p>
                             </Box>

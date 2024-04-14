@@ -53,6 +53,7 @@ const MobileMenuStyle = sva({
             borderRadius: "20px",
             borderColor: "CSClubBlue",
             transitionDuration: "200ms",
+            transitionTimingFunction: "ease",
             padding: "30px",
             _open: {
                 // animation: "fadeInFromAboveAnim 200ms ease",

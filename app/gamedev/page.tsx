@@ -6,7 +6,7 @@ import Footer from "../../components/Footer/Footer";
 
 import renpyLogo from "../../public/img/RenpyLogo.png";
 import godotLogo from "../../public/img/GodotIcon.svg";
-import greetingBackground from "../../public/img/Homepage-Background.svg";
+// import greetingBackground from "../../public/img/Homepage-Background.svg";
 
 import renpyExampleImg from "../../public/img/RenpyScreenshotExample.png";
 import godotExampleImg from "../../public/img/GodotScreenshotExample.png";
@@ -46,7 +46,7 @@ const Gamedev = () => {
                 {/* Top of the page including the Renpy and godot logo */}
                 <Flex
                     flexDir="column"
-                    backgroundImage={greetingBackground.url}
+                    backgroundImage="url(/img/Homepage-Background.svg)"
                     backgroundSize="cover"
                     backgroundRepeat="no-repeat"
                     backgroundAttachment="fixed"
