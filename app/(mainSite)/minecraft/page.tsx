@@ -30,13 +30,7 @@ const textAnimVariants: Variants = {
     },
 };
 
-/**
- * A viewable image that can be maximized
- * @param daImage the image that will be viewed
- * @param altText accesability text for the image
- * @param buttonStyle CSS properties to be applied to the preview
- * @param imageTitle Title of the image in the maximized view
- */
+
 
 const Minecraft = () => {
     return (
