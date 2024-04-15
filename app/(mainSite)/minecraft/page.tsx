@@ -10,7 +10,7 @@ import Footer from "../../../components/Footer/Footer";
 import greetingBackground from "/public/img/VeryNiceGreeting.gif";
 import mcImages from "../../../lib/MCScreenshots";
 import ViewableImage from "./ViewableImage";
-import { Flex, Grid, Stack, VStack, styled } from "../../../styled-system/jsx";
+import { Flex, Grid, Stack, VStack, styled } from "styled-system/jsx";
 import JoinServerButton from "./JoinServerButton";
 
 const textAnimVariants: Variants = {
