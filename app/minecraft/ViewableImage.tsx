@@ -5,7 +5,7 @@ import { GrClose } from "react-icons/gr";
 
 import Image, { StaticImageData } from "next/image";
 import { CSSProperties, useId } from "react";
-import { Box, Flex, Grid, HStack, VStack } from "../../styled-system/jsx";
+import { Box, Flex, VStack } from "../../styled-system/jsx";
 import { css, sva } from "../../styled-system/css";
 
 const imageModalStylesFunc = sva({
@@ -85,12 +85,12 @@ const ViewableImage: React.FC<{
                     <Image
                         src={daImage}
                         alt={altText}
-                        style={{
+                        className={css({
                             maxWidth: "100%",
                             maxHeight: "100%",
                             width: "auto",
                             height: "auto",
-                        }}
+                        })}
                     />
                 </Box>
             </button>
@@ -141,7 +141,7 @@ const ViewableImage: React.FC<{
                                     <Image
                                         src={daImage}
                                         alt={altText}
-                                        style={{
+                                        className={css({
                                             display: "block",
                                             justifySelf: "center",
                                             alignSelf: "center",
@@ -149,7 +149,7 @@ const ViewableImage: React.FC<{
                                             maxHeight: "100%",
                                             width: "auto",
                                             height: "auto",
-                                        }}
+                                        })}
                                     />
                                 </Flex>
                             </VStack>

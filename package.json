@@ -22,9 +22,10 @@
     "homepage": "https://github.com/nsccs/club_website#readme",
     "dependencies": {
         "@react-spring/web": "^9.7.3",
-        "@zag-js/dialog": "^0.45.0",
-        "@zag-js/menu": "^0.45.0",
-        "@zag-js/react": "^0.45.0",
+        "@zag-js/dialog": "x",
+        "@zag-js/menu": "x",
+        "@zag-js/progress": "x",
+        "@zag-js/react": "x",
         "framer-motion": "^11.0.8",
         "ioredis": "^5.3.2",
         "mariadb": "^3.2.1",

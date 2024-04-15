@@ -1,8 +1,6 @@
 "use client";
 
-import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
-import SEO from "../../components/SEO/SEO";
 import { Box, Center, Flex, styled } from "../../styled-system/jsx";
 import Link from "next/link";
 import { css } from "../../styled-system/css";

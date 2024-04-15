@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Box, Flex, Stack, styled, VStack } from "../../styled-system/jsx";
+import { styled } from "../../styled-system/jsx";
 import Link from "next/link";
 import { css } from "../../styled-system/css";
 
@@ -53,7 +53,13 @@ const PageCard: React.FC<PageCardInfo> = ({
                 })}
             </styled.span>
 
-            <styled.h3 color="black" paddingTop="20px" textAlign="left">
+            <styled.h3
+                color="black"
+                paddingTop="20px"
+                paddingBottom="30px"
+                textAlign="left"
+                fontWeight="bold"
+            >
                 {title}
             </styled.h3>
 

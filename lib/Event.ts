@@ -1,4 +1,4 @@
-import { HOUR, redisClient } from "./redis";
+// import { HOUR, redisClient } from "./redis";
 
 /** The data needed for an event card. */
 export interface EventCard {
@@ -58,7 +58,7 @@ async function getPartialEvents(): Promise<
     Omit<EventData, "description" | "image" | "slugID">[] | null
 > {
     try {
-        const data = (await fetch(REQUEST_EVENTS_URL).then((res) =>
+        const data = (await fetch(REQUEST_EVENTS_URL, { next:{ revalidate:600 } }).then((res) =>
             res.json(),
         )) as RequestEventsData;
 
@@ -96,13 +96,13 @@ async function fixPartialEvents(
 ): Promise<EventData[] | null> {
     try {
         const events: EventData[] = [];
-        const promises = [];
+        const promises: Promise<void>[] = [];
 
         // This is cached, so we aren't spamming the API.
         // These requests are executed in parallel.
         for (const partialEvent of partialEvents) {
             promises.push(
-                fetch(GET_EVENT_URL_PRE + partialEvent.id)
+                fetch(GET_EVENT_URL_PRE + partialEvent.id, { next:{ revalidate: 600 } })
                     .then((res) => res.json())
                     .then((data: GetEventData) => {
                         events.push({
@@ -111,6 +111,7 @@ async function fixPartialEvents(
                             slugID: data.short_id,
                         });
                     }),
+
             );
         }
 
@@ -146,11 +147,12 @@ function dataToCard(data: EventData): EventCard {
  *                is used as a cache key.
  */
 export async function getEventCards(count: number): Promise<EventCard[]> {
+    // // !!OLD CODE USING NEXT JS CACHE SYSTEM!!
     // Try to use cached data.
-    const cached = await redisClient.get("cache_event_cards:" + count);
-    if (cached) {
-        return JSON.parse(cached);
-    }
+    // const cached = await redisClient.get("cache_event_cards:" + count);
+    // if (cached) {
+    //     return JSON.parse(cached);
+    // }
 
     const data = await getPartialEvents();
 
@@ -158,17 +160,22 @@ export async function getEventCards(count: number): Promise<EventCard[]> {
     // Dates will be put into a more correct order later on, but this ensures
     // that the most relevant events are shown to the user.
     const curDate = new Date().getTime();
-    data.sort((a, b) => (Math.abs(new Date(b.date).getTime() - curDate) > Math.abs(new Date(a.date).getTime() - curDate) ? -1 : 1));
+    let fixedData: EventCard[];
+    fixedData =  [];
+        data!.sort((a, b) => (Math.abs(new Date(b.date).getTime() - curDate) > Math.abs(new Date(a.date).getTime() - curDate) ? -1 : 1));
 
-    const fixedData = await fixPartialEvents(data.slice(0, count))
-        .then((events) => events.map(dataToCard));
+        if(data != null){
+            fixedData = await fixPartialEvents(data.slice(0, count))
+            .then((events) => events!.map(dataToCard));
+        }
 
-    // Save the data in the cache.
-    await redisClient.setex(
-        "cache_event_cards:" + count,
-        HOUR,
-        JSON.stringify(fixedData),
-    );
+    // // !!OLD CODE USING NEXT JS CACHE SYSTEM!!
+    // // Save the data in the cache.
+    // await redisClient.setex(
+    //     "cache_event_cards:" + count,
+    //     HOUR,
+    //     JSON.stringify(fixedData),
+    // );
 
     return fixedData;
 }

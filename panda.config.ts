@@ -27,11 +27,20 @@ const globalCss = defineGlobalStyles({
       lg: "4xl",
     },
   },
+  h3:{
+    fontWeight:"bold",
+    fontSize:{
+      base: "md",
+      sm: "2md",
+      md: "1xl",
+      lg: "3xl",
+    },
+  },
   p:{
     fontSize:{
-      base: "xl",
-      sm: "2xl",
-      md: "3xl",
+      base: "md",
+      sm: "2md",
+      md: "2xl",
     },
   },
 });

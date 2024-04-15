@@ -1,7 +1,7 @@
 import Footer from "../components/Footer/Footer";
 
 import { flex } from "../styled-system/patterns";
-import { Box, Center, Flex, Stack, styled, VStack } from "../styled-system/jsx";
+import { Box, Flex, Stack, styled, VStack } from "../styled-system/jsx";
 import { css } from "../styled-system/css";
 
 import NextLink from "next/link";
@@ -11,6 +11,7 @@ import bannerImgCover from "../public/img/Homepage-Background-Text.svg";
 import { Suspense } from "react";
 import NewsCards from "../components/PageCard/NewsCards";
 import EventCards from "../components/PageCard/EventCards";
+import Loading from "./loading";
 
 const buttonStyling = css({
     fontSize: {
@@ -156,7 +157,7 @@ const Index = () => {
                             levels, and we don{"'"}t have any attendance or
                             participation requirements. Our Discord (
                             <NextLink href="/join">
-                                <span style={{ color: "cyan.600" }}>
+                                <span className={css({ color: "cyan.600" })}>
                                     join here
                                 </span>
                             </NextLink>
@@ -185,19 +186,7 @@ const Index = () => {
                             to meet you!
                         </styled.p>
                     </Box>
-                    <Suspense
-                        fallback={
-                            <Center
-                                className={css({
-                                    width: "100vw",
-                                    height: "40vw",
-                                    bg: "#004da8",
-                                })}
-                            >
-                                Loading news
-                            </Center>
-                        }
-                    >
+                    <Suspense fallback={<Loading />}>
                         <Box py="30px" px="20px" bg="#004da8">
                             <Flex
                                 flexDir={{ base: "column", lg: "row" }}
