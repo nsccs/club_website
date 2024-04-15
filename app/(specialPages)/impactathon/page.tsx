@@ -1,14 +1,14 @@
-import Footer from "../../components/Footer/Footer";
+import Footer from "components/Footer/Footer";
 // import SEO from "../../components/SEO/SEO";
 
 import Link from "next/link";
 
-import ImpactathonBanner from "../../public/img/Impactathon-Banner.png";
+import ImpactathonBanner from "/public/img/Impactathon-Banner.png";
 import Image from "next/image";
 import React from "react";
 import { FaCalendar, FaClock, FaLocationDot } from "react-icons/fa6";
-import { Box, Flex, Stack } from "../../styled-system/jsx";
-import { css } from "../../styled-system/css";
+import { Box, Flex, Stack } from "../../../styled-system/jsx";
+import { css } from "../../../styled-system/css";
 
 const iconStyle = css({
     alignSelf: "center",
@@ -35,10 +35,11 @@ const Impactathon = () => {
             <Flex flexDir="column" minW="100%" minH="100%">
                 <Box
                     width="100%"
-                    maxHeight={{ base: "400px", md: "300px" }}
+                    maxHeight={{ base: "400px", md: "500px" }}
                     overflow="hidden"
                 >
                     <Image
+                        className={css({ w: "100%" })}
                         src={ImpactathonBanner}
                         alt="A banner with the words Impactathon 2024"
                     />
@@ -327,8 +328,10 @@ const Impactathon = () => {
                     </Link>
                 </Flex>
                 <Box flexGrow={1} />
-                <Footer />
             </Flex>
+            <footer>
+                Site hosted on North Seattle College CS Club site ;)
+            </footer>
         </>
     );
 };

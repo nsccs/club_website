@@ -6,11 +6,11 @@ import NextLink from "next/link";
 
 import { Variants, motion } from "framer-motion";
 
-import Footer from "../../components/Footer/Footer";
-import greetingBackground from "../../public/img/VeryNiceGreeting.gif";
-import mcImages from "../../lib/MCScreenshots";
+import Footer from "../../../components/Footer/Footer";
+import greetingBackground from "/public/img/VeryNiceGreeting.gif";
+import mcImages from "../../../lib/MCScreenshots";
 import ViewableImage from "./ViewableImage";
-import { Flex, Grid, Stack, VStack, styled } from "../../styled-system/jsx";
+import { Flex, Grid, Stack, VStack, styled } from "../../../styled-system/jsx";
 
 const textAnimVariants: Variants = {
     offscreen: {

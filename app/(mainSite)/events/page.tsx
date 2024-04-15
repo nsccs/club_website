@@ -1,18 +1,20 @@
 import React, { Suspense } from "react";
-import Footer from "../../components/Footer/Footer";
-import { Box, Center, Grid, styled } from "../../styled-system/jsx";
-import NewsCards from "../../components/PageCard/NewsCards";
-import { css } from "../../styled-system/css";
 
+import Footer from "../../../components/Footer/Footer";
+import EventCards from "../../../components/PageCard/EventCards";
+import { Box, Center, Grid, styled } from "../../../styled-system/jsx";
+import { css } from "../../../styled-system/css";
+
+// TODO: Update docs
 /**
- * Events page that displays n events where n is the count passed to getNewsCards within getServerSideProps.
- * @param news
+ * Events page that displays n events where n is the count passed to getEventCards within getServerSideProps.
+ * @param events
  * @constructor
  */
-const News: React.FC = () => {
+const Events: React.FC = () => {
     return (
         <>
-            {/* <SEO url="https://northcs.org/news" /> */}
+            {/* <SEO url="https://northcs.org/events" /> */}
             <Box mt={0.5} pt={2} pb={2} bg="#95ca59">
                 <styled.h2
                     color="black"
@@ -20,7 +22,7 @@ const News: React.FC = () => {
                     fontSize="lg"
                     whiteSpace="nowrap"
                 >
-                    News
+                    Events
                 </styled.h2>
             </Box>
             <Box bg="#dff0d8" pt={10} pb={10}>
@@ -34,16 +36,16 @@ const News: React.FC = () => {
                         fallback={
                             <Center
                                 className={css({
-                                    width: "100%",
-                                    height: "100%",
-                                    bg: "CSClubBlue",
+                                    width: "100vw",
+                                    height: "40vw",
+                                    bg: "#004da8",
                                 })}
                             >
                                 Loading news
                             </Center>
                         }
                     >
-                        <NewsCards />
+                        <EventCards />
                     </Suspense>
                 </Grid>
             </Box>
@@ -52,4 +54,4 @@ const News: React.FC = () => {
     );
 };
 
-export default News;
+export default Events;

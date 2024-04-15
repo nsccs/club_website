@@ -5,8 +5,8 @@ import { GrClose } from "react-icons/gr";
 
 import Image, { StaticImageData } from "next/image";
 import { CSSProperties, useId } from "react";
-import { Box, Flex, VStack } from "../../styled-system/jsx";
-import { css, sva } from "../../styled-system/css";
+import { Box, Flex, VStack } from "styled-system/jsx";
+import { css, sva } from "styled-system/css";
 
 const imageModalStylesFunc = sva({
     slots: ["backdrop", "positioner", "closeButton", "contentWrapper", "title"],
@@ -132,25 +132,39 @@ const ViewableImage: React.FC<{
                                 </Flex>
 
                                 <Flex
-                                    borderRadius="20px"
                                     overflow="hidden"
+                                    paddingTop="2%"
+                                    paddingX="5%"
+                                    width="auto"
                                     height="auto"
-                                    marginTop="2%"
-                                    marginX="5%"
+                                    maxWidth="100%"
+                                    maxHeight="80vh"
                                 >
-                                    <Image
-                                        src={daImage}
-                                        alt={altText}
+                                    <div
                                         className={css({
-                                            display: "block",
-                                            justifySelf: "center",
-                                            alignSelf: "center",
-                                            maxWidth: "100%",
-                                            maxHeight: "100%",
-                                            width: "auto",
-                                            height: "auto",
+                                            borderRadius: "20px",
+                                            overflow: "hidden",
+                                            maxW: "100%",
+                                            maxH: "100%",
+                                            // w: "auto",
+                                            // h: "auto",
                                         })}
-                                    />
+                                    >
+                                        <Image
+                                            src={daImage}
+                                            alt={altText}
+                                            className={css({
+                                                display: "block",
+                                                justifySelf: "center",
+                                                alignSelf: "center",
+                                                maxW: "100%",
+                                                maxH: "100%",
+                                                objectFit: "contain",
+                                                // w: "auto",
+                                                // h: "auto",
+                                            })}
+                                        />
+                                    </div>
                                 </Flex>
                             </VStack>
                         </div>

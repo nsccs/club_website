@@ -1,9 +1,7 @@
-"use client";
-
-import Footer from "../../components/Footer/Footer";
-import { Box, Center, Flex, styled } from "../../styled-system/jsx";
+import Footer from "../../../components/Footer/Footer";
+import { Box, Center, Flex, styled } from "../../../styled-system/jsx";
 import Link from "next/link";
-import { css } from "../../styled-system/css";
+import { css } from "../../../styled-system/css";
 
 const Join = () => {
     return (
