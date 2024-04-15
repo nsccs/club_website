@@ -1,10 +1,11 @@
 import Loading from "../loading";
-
+import Popover from "../minecraft/JoinServerButton";
 
 const Test = () => {
     return (
         <>
-            <Loading/>
+            <Loading />
+            <Popover />
         </>
     );
 };

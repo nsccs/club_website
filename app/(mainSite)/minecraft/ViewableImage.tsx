@@ -7,6 +7,7 @@ import Image, { StaticImageData } from "next/image";
 import { CSSProperties, useId } from "react";
 import { Box, Flex, VStack } from "styled-system/jsx";
 import { css, sva } from "styled-system/css";
+import { center } from "styled-system/patterns";
 
 const imageModalStylesFunc = sva({
     slots: ["backdrop", "positioner", "closeButton", "contentWrapper", "title"],
@@ -124,7 +125,8 @@ const ViewableImage: React.FC<{
                                 maxH="95vh"
                             >
                                 <Flex
-                                    width="100%"
+                                    width="95vw"
+                                    marginX="2vw"
                                     columnCount={2}
                                     {...api.titleProps}
                                     className={imageModalStyles.title}
@@ -138,23 +140,26 @@ const ViewableImage: React.FC<{
                                     </button>
                                 </Flex>
 
-                                <Flex
-                                    overflow="hidden"
-                                    paddingTop="2%"
-                                    paddingX="5%"
-                                    width="auto"
-                                    height="auto"
-                                    maxWidth="100%"
-                                    maxHeight="80vh"
+                                <div
+                                    className={css({
+                                        borderRadius: "20px",
+                                        overflow: "hidden",
+                                        maxH: "80vh",
+                                        maxW: "100%",
+                                        w: "auto",
+                                        height: "80vh",
+                                        alignContent: "center",
+                                    })}
                                 >
                                     <div
                                         className={css({
                                             borderRadius: "20px",
                                             overflow: "hidden",
+                                            maxH: "80vh",
                                             maxW: "100%",
-                                            maxH: "100%",
-                                            // w: "auto",
-                                            // h: "auto",
+                                            w: "auto",
+                                            height: "80vh",
+                                            alignContent: "center",
                                         })}
                                     >
                                         <Image
@@ -162,17 +167,18 @@ const ViewableImage: React.FC<{
                                             alt={altText}
                                             className={css({
                                                 display: "block",
+                                                aspectRatio: "auto",
                                                 justifySelf: "center",
                                                 alignSelf: "center",
                                                 maxW: "100%",
                                                 maxH: "100%",
-                                                objectFit: "contain",
-                                                // w: "auto",
-                                                // h: "auto",
+                                                w: "auto",
+                                                h: "auto",
                                             })}
                                         />
                                     </div>
-                                </Flex>
+                                </div>
+                                <div className={css({ flexGrow: 1 })} />
                             </VStack>
                         </div>
                     </div>

@@ -11,6 +11,7 @@ import greetingBackground from "/public/img/VeryNiceGreeting.gif";
 import mcImages from "../../../lib/MCScreenshots";
 import ViewableImage from "./ViewableImage";
 import { Flex, Grid, Stack, VStack, styled } from "../../../styled-system/jsx";
+import JoinServerButton from "./JoinServerButton";
 
 const textAnimVariants: Variants = {
     offscreen: {
@@ -29,8 +30,6 @@ const textAnimVariants: Variants = {
         },
     },
 };
-
-
 
 const Minecraft = () => {
     return (
@@ -176,40 +175,7 @@ const Minecraft = () => {
                                 </NextLink>
                             </motion.div>
                             <motion.div variants={textAnimVariants}>
-                                <button
-                                    onClick={() => {
-                                        navigator.clipboard.writeText(
-                                            "mc.northcs.org",
-                                        );
-                                    }}
-                                >
-                                    <styled.span
-                                        fontSize={{
-                                            base: "1.3em",
-                                            sm: "1.8em",
-                                            md: "2.1em",
-                                            lg: "2.4em",
-                                        }}
-                                        color="white"
-                                        bg="#004da8"
-                                        p="15px"
-                                        whiteSpace="nowrap"
-                                        borderRadius="50px"
-                                        transition="all 0.3s ease"
-                                        _hover={{
-                                            bg: "#95ca59",
-                                            color: "black",
-                                        }}
-                                    >
-                                        Join the server
-                                    </styled.span>
-                                </button>
-
-                                {/* Copied to clipboard!
-
-                                            Paste the server address into the
-                                            address bar when adding the server
-                                    */}
+                                <JoinServerButton />
                             </motion.div>
                         </Stack>
                     </motion.div>
