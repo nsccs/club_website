@@ -1,33 +1,36 @@
-[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](code_of_conduct.md)
+# **Functions**
 
-# North Seattle College Computer Science Club Website
+### **EventCards()**
 
-This is the website for the Computer Science Club at North Seattle. Besides the website this project exists as a place where people new to Github, Computer Science, and building applications can learn.
+<u>**Description:**</u>
+This function asynchronously fetches event cards using getEventCards function and returns them as JSX elements by mapping over the events.
 
-This project is built with React, ChakraUI, and Node.js.
+<u>**Parameters:**</u>
+- **numOfCards**: Optional number of cards to fetch, default is 2
 
-## How to: log a bug, ask a question, and request a feature
+<u>**Usage:**</u>
+To use the EventCards function, import it and call it with an optional parameter for the number of cards to fetch. It returns a Promise with JSX elements representing event cards.
 
--   Navigate to `Issues`
--   Click the `New Issue` button
--   Select `Bug Report`, `Feature Request`, or `Question` from the available options
+### **async()**
 
-## Contributing
+<u>**Description:**</u>
+This function performs an asynchronous operation to process the specified number of cards.
 
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**. All levels welcome! If you are nervous that is okay. The community will help guide you.
+<u>**Parameters:**</u>
+- **numOfCards**: Optional parameter specifying the number of cards to be processed
 
-Remember that not all contributions are in the form of code. In fact, a great way to learn about the project is dig into the documentation and poke around the website. Then consider submitting a feature request, ask a question, or log a bug if you find one.
+<u>**Usage:**</u>
+To use this function, call it with the desired number of cards to process as an optional parameter. For example, async(10) will process 10 cards asynchronously.
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) to get setup.
+# **Components**
 
-## Code of Conduct
+### **EventCards**
 
-Please read our [Code of Conduct](CODE_OF_CONDUCT.md).
+<u>**Description:**</u>
+The EventCards component displays a set of event cards with information about various events. Each card represents a single event with details like event title, date, location, and description.
 
-## License
+<u>**Props:**</u>
+- **events**: An array of objects representing different events to be displayed in the cards
 
-Covered by MIT license. For full text click [here](LICENSE).
-
-## Contact
-
-https://discord.gg/RV6nbA9UDX
+<u>**Usage:**</u>
+To use the EventCards component, pass an array of event objects as the 'events' prop. Each event object should contain properties like 'title', 'date', 'location', and 'description'.

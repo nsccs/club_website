@@ -101,21 +101,8 @@ export async function getNews(count: number): Promise<NewsItem[]> {
  * @param count - is the maximum number of entries to return.
  */
 export async function getNewsCards(count: number): Promise<NewsItem[] | null> {
-    // // OLD CODE SWITCHED TO USING BUILT IN CACHE
-    // Try to use cached data.
-    // const cached = await redisClient.get("cache_news_cards:" + count);
-    // if (cached) {
-    //     return JSON.parse(cached);
-    // }
 
     const news = await getNews(count);
 
-    // // OLD CODE SWITCHED TO BUILT IN CACHE
-    // Save the data in the cache.
-    // await redisClient.setex(
-    //   "cache_news_cards:" + count,
-    //   HOUR,
-    //   JSON.stringify(news),
-    // );
     return news;
 }

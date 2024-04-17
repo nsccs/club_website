@@ -3,13 +3,12 @@ import React, { Suspense } from "react";
 import Footer from "../../../components/Footer/Footer";
 import EventCards from "../../../components/PageCard/EventCards";
 import { Box, Center, Grid, styled } from "../../../styled-system/jsx";
-import { css } from "../../../styled-system/css";
+import Loading from "../loading";
 
-// TODO: Update docs
 /**
- * Events page that displays n events where n is the count passed to getEventCards within getServerSideProps.
- * @param events
- * @constructor
+ * The events page containing all the events
+ *
+ * @returns The page
  */
 const Events: React.FC = () => {
     return (
@@ -32,19 +31,7 @@ const Events: React.FC = () => {
                     ml={10}
                     mr={10}
                 >
-                    <Suspense
-                        fallback={
-                            <Center
-                                className={css({
-                                    width: "100vw",
-                                    height: "40vw",
-                                    bg: "#004da8",
-                                })}
-                            >
-                                Loading news
-                            </Center>
-                        }
-                    >
+                    <Suspense fallback={<Loading />}>
                         <EventCards />
                     </Suspense>
                 </Grid>

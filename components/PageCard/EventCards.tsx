@@ -1,8 +1,16 @@
 import PageCard from "./PageCard";
 import { getEventCards } from "../../lib/Event";
 
-export const EventCards = async (): Promise<JSX.Element> => {
-    const events = await getEventCards(2);
+/**
+ * Get the upcoming events as PageCard components
+ *
+ * @param {number} [numOfCards] amount of cards you want, if null will give you all the events
+ * @returns  {Promise<JSX.Element>} All the page cards requested as PageCard components
+ */
+const EventCards: React.FC<{ numOfCards?: number }> = async ({
+    numOfCards,
+}): Promise<JSX.Element> => {
+    const events = await getEventCards(numOfCards);
 
     return (
         <>

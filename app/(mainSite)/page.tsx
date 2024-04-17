@@ -247,7 +247,7 @@ const Index = () => {
                                     </styled.h2>
 
                                     <VStack gap={100}>
-                                        <EventCards />
+                                        <EventCards numOfCards={2} />
                                     </VStack>
                                 </Box>
                             </Flex>

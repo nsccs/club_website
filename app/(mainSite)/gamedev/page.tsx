@@ -6,7 +6,6 @@ import Footer from "components/Footer/Footer";
 
 import renpyLogo from "/public/img/RenpyLogo.png";
 import godotLogo from "/public/img/GodotIcon.svg";
-// import greetingBackground from "../../public/img/Homepage-Background.svg";
 
 import renpyExampleImg from "/public/img/RenpyScreenshotExample.png";
 import godotExampleImg from "/public/img/GodotScreenshotExample.png";

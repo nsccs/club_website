@@ -32,7 +32,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts"
-  ],
+, "app/(mainSite)/not-found.js"  ],
   "exclude": [
     "node_modules"
   ]

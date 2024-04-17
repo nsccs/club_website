@@ -142,17 +142,10 @@ function dataToCard(data: EventData): EventCard {
 
 /**
  * Gets the data needed to display several event cards.
- * @param count - is the maximum number of entries to return.
- *                This MUST not be determined by the user, as it
- *                is used as a cache key.
+ * @param count - is the maximum number of entries to return. If no number is specified returns all
+ *
  */
-export async function getEventCards(count: number): Promise<EventCard[]> {
-    // // !!OLD CODE USING NEXT JS CACHE SYSTEM!!
-    // Try to use cached data.
-    // const cached = await redisClient.get("cache_event_cards:" + count);
-    // if (cached) {
-    //     return JSON.parse(cached);
-    // }
+export async function getEventCards(count?: number): Promise<EventCard[]> {
 
     const data = await getPartialEvents();
 
@@ -165,17 +158,16 @@ export async function getEventCards(count: number): Promise<EventCard[]> {
         data!.sort((a, b) => (Math.abs(new Date(b.date).getTime() - curDate) > Math.abs(new Date(a.date).getTime() - curDate) ? -1 : 1));
 
         if(data != null){
-            fixedData = await fixPartialEvents(data.slice(0, count))
-            .then((events) => events!.map(dataToCard));
+            if(count != null){
+                fixedData = await fixPartialEvents(data.slice(0, count))
+                .then((events) => events!.map(dataToCard));
+            }else{
+                fixedData = await fixPartialEvents(data)
+                .then((events) => events!.map(dataToCard));
+            }
+
         }
 
-    // // !!OLD CODE USING NEXT JS CACHE SYSTEM!!
-    // // Save the data in the cache.
-    // await redisClient.setex(
-    //     "cache_event_cards:" + count,
-    //     HOUR,
-    //     JSON.stringify(fixedData),
-    // );
 
     return fixedData;
 }
