@@ -3,11 +3,11 @@ import * as menu from "@zag-js/menu";
 import { useMachine, normalizeProps } from "@zag-js/react";
 import { FaBars } from "react-icons/fa";
 import { sva } from "@/styled-system/css";
-import { useId, useRef } from "react";
+import React, { useId, useRef } from "react";
 import NextLink from "next/link";
 
 const MobileMenuStyle = sva({
-    slots: ["trigger", "item", "content"],
+    slots: ["trigger", "item", "container", "background", "content"],
     base: {
         trigger: {
             display: {
@@ -38,6 +38,30 @@ const MobileMenuStyle = sva({
             color: "black",
             _highlighted: { color: "lime.400" },
         },
+        container: {
+            _open: {
+                // animation: "fadeInFromAboveAnim 200ms ease",
+                display: "initial",
+                opacity: 1,
+                pointerEvents: "auto",
+            },
+            _closed: {
+                // animation: "fadeInFromAboveAnim 200ms ease reverse",
+                display: "none",
+                opacity: 0,
+                pointerEvents: "none",
+            },
+        },
+        background: {
+            position: "fixed",
+            zIndex: 4,
+            width: "100%",
+            height: "100%",
+            left: 0,
+            top: 0,
+            cursor: "pointer",
+            backdropFilter: "blur(2px)",
+        },
         content: {
             position: "fixed",
             zIndex: 5,
@@ -55,17 +79,6 @@ const MobileMenuStyle = sva({
             transitionDuration: "200ms",
             transitionTimingFunction: "ease",
             padding: "30px",
-            _open: {
-                // animation: "fadeInFromAboveAnim 200ms ease",
-                pointerEvents: "auto",
-                opacity: 1,
-            },
-            _closed: {
-                // animation: "fadeInFromAboveAnim 200ms ease reverse",
-                pointerEvents: "none",
-                transform: "translate(-50%, -80%)",
-                opacity: 0,
-            },
         },
     },
 });
@@ -110,36 +123,46 @@ const MobileHeaderUI: React.FC<{
 
             {/* Body of the menu */}
             <div
-                className={mobileStyles.content}
                 ref={contentWindow}
                 data-state="closed"
+                className={mobileStyles.container}
             >
+                {/* Menu background */}
+                {/* @ts-expect-error This functions as a button */}
                 <div
-                    {...api.getItemProps({ value: "home" })}
-                    id="home"
-                    key={"home"}
-                    className={mobileStyles.item}
-                >
-                    <NextLink style={{ width: "100%" }} key="home" href="/">
-                        Home
-                    </NextLink>
-                </div>
-                <hr />
-                {menuItems.map(({ name, url }) => (
+                    className={mobileStyles.background}
+                    {...api.triggerProps}
+                />
+
+                {/* Menu content */}
+                <div className={mobileStyles.content}>
                     <div
-                        key={name}
-                        {...api.getItemProps({ value: name })}
+                        {...api.getItemProps({ value: "home" })}
+                        id="home"
+                        key={"home"}
                         className={mobileStyles.item}
                     >
-                        <NextLink
-                            style={{ width: "100%" }}
-                            key={name}
-                            href={url}
-                        >
-                            {name}
+                        <NextLink style={{ width: "100%" }} key="home" href="/">
+                            Home
                         </NextLink>
                     </div>
-                ))}
+                    <hr />
+                    {menuItems.map(({ name, url }) => (
+                        <div
+                            key={name}
+                            {...api.getItemProps({ value: name })}
+                            className={mobileStyles.item}
+                        >
+                            <NextLink
+                                style={{ width: "100%" }}
+                                key={name}
+                                href={url}
+                            >
+                                {name}
+                            </NextLink>
+                        </div>
+                    ))}
+                </div>
             </div>
         </>
     );
