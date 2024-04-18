@@ -1,5 +1,3 @@
-// import { HOUR, redisClient } from "./redis";
-
 /** The data needed for an event card. */
 export interface EventCard {
 
