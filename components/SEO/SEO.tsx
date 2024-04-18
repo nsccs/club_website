@@ -28,14 +28,14 @@ const SEO: React.FC<{
         image?.url === undefined
             ? ClubLogo.width
             : image?.width === undefined || image?.height === undefined
-            ? null
-            : image.width;
+              ? null
+              : image.width;
     const newImageHeight =
         image?.url === undefined
             ? ClubLogo.height
             : image?.width === undefined || image?.height === undefined
-            ? null
-            : image.height;
+              ? null
+              : image.height;
     const newImageLarge =
         image?.url === undefined ? true : image.large || false;
     const newImageAlt =

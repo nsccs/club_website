@@ -53,10 +53,10 @@
 
 Only do these steps if you are actively working on database changes.
 
-- Install [mariadb community edition](https://mariadb.com/downloads/) for your platform
-- Run the server
-- Run club_website.sql script to add the database and tables. The recommended way is to import the data with mySQL WorkBench.
-- Create a `.env.local` file and add:
+-   Install [mariadb community edition](https://mariadb.com/downloads/) for your platform
+-   Run the server
+-   Run club_website.sql script to add the database and tables. The recommended way is to import the data with mySQL WorkBench.
+-   Create a `.env.local` file and add:
 
 ```shell
 DB_HOST=localhost
@@ -69,12 +69,12 @@ DB_NAME=club_website
 If any changes are made to the database please remember to update the setup.sql file to reflect these changes.
 Recommended method is with mySQL WorkBench
 
-- Select _Server_ menu item
-- Select _Data Export_
-- Select the box for _club_website_ and to the right select _Dump Structure Only_
-- Under _Export Options_ select _Export to Self Contained file_ and make sure the path and filename are `<path_to_file>/club_website.sql`
-- Click _Start Export_ button
-- Include file in Pull Request
+-   Select _Server_ menu item
+-   Select _Data Export_
+-   Select the box for _club_website_ and to the right select _Dump Structure Only_
+-   Under _Export Options_ select _Export to Self Contained file_ and make sure the path and filename are `<path_to_file>/club_website.sql`
+-   Click _Start Export_ button
+-   Include file in Pull Request
 
 #### Find Something to Work On
 

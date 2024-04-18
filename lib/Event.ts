@@ -1,6 +1,5 @@
 /** The data needed for an event card. */
 export interface EventCard {
-
     /** The event item's ID/URL slug (in Bevy) for the short URL. */
     slugID: string;
 
@@ -56,9 +55,9 @@ async function getPartialEvents(): Promise<
     Omit<EventData, "description" | "image" | "slugID">[] | null
 > {
     try {
-        const data = (await fetch(REQUEST_EVENTS_URL, { next:{ revalidate:600 } }).then((res) =>
-            res.json(),
-        )) as RequestEventsData;
+        const data = (await fetch(REQUEST_EVENTS_URL, {
+            next: { revalidate: 600 },
+        }).then((res) => res.json())) as RequestEventsData;
 
         return data.results.map((result) => ({
             id: result.id,
@@ -100,7 +99,9 @@ async function fixPartialEvents(
         // These requests are executed in parallel.
         for (const partialEvent of partialEvents) {
             promises.push(
-                fetch(GET_EVENT_URL_PRE + partialEvent.id, { next:{ revalidate: 600 } })
+                fetch(GET_EVENT_URL_PRE + partialEvent.id, {
+                    next: { revalidate: 600 },
+                })
                     .then((res) => res.json())
                     .then((data: GetEventData) => {
                         events.push({
@@ -109,7 +110,6 @@ async function fixPartialEvents(
                             slugID: data.short_id,
                         });
                     }),
-
             );
         }
 
@@ -144,7 +144,6 @@ function dataToCard(data: EventData): EventCard {
  *
  */
 export async function getEventCards(count?: number): Promise<EventCard[]> {
-
     const data = await getPartialEvents();
 
     // Sort (ascending) by events closest to the current timestamp.
@@ -152,20 +151,25 @@ export async function getEventCards(count?: number): Promise<EventCard[]> {
     // that the most relevant events are shown to the user.
     const curDate = new Date().getTime();
     let fixedData: EventCard[];
-    fixedData =  [];
-        data!.sort((a, b) => (Math.abs(new Date(b.date).getTime() - curDate) > Math.abs(new Date(a.date).getTime() - curDate) ? -1 : 1));
+    fixedData = [];
+    data!.sort((a, b) =>
+        Math.abs(new Date(b.date).getTime() - curDate) >
+        Math.abs(new Date(a.date).getTime() - curDate)
+            ? -1
+            : 1,
+    );
 
-        if(data != null){
-            if(count != null){
-                fixedData = await fixPartialEvents(data.slice(0, count))
-                .then((events) => events!.map(dataToCard));
-            }else{
-                fixedData = await fixPartialEvents(data)
-                .then((events) => events!.map(dataToCard));
-            }
-
+    if (data != null) {
+        if (count != null) {
+            fixedData = await fixPartialEvents(data.slice(0, count)).then(
+                (events) => events!.map(dataToCard),
+            );
+        } else {
+            fixedData = await fixPartialEvents(data).then((events) =>
+                events!.map(dataToCard),
+            );
         }
-
+    }
 
     return fixedData;
 }
