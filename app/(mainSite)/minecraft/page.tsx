@@ -10,7 +10,7 @@ import Footer from "@/components/Footer/Footer";
 import greetingBackground from "@/public/img/VeryNiceGreeting.gif";
 import mcImages from "@/lib/MCScreenshots";
 import ViewableImage from "./ViewableImage";
-import { Flex, Grid, Stack, VStack, styled } from "styled-system/jsx";
+import { Flex, Grid, Stack, VStack, styled } from "@/styled-system/jsx";
 import JoinServerButton from "./JoinServerButton";
 
 const textAnimVariants: Variants = {
@@ -84,7 +84,7 @@ const Minecraft = () => {
                 <motion.div
                     style={{
                         display: "flex",
-                        marginTop: "auto",
+                        marginTop: "50px",
                         marginBottom: "auto",
                         flexDirection: "column",
                         justifyContent: "center",
@@ -98,14 +98,23 @@ const Minecraft = () => {
                         <styled.h1
                             fontFamily={'"Impact", sans-serif'}
                             color="white"
+                            fontSize={{
+                                base: "2.25rem",
+                                md: "3rem",
+                            }}
                         >
                             <b>NSC MODDED MC SERVER</b>
                         </styled.h1>
                     </motion.div>
                     <motion.div variants={textAnimVariants}>
-                        <h2>
+                        <styled.h2
+                            fontSize={{
+                                base: "2rem",
+                                md: "2.5rem",
+                            }}
+                        >
                             A server made by <i>you</i>
-                        </h2>
+                        </styled.h2>
                     </motion.div>
                     <motion.div
                         variants={textAnimVariants}
@@ -198,7 +207,15 @@ const Minecraft = () => {
                     whileInView="onscreen"
                     viewport={{ once: true, amount: 0.8 }}
                 >
-                    <styled.h2 color="white">Gallery</styled.h2>
+                    <styled.h2
+                        color="white"
+                        fontSize={{
+                            base: "2rem",
+                            md: "2.5rem",
+                        }}
+                    >
+                        Gallery
+                    </styled.h2>
                 </motion.div>
 
                 {/* Images part*/}
@@ -288,7 +305,15 @@ const Minecraft = () => {
                     whileInView="onscreen"
                     viewport={{ once: true, amount: 0.8 }}
                 >
-                    <styled.h2 color="white">Live map</styled.h2>
+                    <styled.h2
+                        color="white"
+                        fontSize={{
+                            base: "2rem",
+                            md: "2.5rem",
+                        }}
+                    >
+                        Live map
+                    </styled.h2>
                 </motion.div>
                 <iframe
                     src="/mcmap"

@@ -1,8 +1,8 @@
 import Footer from "@/components/Footer/Footer";
 
-import { flex } from "styled-system/patterns";
+import { flex } from "@/styled-system/patterns";
 import { Box, Flex, Stack, styled, VStack } from "@/styled-system/jsx";
-import { css } from "styled-system/css";
+import { css } from "@/styled-system/css";
 
 import NextLink from "next/link";
 import Image from "next/image";
@@ -12,24 +12,6 @@ import { Suspense } from "react";
 import NewsCards from "@/components/PageCard/NewsCards";
 import EventCards from "@/components/PageCard/EventCards";
 import Loading from "./loading";
-
-const buttonStyling = css({
-    fontSize: {
-        base: "1.3em",
-        sm: "1.8em",
-        md: "2.1em",
-        lg: "2.4em",
-    },
-    color: "white",
-    bg: "CSClubBlue",
-    p: "15px",
-    borderRadius: "50px",
-    transition: "all 0.3s ease",
-    _hover: {
-        bg: "#95ca59",
-        color: "black",
-    },
-});
 
 const Index = () => {
     return (
@@ -84,14 +66,18 @@ const Index = () => {
                             }}
                         />
 
-                        <Box h={{ base: "25%", md: "30%", lg: "35%" }} />
+                        <Box h={{ base: "22.5%", md: "27.5%", lg: "32.5%" }} />
 
                         <styled.h1
                             mx="10%"
-                            pb={{ base: "30px", md: "70px", lg: "100px" }}
+                            pb={{ base: "20px", md: "60px", lg: "90px" }}
                             textAlign="center"
-                            fontWeight="bold"
-                            fontFamily="sans"
+                            fontSize={{
+                                base: "1.875rem",
+                                sm: "2.25rem",
+                                md: "3rem",
+                                lg: "4rem",
+                            }}
                         >
                             {/* TODO: Change this to something better. */}
                             Turn Your Theory Into Practice
@@ -106,7 +92,25 @@ const Index = () => {
                                     href="/join"
                                     style={{ textDecoration: "none" }}
                                 >
-                                    <styled.span className={buttonStyling}>
+                                    <styled.span
+                                        className={css({
+                                            fontSize: {
+                                                base: "1.3em",
+                                                sm: "1.8em",
+                                                md: "2.1em",
+                                                lg: "2.4em",
+                                            },
+                                            color: "white",
+                                            bg: "CSClubBlue",
+                                            p: "15px",
+                                            borderRadius: "50px",
+                                            transition: "all 0.3s ease",
+                                            _hover: {
+                                                bg: "#95ca59",
+                                                color: "black",
+                                            },
+                                        })}
+                                    >
                                         Join The Club!
                                     </styled.span>
                                 </NextLink>
@@ -119,9 +123,30 @@ const Index = () => {
                                     href="/minecraft"
                                     style={{ textDecoration: "none" }}
                                 >
-                                    <span className={buttonStyling}>
+                                    <styled.span
+                                        className={css({
+                                            fontSize: {
+                                                base: "1em",
+                                                sm: "1.8em",
+                                                md: "2.1em",
+                                                lg: "2.4em",
+                                            },
+                                            color: "white",
+                                            bg: "CSClubBlue",
+                                            p: {
+                                                base: "5px",
+                                                md: "15px",
+                                            },
+                                            borderRadius: "50px",
+                                            transition: "all 0.3s ease",
+                                            _hover: {
+                                                bg: "#95ca59",
+                                                color: "black",
+                                            },
+                                        })}
+                                    >
                                         Here For MC?
-                                    </span>
+                                    </styled.span>
                                 </NextLink>
                             </Box>
                         </Stack>
@@ -142,7 +167,10 @@ const Index = () => {
                             color="#95ca59"
                             py={{ base: "20px", sm: "25px", md: "30px" }}
                             textAlign="center"
-                            // size="2xl"
+                            fontSize={{
+                                base: "2.25rem",
+                                md: "3rem",
+                            }}
                         >
                             Who We Are
                         </styled.h2>
@@ -211,7 +239,10 @@ const Index = () => {
                                             md: "30px",
                                         }}
                                         textAlign="center"
-                                        // size="2xl"
+                                        fontSize={{
+                                            base: "2.25rem",
+                                            md: "3rem",
+                                        }}
                                         whiteSpace="nowrap"
                                     >
                                         News
@@ -240,7 +271,10 @@ const Index = () => {
                                             md: "30px",
                                         }}
                                         textAlign="center"
-                                        // size="2xl"
+                                        fontSize={{
+                                            base: "2.25rem",
+                                            md: "3rem",
+                                        }}
                                         whiteSpace="nowrap"
                                     >
                                         Upcoming Events

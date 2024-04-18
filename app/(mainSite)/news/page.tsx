@@ -1,8 +1,8 @@
 import React, { Suspense } from "react";
 import Footer from "@/components/Footer/Footer";
-import { Box, Center, Grid, styled } from "styled-system/jsx";
+import { Box, Center, Grid, styled } from "@/styled-system/jsx";
 import NewsCards from "@/components/PageCard/NewsCards";
-import { css } from "styled-system/css";
+import { css } from "@/styled-system/css";
 
 /**
  * Events page that displays n events where n is the count passed to getNewsCards within getServerSideProps.

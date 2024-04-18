@@ -1,4 +1,4 @@
-import { Box, Center, Flex, Stack, styled } from "styled-system/jsx";
+import { Box, Center, Flex, Stack, styled } from "@/styled-system/jsx";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -9,7 +9,7 @@ import godotLogo from "@/public/img/GodotIcon.svg";
 
 import renpyExampleImg from "@/public/img/RenpyScreenshotExample.png";
 import godotExampleImg from "@/public/img/GodotScreenshotExample.png";
-import { css } from "styled-system/css";
+import { css } from "@/styled-system/css";
 
 const textSettings = {
     fontSize: { base: "xl", sm: "2xl", md: "3xl" },
@@ -17,10 +17,9 @@ const textSettings = {
 
 const buttonStyle = css({
     fontSize: {
-        base: "0.5em",
-        sm: "0.8em",
-        md: "1em",
-        lg: "1.2em",
+        base: "1em",
+        sm: "1.5em",
+        md: "1.75em",
     },
     color: "white",
     bg: "CSClubBlue",
@@ -28,6 +27,7 @@ const buttonStyle = css({
     width: "auto",
     borderRadius: "50px",
     transition: "all 0.3s ease",
+    cursor: "pointer",
     _hover: {
         bg: "#95ca59",
         color: "black",
@@ -78,11 +78,9 @@ const Gamedev = () => {
                                     }}
                                 />
                                 <Box flexGrow={1} />
-                                <Link href="404">
-                                    <button className={buttonStyle}>
-                                        Returning Spring Quarter
-                                    </button>
-                                </Link>
+                                <button className={buttonStyle}>
+                                    Returning Spring Quarter
+                                </button>
                             </Flex>
                             <Flex flexDir="column" h="100%" alignItems="center">
                                 <Image

@@ -1,6 +1,6 @@
 import Image from "next/image";
-import { css } from "styled-system/css";
-import { Flex } from "styled-system/jsx";
+import { css } from "@/styled-system/css";
+import { Flex } from "@/styled-system/jsx";
 
 import FourOFourImg from "@/public/img/Error_404.png";
 import Header from "@/components/Header/Header";
