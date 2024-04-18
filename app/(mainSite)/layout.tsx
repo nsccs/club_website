@@ -1,7 +1,7 @@
 // This is the main layout applied to all pages of the main site
 
-import Header from "components/Header/Header";
-import "/style/index.css";
+import Header from "@/components/Header/Header";
+import "@/style/index.css";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {

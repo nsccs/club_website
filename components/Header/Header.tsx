@@ -1,10 +1,10 @@
 import Image from "next/image";
-import headerLogo from "../../public/img/CS_Club_Logo_White.png";
+import headerLogo from "@/public/img/CS_Club_Logo_White.png";
 
 import NextLink from "next/link";
-import linkUnderline from "../../style/link-underline.module.scss";
+import linkUnderline from "@/style/link-underline.module.scss";
 
-import { css } from "../../styled-system/css";
+import { css } from "@/styled-system/css";
 
 import MobileHeaderUI from "./MobileHeaderUI";
 

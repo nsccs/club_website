@@ -1,8 +1,8 @@
 import React from "react";
 
-import { styled } from "../../styled-system/jsx";
+import { styled } from "@/styled-system/jsx";
 import Link from "next/link";
-import { css } from "../../styled-system/css";
+import { css } from "@/styled-system/css";
 
 export interface PageCardInfo {
     title: string;

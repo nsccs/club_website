@@ -1,5 +1,5 @@
 import PageCard from "./PageCard";
-import { getNewsCards } from "../../lib/News";
+import { getNewsCards } from "@/lib/News";
 
 const NewsCards = async (): Promise<JSX.Element> => {
     const news = await getNewsCards(2);

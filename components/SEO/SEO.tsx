@@ -1,7 +1,7 @@
 import React from "react";
 import Head from "next/head";
 
-import ClubLogo from "../../img/CS_Club_Logo_Blue.png";
+import ClubLogo from "@/img/CS_Club_Logo_Blue.png";
 
 const SEO: React.FC<{
     title?: string;

@@ -1,14 +1,14 @@
-import Footer from "components/Footer/Footer";
-// import SEO from "../../components/SEO/SEO";
+import Footer from "@/components/Footer/Footer";
+// import SEO from "@/components/SEO/SEO";
 
 import Link from "next/link";
 
-import ImpactathonBanner from "/public/img/Impactathon-Banner.png";
+import ImpactathonBanner from "@/public/img/Impactathon-Banner.png";
 import Image from "next/image";
 import React from "react";
 import { FaCalendar, FaClock, FaLocationDot } from "react-icons/fa6";
-import { Box, Flex, Stack } from "../../../styled-system/jsx";
-import { css } from "../../../styled-system/css";
+import { Box, Flex, Stack } from "@/styled-system/jsx";
+import { css } from "@/styled-system/css";
 
 const iconStyle = css({
     alignSelf: "center",

@@ -1,8 +1,8 @@
 import React, { Suspense } from "react";
 
-import Footer from "../../../components/Footer/Footer";
-import EventCards from "../../../components/PageCard/EventCards";
-import { Box, Center, Grid, styled } from "../../../styled-system/jsx";
+import Footer from "@/components/Footer/Footer";
+import EventCards from "@/components/PageCard/EventCards";
+import { Box, Center, Grid, styled } from "@/styled-system/jsx";
 import Loading from "../loading";
 
 /**

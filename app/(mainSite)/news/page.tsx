@@ -1,7 +1,7 @@
 import React, { Suspense } from "react";
-import Footer from "components/Footer/Footer";
+import Footer from "@/components/Footer/Footer";
 import { Box, Center, Grid, styled } from "styled-system/jsx";
-import NewsCards from "components/PageCard/NewsCards";
+import NewsCards from "@/components/PageCard/NewsCards";
 import { css } from "styled-system/css";
 
 /**

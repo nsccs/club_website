@@ -2,7 +2,7 @@
 import * as menu from "@zag-js/menu";
 import { useMachine, normalizeProps } from "@zag-js/react";
 import { FaBars } from "react-icons/fa";
-import { sva } from "../../styled-system/css";
+import { sva } from "@/styled-system/css";
 import { useId, useRef } from "react";
 import NextLink from "next/link";
 

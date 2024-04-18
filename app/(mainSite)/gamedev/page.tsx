@@ -2,13 +2,13 @@ import { Box, Center, Flex, Stack, styled } from "styled-system/jsx";
 
 import Image from "next/image";
 import Link from "next/link";
-import Footer from "components/Footer/Footer";
+import Footer from "@/components/Footer/Footer";
 
-import renpyLogo from "/public/img/RenpyLogo.png";
-import godotLogo from "/public/img/GodotIcon.svg";
+import renpyLogo from "@/public/img/RenpyLogo.png";
+import godotLogo from "@/public/img/GodotIcon.svg";
 
-import renpyExampleImg from "/public/img/RenpyScreenshotExample.png";
-import godotExampleImg from "/public/img/GodotScreenshotExample.png";
+import renpyExampleImg from "@/public/img/RenpyScreenshotExample.png";
+import godotExampleImg from "@/public/img/GodotScreenshotExample.png";
 import { css } from "styled-system/css";
 
 const textSettings = {

@@ -1,16 +1,16 @@
-import Footer from "components/Footer/Footer";
+import Footer from "@/components/Footer/Footer";
 
 import { flex } from "styled-system/patterns";
-import { Box, Flex, Stack, styled, VStack } from "../../styled-system/jsx";
+import { Box, Flex, Stack, styled, VStack } from "@/styled-system/jsx";
 import { css } from "styled-system/css";
 
 import NextLink from "next/link";
 import Image from "next/image";
-import bannerImg from "/public/img/Homepage-Background.svg";
-import bannerImgCover from "/public/img/Homepage-Background-Text.svg";
+import bannerImg from "@/public/img/Homepage-Background.svg";
+import bannerImgCover from "@/public/img/Homepage-Background-Text.svg";
 import { Suspense } from "react";
-import NewsCards from "components/PageCard/NewsCards";
-import EventCards from "components/PageCard/EventCards";
+import NewsCards from "@/components/PageCard/NewsCards";
+import EventCards from "@/components/PageCard/EventCards";
 import Loading from "./loading";
 
 const buttonStyling = css({

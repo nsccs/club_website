@@ -1,9 +1,9 @@
 import React from "react";
 import { IoLogoDiscord } from "react-icons/io5";
 import { FaGithubSquare } from "react-icons/fa";
-import { flex } from "../../styled-system/patterns";
-import { Box, HStack, styled } from "../../styled-system/jsx";
-import { css } from "../../styled-system/css";
+import { flex } from "@/styled-system/patterns";
+import { Box, HStack, styled } from "@/styled-system/jsx";
+import { css } from "@/styled-system/css";
 import Link from "next/link";
 
 /**
