@@ -71,6 +71,7 @@ const JoinServerButton = () => {
                             bg: "#95ca59",
                             color: "black",
                         },
+                        cursor: "pointer",
                     })}
                 >
                     Join the server
