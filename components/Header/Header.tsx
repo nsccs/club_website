@@ -7,6 +7,7 @@ import linkUnderline from "@/style/link-underline.module.scss";
 import { css } from "@/styled-system/css";
 
 import MobileHeaderUI from "./MobileHeaderUI";
+import React from "react";
 
 const menuItems = [
     {
@@ -32,7 +33,6 @@ const menuItems = [
 ];
 
 const Header: React.FC = () => {
-    // const headerRef = useRef<HTMLDivElement>(null);
     return (
         <header className={css({ w: "100%" })}>
             <nav

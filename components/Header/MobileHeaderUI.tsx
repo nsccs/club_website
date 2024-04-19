@@ -5,9 +5,18 @@ import { FaBars } from "react-icons/fa";
 import { sva } from "@/styled-system/css";
 import React, { useId, useRef } from "react";
 import NextLink from "next/link";
+import { GrClose } from "react-icons/gr";
 
 const MobileMenuStyle = sva({
-    slots: ["trigger", "item", "container", "background", "content"],
+    slots: [
+        "trigger",
+        "item",
+        "container",
+        "background",
+        "content",
+        "topBG",
+        "closeButton",
+    ],
     base: {
         trigger: {
             display: {
@@ -39,46 +48,55 @@ const MobileMenuStyle = sva({
             _highlighted: { color: "lime.400" },
         },
         container: {
+            position: "fixed",
+            transition: "all",
+            zIndex: 4,
+            left: 0,
+            top: 0,
+            height: "100%",
             _open: {
                 // animation: "fadeInFromAboveAnim 200ms ease",
-                display: "initial",
                 opacity: 1,
                 pointerEvents: "auto",
+                transform: "translate(calc(100vw - 100%))",
             },
             _closed: {
                 // animation: "fadeInFromAboveAnim 200ms ease reverse",
-                display: "none",
                 opacity: 0,
                 pointerEvents: "none",
+                transform: "translate(100vw)",
             },
         },
         background: {
+            zIndex: -1,
             position: "fixed",
-            zIndex: 4,
-            width: "100%",
-            height: "100%",
+            width: "200vw",
+            height: "200vh",
             left: 0,
             top: 0,
             cursor: "pointer",
-            backdropFilter: "blur(2px)",
+            transform: "translate(-50%)",
+            backdropFilter: "brightness(75%)",
         },
         content: {
-            position: "fixed",
-            zIndex: 5,
             bg: "white",
-            minW: "20vh",
-            h: "60vh",
+            minW: "80vw",
+            h: "100%",
             textAlign: "center",
             top: "50%",
             left: "50%",
-            transform: "translate(-50%, -50%)",
-            borderStyle: "solid",
-            borderWidth: "4px",
-            borderRadius: "20px",
-            borderColor: "CSClubBlue",
             transitionDuration: "200ms",
             transitionTimingFunction: "ease",
-            padding: "30px",
+        },
+        topBG: {
+            display: "flex",
+            width: "100%",
+            height: "75px",
+            background: "CSClubBlue",
+        },
+        closeButton: {
+            width: "32px",
+            marginLeft: "20px",
         },
     },
 });
@@ -136,17 +154,24 @@ const MobileHeaderUI: React.FC<{
 
                 {/* Menu content */}
                 <div className={mobileStyles.content}>
+                    <div className={mobileStyles.topBG}>
+                        <button
+                            className={mobileStyles.closeButton}
+                            {...api.triggerProps}
+                        >
+                            <GrClose stroke="white" size="100%" />
+                        </button>
+                    </div>
+
                     <div
                         {...api.getItemProps({ value: "home" })}
                         id="home"
-                        key={"home"}
                         className={mobileStyles.item}
                     >
-                        <NextLink style={{ width: "100%" }} key="home" href="/">
+                        <NextLink style={{ width: "100%" }} href="/">
                             Home
                         </NextLink>
                     </div>
-                    <hr />
                     {menuItems.map(({ name, url }) => (
                         <div
                             key={name}
