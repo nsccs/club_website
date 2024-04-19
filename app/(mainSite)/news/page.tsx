@@ -17,8 +17,11 @@ const News: React.FC = () => {
                 <styled.h2
                     color="black"
                     textAlign="center"
-                    fontSize="lg"
                     whiteSpace="nowrap"
+                    fontSize={{
+                        base: "1.5rem",
+                        md: "2rem",
+                    }}
                 >
                     News
                 </styled.h2>
