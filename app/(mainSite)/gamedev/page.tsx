@@ -10,6 +10,12 @@ import godotLogo from "@/public/img/GodotIcon.svg";
 import renpyExampleImg from "@/public/img/RenpyScreenshotExample.png";
 import godotExampleImg from "@/public/img/GodotScreenshotExample.png";
 import { css } from "@/styled-system/css";
+import { getMetadata } from "@/lib/SEO";
+
+export const metadata = getMetadata({
+    title: "GameDev | NSC Computer Science Club",
+    url: "https://northcs.org/gamedev",
+});
 
 const textSettings = {
     fontSize: { base: "xl", sm: "2xl", md: "3xl" },
@@ -37,10 +43,6 @@ const buttonStyle = css({
 const Gamedev = () => {
     return (
         <>
-            {/* <SEO
-                title="GameDev | NSC Computer Science Club"
-                url="https://northcs.org/gamedev"
-            /> */}
             <Flex flexDir="column" minW="100%" minH="100%">
                 {/* Top of the page including the Renpy and godot logo */}
                 <Flex

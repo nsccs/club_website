@@ -12,12 +12,15 @@ import { Suspense } from "react";
 import NewsCards from "@/components/PageCard/NewsCards";
 import EventCards from "@/components/PageCard/EventCards";
 import Loading from "./loading";
+import { getMetadata } from "@/lib/SEO";
+
+export const metadata = getMetadata({
+    url: "https://northcs.org",
+});
 
 const Index = () => {
     return (
         <>
-            {/* <SEO url="https://northcs.org" /> */}
-
             <div
                 className={flex({
                     flexDir: "column",
