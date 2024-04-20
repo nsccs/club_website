@@ -48,8 +48,8 @@ const JoinServerButton = () => {
                     closeAfterDelay(howManyTimesClicked.current);
 
                     if (howManyTimesClicked.current == 15) {
-                        // shhhhhh ;3
-                        window.location.replace("/ChangeThwWorld.mp4");
+                        // shhhhhh ;3 will re add easter egg soon
+                        // window.location.replace("/ChangeThwWorld.mp4");
                     }
                 }}
             >
