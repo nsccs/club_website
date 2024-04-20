@@ -47,6 +47,7 @@ export const getMetadata = ({
             : image.alt;
 
     return {
+        metadataBase: new URL("https://northcs.org"),
         alternates: {
             canonical: newURL,
         },
