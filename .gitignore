@@ -9,3 +9,6 @@ yarn.lock
 *.swp
 *.DS_Store
 static/
+## Panda
+styled-system
+styled-system-studio

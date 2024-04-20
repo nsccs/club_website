@@ -1,8 +1,5 @@
-import { HOUR, redisClient } from "./redis";
-
 /** The data needed for an event card. */
 export interface EventCard {
-
     /** The event item's ID/URL slug (in Bevy) for the short URL. */
     slugID: string;
 
@@ -58,9 +55,9 @@ async function getPartialEvents(): Promise<
     Omit<EventData, "description" | "image" | "slugID">[] | null
 > {
     try {
-        const data = (await fetch(REQUEST_EVENTS_URL).then((res) =>
-            res.json(),
-        )) as RequestEventsData;
+        const data = (await fetch(REQUEST_EVENTS_URL, {
+            next: { revalidate: 600 },
+        }).then((res) => res.json())) as RequestEventsData;
 
         return data.results.map((result) => ({
             id: result.id,
@@ -96,13 +93,15 @@ async function fixPartialEvents(
 ): Promise<EventData[] | null> {
     try {
         const events: EventData[] = [];
-        const promises = [];
+        const promises: Promise<void>[] = [];
 
         // This is cached, so we aren't spamming the API.
         // These requests are executed in parallel.
         for (const partialEvent of partialEvents) {
             promises.push(
-                fetch(GET_EVENT_URL_PRE + partialEvent.id)
+                fetch(GET_EVENT_URL_PRE + partialEvent.id, {
+                    next: { revalidate: 600 },
+                })
                     .then((res) => res.json())
                     .then((data: GetEventData) => {
                         events.push({
@@ -141,34 +140,36 @@ function dataToCard(data: EventData): EventCard {
 
 /**
  * Gets the data needed to display several event cards.
- * @param count - is the maximum number of entries to return.
- *                This MUST not be determined by the user, as it
- *                is used as a cache key.
+ * @param count - is the maximum number of entries to return. If no number is specified returns all
+ *
  */
-export async function getEventCards(count: number): Promise<EventCard[]> {
-    // Try to use cached data.
-    const cached = await redisClient.get("cache_event_cards:" + count);
-    if (cached) {
-        return JSON.parse(cached);
-    }
-
+export async function getEventCards(count?: number): Promise<EventCard[]> {
     const data = await getPartialEvents();
 
     // Sort (ascending) by events closest to the current timestamp.
     // Dates will be put into a more correct order later on, but this ensures
     // that the most relevant events are shown to the user.
     const curDate = new Date().getTime();
-    data.sort((a, b) => (Math.abs(new Date(b.date).getTime() - curDate) > Math.abs(new Date(a.date).getTime() - curDate) ? -1 : 1));
-
-    const fixedData = await fixPartialEvents(data.slice(0, count))
-        .then((events) => events.map(dataToCard));
-
-    // Save the data in the cache.
-    await redisClient.setex(
-        "cache_event_cards:" + count,
-        HOUR,
-        JSON.stringify(fixedData),
+    let fixedData: EventCard[];
+    fixedData = [];
+    data!.sort((a, b) =>
+        Math.abs(new Date(b.date).getTime() - curDate) >
+        Math.abs(new Date(a.date).getTime() - curDate)
+            ? -1
+            : 1,
     );
+
+    if (data != null) {
+        if (count != null) {
+            fixedData = await fixPartialEvents(data.slice(0, count)).then(
+                (events) => events!.map(dataToCard),
+            );
+        } else {
+            fixedData = await fixPartialEvents(data).then((events) =>
+                events!.map(dataToCard),
+            );
+        }
+    }
 
     return fixedData;
 }

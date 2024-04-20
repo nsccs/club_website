@@ -1,55 +1,53 @@
-import {
-    Box,
-    Center,
-    Flex,
-    Text,
-    Heading,
-    HStack,
-    Button,
-    VStack,
-    Stack,
-    extendTheme,
-} from "@chakra-ui/react";
+import { Box, Center, Flex, Stack, styled } from "@/styled-system/jsx";
+
 import Image from "next/image";
 import Link from "next/link";
-import Header from "../components/Header/Header";
-import Footer from "../components/Footer/Footer";
-import SEO from "../components/SEO/SEO";
+import Footer from "@/components/Footer/Footer";
 
-import renpyLogo from "../img/RenpyLogo.png";
-import godotLogo from "../img/GodotIcon.svg";
-import greetingBackground from "../img/Homepage-Background.svg";
+import renpyLogo from "@/public/img/RenpyLogo.png";
+import godotLogo from "@/public/img/GodotIcon.svg";
 
-import renpyExampleImg from "../img/RenpyScreenshotExample.png";
-import godotExampleImg from "../img/GodotScreenshotExample.png";
+import renpyExampleImg from "@/public/img/RenpyScreenshotExample.png";
+import godotExampleImg from "@/public/img/GodotScreenshotExample.png";
+import { css } from "@/styled-system/css";
+import { getMetadata } from "@/lib/SEO";
+
+export const metadata = getMetadata({
+    title: "GameDev | NSC Computer Science Club",
+    url: "https://northcs.org/gamedev",
+});
 
 const textSettings = {
     fontSize: { base: "xl", sm: "2xl", md: "3xl" },
 };
 
-const buttonSettings = {
+const buttonStyle = css({
+    fontSize: {
+        base: "1em",
+        sm: "1.5em",
+        md: "1.75em",
+    },
     color: "white",
-    bg: "#004da8",
+    bg: "CSClubBlue",
+    p: "15px",
+    width: "auto",
+    borderRadius: "50px",
     transition: "all 0.3s ease",
+    cursor: "pointer",
     _hover: {
         bg: "#95ca59",
         color: "black",
     },
-};
+});
 
 const Gamedev = () => {
     return (
         <>
-            <SEO
-                title="GameDev | NSC Computer Science Club"
-                url="https://northcs.org/gamedev"
-            />
-            <Header />
             <Flex flexDir="column" minW="100%" minH="100%">
                 {/* Top of the page including the Renpy and godot logo */}
                 <Flex
                     flexDir="column"
-                    backgroundImage={greetingBackground.src}
+                    backgroundImage="url(/img/Homepage-Background.svg)"
                     backgroundSize="cover"
                     backgroundRepeat="no-repeat"
                     backgroundAttachment="fixed"
@@ -57,21 +55,20 @@ const Gamedev = () => {
                     flexGrow={1}
                     pb="20px"
                 >
-                    <Heading
-                        as="h1"
+                    <h1
                         style={{
                             textAlign: "center",
                             fontSize: "4rem",
                         }}
                     >
                         Welcome creators
-                    </Heading>
+                    </h1>
                     <Center flexGrow={1}>
                         <Stack
                             direction={{ base: "column", md: "row" }}
                             h={{ base: "initial", md: "50vmin" }}
                             w={{ base: "50vmin", md: "initial" }}
-                            spacing="10vmax"
+                            gap="10vmax"
                         >
                             <Flex flexDir="column" h="100%" alignItems="center">
                                 <Image
@@ -83,9 +80,9 @@ const Gamedev = () => {
                                     }}
                                 />
                                 <Box flexGrow={1} />
-                                <Button {...buttonSettings}>
+                                <button className={buttonStyle}>
                                     Returning Spring Quarter
-                                </Button>
+                                </button>
                             </Flex>
                             <Flex flexDir="column" h="100%" alignItems="center">
                                 <Image
@@ -98,9 +95,9 @@ const Gamedev = () => {
                                 />
                                 <Box flexGrow={1} />
                                 <Link href="404">
-                                    <Button {...buttonSettings}>
+                                    <button className={buttonStyle}>
                                         Coming Soon
-                                    </Button>
+                                    </button>
                                 </Link>
                             </Flex>
                         </Stack>
@@ -116,7 +113,7 @@ const Gamedev = () => {
                         base: "5vmin",
                     }}
                 >
-                    <Text textAlign="center" {...textSettings}>
+                    <styled.p textAlign="center" {...textSettings}>
                         Go from player to creator in are game development
                         workshops, where we introduce you to the wonderful world
                         of your mind! Journey through the deepest pits of the
@@ -126,7 +123,7 @@ const Gamedev = () => {
                         <br />
                         We are here to get you started, to start we must first
                         choose are tool of choice
-                    </Text>
+                    </styled.p>
                 </Box>
 
                 {/* more info on each engine*/}
@@ -134,20 +131,18 @@ const Gamedev = () => {
                     direction={{ base: "column", md: "row" }}
                     h={{ base: "initial", md: "auto" }}
                     w={{ base: "inital", md: "auto" }}
-                    spacing="5vmax"
+                    gap="5vmax"
                     justifyContent="center"
                     px={{ base: "20px", md: "5px" }}
                     alignSelf="center"
                 >
                     <Stack w={{ base: "inherit", md: "45%" }}>
-                        <Heading as="h2" textAlign="center">
-                            Ren{"'"}Py
-                        </Heading>
-                        <Text fontSize={{ base: "xl", sm: "2xl", md: "3xl" }}>
+                        <styled.h2 textAlign="center">Ren{"'"}Py</styled.h2>
+                        <p>
                             Great for beginners! Perfect for story focused
                             games, with capabilities to make more advanced
                             interactions with python
-                        </Text>
+                        </p>
                         <Box flexGrow={1} />
                         <Box borderRadius="20px" overflow="hidden">
                             <Image
@@ -159,30 +154,30 @@ const Gamedev = () => {
                             />
                         </Box>
                         <Box flexGrow={1} />
-                        <Text fontSize={{ base: "xl", sm: "2xl", md: "3xl" }}>
+                        <p>
                             Recommended: CSC 110
                             <br /> Minimum: Passion ;)
-                        </Text>
+                        </p>
                         <Link
-                            href="https://forms.office.com/Pages/ResponsePage.aspx?id=OP_YAhHXMU6pFWy1z_eI3wVkLwZrVwRFqtH05cTl-O5URDFDTUczTzBNM0xZWVo2STVBVEZHMk9LSS4u"
+                            href="404"
                             style={{
                                 alignSelf: "center",
                                 marginBottom: "20px",
                             }}
                         >
-                            <Button {...buttonSettings}>RSVP</Button>
+                            <button className={buttonStyle}>
+                                Returning Spring Quarter
+                            </button>
                         </Link>
                     </Stack>
                     <Stack w={{ base: "inherit", md: "45%" }}>
-                        <Heading as="h2" textAlign="center">
-                            Godot
-                        </Heading>
-                        <Text {...textSettings}>
+                        <styled.h2 textAlign="center">Godot</styled.h2>
+                        <p>
                             A 2D/3D fully featured open source game engine, your
                             only limitations are your imagination and your
                             skills! Not an engine for the faint of heart, but in
                             return it will give you the world.
-                        </Text>
+                        </p>
                         <Box flexGrow={1} />
                         <Box borderRadius="20px" overflow="hidden">
                             <Image
@@ -194,10 +189,10 @@ const Gamedev = () => {
                             />
                         </Box>
                         <Box flexGrow={1} />
-                        <Text {...textSettings}>
+                        <p>
                             Recommended: CSC 142
                             <br /> Minimum: CSC 110
-                        </Text>
+                        </p>
                         <Link
                             href="404"
                             style={{
@@ -205,7 +200,7 @@ const Gamedev = () => {
                                 marginBottom: "20px",
                             }}
                         >
-                            <Button {...buttonSettings}>Coming Soon</Button>
+                            <button className={buttonStyle}>Coming Soon</button>
                         </Link>
                     </Stack>
                 </Stack>
