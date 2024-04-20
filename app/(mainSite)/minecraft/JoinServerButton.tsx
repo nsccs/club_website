@@ -3,9 +3,9 @@
 import { useId, Fragment, useRef } from "react";
 import * as popover from "@zag-js/popover";
 import { useMachine, normalizeProps, Portal } from "@zag-js/react";
-import { css } from "styled-system/css";
+import { css } from "@/styled-system/css";
 
-import { flex } from "styled-system/patterns";
+import { flex } from "@/styled-system/patterns";
 
 function sleep(ms) {
     return new Promise((resolve) => setTimeout(resolve, ms));
@@ -71,6 +71,7 @@ const JoinServerButton = () => {
                             bg: "#95ca59",
                             color: "black",
                         },
+                        cursor: "pointer",
                     })}
                 >
                     Join the server

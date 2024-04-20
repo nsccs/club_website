@@ -1,8 +1,14 @@
 import React, { Suspense } from "react";
-import Footer from "components/Footer/Footer";
-import { Box, Center, Grid, styled } from "styled-system/jsx";
-import NewsCards from "components/PageCard/NewsCards";
-import { css } from "styled-system/css";
+import Footer from "@/components/Footer/Footer";
+import { Box, Center, Grid, styled } from "@/styled-system/jsx";
+import NewsCards from "@/components/PageCard/NewsCards";
+import { css } from "@/styled-system/css";
+import { getMetadata } from "@/lib/SEO";
+
+export const metadata = getMetadata({
+    title: "News | NSC Computer Science Club",
+    url: "https://northcs.org/news",
+});
 
 /**
  * Events page that displays n events where n is the count passed to getNewsCards within getServerSideProps.
@@ -12,13 +18,15 @@ import { css } from "styled-system/css";
 const News: React.FC = () => {
     return (
         <>
-            {/* <SEO url="https://northcs.org/news" /> */}
             <Box mt={0.5} pt={2} pb={2} bg="#95ca59">
                 <styled.h2
                     color="black"
                     textAlign="center"
-                    fontSize="lg"
                     whiteSpace="nowrap"
+                    fontSize={{
+                        base: "1.5rem",
+                        md: "2rem",
+                    }}
                 >
                     News
                 </styled.h2>

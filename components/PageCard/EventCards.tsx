@@ -1,5 +1,5 @@
 import PageCard from "./PageCard";
-import { getEventCards } from "../../lib/Event";
+import { getEventCards } from "@/lib/Event";
 
 /**
  * Get the upcoming events as PageCard components

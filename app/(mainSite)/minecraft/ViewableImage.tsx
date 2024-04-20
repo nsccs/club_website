@@ -4,10 +4,9 @@ import { useMachine, normalizeProps, Portal } from "@zag-js/react";
 import { GrClose } from "react-icons/gr";
 
 import Image, { StaticImageData } from "next/image";
-import { CSSProperties, useId } from "react";
-import { Box, Flex, VStack } from "styled-system/jsx";
-import { css, sva } from "styled-system/css";
-import { center } from "styled-system/patterns";
+import React, { CSSProperties, useId } from "react";
+import { Box, Flex, VStack } from "@/styled-system/jsx";
+import { css, sva } from "@/styled-system/css";
 
 const imageModalStylesFunc = sva({
     slots: ["backdrop", "positioner", "closeButton", "contentWrapper", "title"],
@@ -57,6 +56,7 @@ const imageModalStylesFunc = sva({
             alignSelf: "center",
             scale: 1,
             transitionDuration: "300ms",
+            cursor: "pointer",
             _hover: {
                 scale: 1.5,
             },
@@ -88,7 +88,10 @@ const ViewableImage: React.FC<{
         <>
             {/* image preview */}
 
-            <button style={buttonStyle} {...api.triggerProps}>
+            <button
+                style={{ ...buttonStyle, cursor: "pointer" }}
+                {...api.triggerProps}
+            >
                 <Box borderRadius="10px" overflow="hidden" marginX="10%">
                     <Image
                         src={daImage}

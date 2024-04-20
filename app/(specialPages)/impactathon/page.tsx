@@ -1,14 +1,28 @@
-import Footer from "components/Footer/Footer";
-// import SEO from "../../components/SEO/SEO";
+import Footer from "@/components/Footer/Footer";
 
 import Link from "next/link";
 
-import ImpactathonBanner from "/public/img/Impactathon-Banner.png";
+import ImpactathonBanner from "@/public/img/Impactathon-Banner.png";
 import Image from "next/image";
 import React from "react";
 import { FaCalendar, FaClock, FaLocationDot } from "react-icons/fa6";
-import { Box, Flex, Stack } from "../../../styled-system/jsx";
-import { css } from "../../../styled-system/css";
+import { Box, Flex, Stack } from "@/styled-system/jsx";
+import { css } from "@/styled-system/css";
+import { getMetadata } from "@/lib/SEO";
+
+export const metadata = getMetadata({
+    title: "Impactathon | NSC Computer Science Club",
+    url: "https://northcs.org/impactathon",
+    description:
+        "Get ready for an exhilarating and impactful journey at the Data-Centric Social Justice Hackathon!",
+    image: {
+        url: ImpactathonBanner.src,
+        width: ImpactathonBanner.width,
+        height: ImpactathonBanner.height,
+        alt: 'An image with text reading "Impactathon 2024".',
+        large: true,
+    },
+});
 
 const iconStyle = css({
     alignSelf: "center",
@@ -19,19 +33,6 @@ const iconStyle = css({
 const Impactathon = () => {
     return (
         <>
-            {/* <SEO
-                title="Impactathon | NSC Computer Science Club"
-                url="https://northcs.org/impactathon"
-                description="Get ready for an exhilarating and impactful journey at the Data-Centric Social Justice Hackathon!"
-                image={{
-                    url: ImpactathonBanner.src,
-                    width: ImpactathonBanner.width,
-                    height: ImpactathonBanner.height,
-                    alt: 'An image with p reading "Impactathon 2024".',
-                    large: true,
-                }}
-            /> */}
-
             <Flex flexDir="column" minW="100%" minH="100%">
                 <Box
                     width="100%"
@@ -585,6 +586,7 @@ const Impactathon = () => {
                 </div>
                 <Box flexGrow={1} />
             </Flex>
+
             <footer>
                 Site hosted on North Seattle College CS Club site ;)
             </footer>

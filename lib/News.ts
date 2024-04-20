@@ -1,5 +1,3 @@
-
-
 /** The data needed for a news card. */
 export interface NewsCard {
     /** The news item's ID (in the database). */
@@ -31,7 +29,7 @@ const tempNewsItems = [
         date: "2023-10-03T02:28:52.000Z",
         title: "The Club Website is Up and Running!",
         description:
-          "The CS Club has a brand new website so people can learn about the club and events without needing a Discord account.",
+            "The CS Club has a brand new website so people can learn about the club and events without needing a Discord account.",
         author: "Jonah Uellenberg",
         content: `# Club Website
 The club website is still a work-in-progress, but it's officially complete enough to serve as the club's front page! Currently, the website supports
@@ -56,44 +54,43 @@ stay tuned for a Club Website event. Alternatively, you can view and contribute 
 // }
 
 /**
-* Get news rows from database.
-* If no database connection has been made and process.env.NODE_ENV is not production
-* then provide dummy data so that it does not block development.
-* @param count - is the maximum number of entries to return.
-*/
+ * Get news rows from database.
+ * If no database connection has been made and process.env.NODE_ENV is not production
+ * then provide dummy data so that it does not block development.
+ * @param count - is the maximum number of entries to return.
+ */
 export async function getNews(count: number): Promise<NewsItem[]> {
+    // // Testing code
+    // const tempNewsClone = [...tempNewsItems];
 
+    // const curDate = new Date().toISOString();
 
-        // // Testing code
-        // const tempNewsClone = [...tempNewsItems];
+    // const randActivity = await fetch("http://www.boredapi.com/api/activity/", { next:{ revalidate: 20 } })
+    // .then((res) => res.json())
+    // .then((data: GetActivityData) => {
+    //     return({
+    //         id: data.key,
+    //         date: curDate.toString(),
+    //         title: data.activity,
+    //         description: "Accessibility: " + data.accessibility + "\n Price: " + data.price,
+    //         author: "Bored API",
+    //         content: "Accessibility: " + data.accessibility + "\n Price: " + data.price,
+    //     } as NewsItem);
+    // });
 
-        // const curDate = new Date().toISOString();
+    // tempNewsClone.push(randActivity);
+    // return tempNewsClone;
 
-        // const randActivity = await fetch("http://www.boredapi.com/api/activity/", { next:{ revalidate: 20 } })
-        // .then((res) => res.json())
-        // .then((data: GetActivityData) => {
-        //     return({
-        //         id: data.key,
-        //         date: curDate.toString(),
-        //         title: data.activity,
-        //         description: "Accessibility: " + data.accessibility + "\n Price: " + data.price,
-        //         author: "Bored API",
-        //         content: "Accessibility: " + data.accessibility + "\n Price: " + data.price,
-        //     } as NewsItem);
-        // });
-
-        // tempNewsClone.push(randActivity);
-        // return tempNewsClone;
-
-        if (process.env.NODE_ENV === "production") {
-            // TODO: Add actual news database
-            return tempNewsItems;
-        } else {
-            console.log("NO DATABASE CONNECTION WILL USE MOCK NEWS ITEMS.");
-            console.log("If this is not what you expected inspect your database configuration.");
-            return tempNewsItems;
-        }
-
+    if (process.env.NODE_ENV === "production") {
+        // TODO: Add actual news database
+        return tempNewsItems;
+    } else {
+        console.log("NO DATABASE CONNECTION WILL USE MOCK NEWS ITEMS.");
+        console.log(
+            "If this is not what you expected inspect your database configuration.",
+        );
+        return tempNewsItems;
+    }
 }
 
 /**
@@ -101,7 +98,6 @@ export async function getNews(count: number): Promise<NewsItem[]> {
  * @param count - is the maximum number of entries to return.
  */
 export async function getNewsCards(count: number): Promise<NewsItem[] | null> {
-
     const news = await getNews(count);
 
     return news;

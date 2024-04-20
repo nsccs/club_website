@@ -1,16 +1,17 @@
-import Footer from "../../../components/Footer/Footer";
-import { Box, Center, Flex, styled } from "../../../styled-system/jsx";
+import Footer from "@/components/Footer/Footer";
+import { Box, Center, Flex, styled } from "@/styled-system/jsx";
 import Link from "next/link";
-import { css } from "../../../styled-system/css";
+import { css } from "@/styled-system/css";
+import { getMetadata } from "@/lib/SEO";
+
+export const metadata = getMetadata({
+    title: "Join | NSC Computer Science Club",
+    url: "https://northcs.org/join",
+});
 
 const Join = () => {
     return (
         <>
-            {/* <SEO
-                title="Join | NSC Computer Science Club"
-                url="https://northcs.org/join"
-            /> */}
-
             <Flex flexDir="column" minW="100%" minH="100%">
                 <Box>
                     <styled.h1

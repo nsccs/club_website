@@ -3,8 +3,8 @@
 import * as progress from "@zag-js/progress";
 import { normalizeProps, useMachine } from "@zag-js/react";
 import { useId } from "react";
-import { sva } from "../../styled-system/css";
-import { Flex, Grid } from "styled-system/jsx";
+import { sva } from "@/styled-system/css";
+import { Flex, Grid } from "@/styled-system/jsx";
 
 const circleStyleFunc = sva({
     slots: [

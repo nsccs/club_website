@@ -2,12 +2,21 @@
 import * as menu from "@zag-js/menu";
 import { useMachine, normalizeProps } from "@zag-js/react";
 import { FaBars } from "react-icons/fa";
-import { sva } from "../../styled-system/css";
-import { useId, useRef } from "react";
+import { sva } from "@/styled-system/css";
+import React, { useId, useRef } from "react";
 import NextLink from "next/link";
+import { GrClose } from "react-icons/gr";
 
 const MobileMenuStyle = sva({
-    slots: ["trigger", "item", "content"],
+    slots: [
+        "trigger",
+        "item",
+        "container",
+        "background",
+        "content",
+        "topBG",
+        "closeButton",
+    ],
     base: {
         trigger: {
             display: {
@@ -15,17 +24,17 @@ const MobileMenuStyle = sva({
                 sm: "inherit",
                 md: "none",
             },
-            aspectRatio: "1.5 / 1",
-            h: "auto",
+            aspectRatio: "1 / 1",
             marginLeft: "10%",
-            minW: "20%",
+            minW: "50px",
             border: "lime.400",
-            borderRadius: "10px",
+            borderRadius: "5px",
             borderStyle: "solid",
             boxSizing: "border-box",
             bg: "lime.400",
             alignItems: "center",
             justifyContent: "center",
+            cursor: "pointer",
         },
         item: {
             fontSize: {
@@ -38,34 +47,56 @@ const MobileMenuStyle = sva({
             color: "black",
             _highlighted: { color: "lime.400" },
         },
-        content: {
+        container: {
             position: "fixed",
-            zIndex: 5,
-            bg: "white",
-            minW: "20vh",
-            h: "60vh",
-            textAlign: "center",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-            borderStyle: "solid",
-            borderWidth: "4px",
-            borderRadius: "20px",
-            borderColor: "CSClubBlue",
-            transitionDuration: "200ms",
-            transitionTimingFunction: "ease",
-            padding: "30px",
+            transition: "all",
+            zIndex: 4,
+            left: 0,
+            top: 0,
+            height: "100%",
             _open: {
                 // animation: "fadeInFromAboveAnim 200ms ease",
-                pointerEvents: "auto",
                 opacity: 1,
+                pointerEvents: "auto",
+                transform: "translate(calc(100vw - 100%))",
             },
             _closed: {
                 // animation: "fadeInFromAboveAnim 200ms ease reverse",
-                pointerEvents: "none",
-                transform: "translate(-50%, -80%)",
                 opacity: 0,
+                pointerEvents: "none",
+                transform: "translate(100vw)",
             },
+        },
+        background: {
+            zIndex: -1,
+            position: "fixed",
+            width: "200vw",
+            height: "200vh",
+            left: 0,
+            top: 0,
+            cursor: "pointer",
+            transform: "translate(-50%)",
+            backdropFilter: "brightness(75%)",
+        },
+        content: {
+            bg: "white",
+            minW: "80vw",
+            h: "100%",
+            textAlign: "center",
+            top: "50%",
+            left: "50%",
+            transitionDuration: "200ms",
+            transitionTimingFunction: "ease",
+        },
+        topBG: {
+            display: "flex",
+            width: "100%",
+            height: "75px",
+            background: "CSClubBlue",
+        },
+        closeButton: {
+            width: "32px",
+            marginLeft: "20px",
         },
     },
 });
@@ -110,36 +141,53 @@ const MobileHeaderUI: React.FC<{
 
             {/* Body of the menu */}
             <div
-                className={mobileStyles.content}
                 ref={contentWindow}
                 data-state="closed"
+                className={mobileStyles.container}
             >
+                {/* Menu background */}
+                {/* @ts-expect-error This functions as a button */}
                 <div
-                    {...api.getItemProps({ value: "home" })}
-                    id="home"
-                    key={"home"}
-                    className={mobileStyles.item}
-                >
-                    <NextLink style={{ width: "100%" }} key="home" href="/">
-                        Home
-                    </NextLink>
-                </div>
-                <hr />
-                {menuItems.map(({ name, url }) => (
+                    className={mobileStyles.background}
+                    {...api.triggerProps}
+                />
+
+                {/* Menu content */}
+                <div className={mobileStyles.content}>
+                    <div className={mobileStyles.topBG}>
+                        <button
+                            className={mobileStyles.closeButton}
+                            {...api.triggerProps}
+                        >
+                            <GrClose stroke="white" size="100%" />
+                        </button>
+                    </div>
+
                     <div
-                        key={name}
-                        {...api.getItemProps({ value: name })}
+                        {...api.getItemProps({ value: "home" })}
+                        id="home"
                         className={mobileStyles.item}
                     >
-                        <NextLink
-                            style={{ width: "100%" }}
-                            key={name}
-                            href={url}
-                        >
-                            {name}
+                        <NextLink style={{ width: "100%" }} href="/">
+                            Home
                         </NextLink>
                     </div>
-                ))}
+                    {menuItems.map(({ name, url }) => (
+                        <div
+                            key={name}
+                            {...api.getItemProps({ value: name })}
+                            className={mobileStyles.item}
+                        >
+                            <NextLink
+                                style={{ width: "100%" }}
+                                key={name}
+                                href={url}
+                            >
+                                {name}
+                            </NextLink>
+                        </div>
+                    ))}
+                </div>
             </div>
         </>
     );
