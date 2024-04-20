@@ -587,7 +587,9 @@ const Impactathon = () => {
                 <Box flexGrow={1} />
             </Flex>
 
-            <Footer />
+            <footer>
+                Site hosted on North Seattle College CS Club site ;)
+            </footer>
         </>
     );
 };
