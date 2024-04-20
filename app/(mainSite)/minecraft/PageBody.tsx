@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import greetingBackground from "@/img/VeryNiceGreeting.gif";
-import { Flex, Grid, Stack, styled, VStack } from "@/styled-system/jsx";
+import { Box, Flex, Grid, Stack, styled, VStack } from "@/styled-system/jsx";
 import { motion, Variants } from "framer-motion";
 import NextLink from "next/link";
 import JoinServerButton from "@/app/(mainSite)/minecraft/JoinServerButton";
@@ -78,114 +78,117 @@ export const PageBody: React.FC = () => {
                 </video>
             </div>
             <Flex w="100vw" h="100vh" justifyContent="center">
-                <motion.div
-                    style={{
-                        display: "flex",
-                        marginTop: "50px",
-                        marginBottom: "auto",
-                        flexDirection: "column",
-                        justifyContent: "center",
-                        textAlign: "center",
-                    }}
-                    initial="offscreen"
-                    whileInView="onscreen"
-                    viewport={{ once: false, amount: 0.9 }}
+                <Box
+                    marginTop={{ base: "50px", md: "auto" }}
+                    marginBottom="auto"
                 >
-                    <motion.div variants={textAnimVariants}>
-                        <styled.h1
-                            fontFamily={'"Impact", sans-serif'}
-                            color="white"
-                            fontSize={{
-                                base: "2.25rem",
-                                md: "3rem",
-                            }}
-                        >
-                            <b>NSC MODDED MC SERVER</b>
-                        </styled.h1>
-                    </motion.div>
-                    <motion.div variants={textAnimVariants}>
-                        <styled.h2
-                            fontSize={{
-                                base: "2rem",
-                                md: "2.5rem",
-                            }}
-                        >
-                            A server made by <i>you</i>
-                        </styled.h2>
-                    </motion.div>
                     <motion.div
-                        variants={textAnimVariants}
-                        style={{ marginTop: "3%" }}
+                        style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            justifyContent: "center",
+                            textAlign: "center",
+                        }}
+                        initial="offscreen"
+                        whileInView="onscreen"
+                        viewport={{ once: false, amount: 0.9 }}
                     >
-                        {/* buttons in top of page */}
-                        <Stack
-                            direction={{ base: "column", md: "row" }}
-                            marginTop="2vh"
-                            rowGap="5vh"
-                            columnGap="20px"
+                        <motion.div variants={textAnimVariants}>
+                            <styled.h1
+                                fontFamily={'"Impact", sans-serif'}
+                                color="white"
+                                fontSize={{
+                                    base: "2.25rem",
+                                    md: "3rem",
+                                }}
+                            >
+                                <b>NSC MODDED MC SERVER</b>
+                            </styled.h1>
+                        </motion.div>
+                        <motion.div variants={textAnimVariants}>
+                            <styled.h2
+                                fontSize={{
+                                    base: "2rem",
+                                    md: "2.5rem",
+                                }}
+                            >
+                                A server made by <i>you</i>
+                            </styled.h2>
+                        </motion.div>
+                        <motion.div
+                            variants={textAnimVariants}
+                            style={{ marginTop: "3%" }}
                         >
-                            <motion.div variants={textAnimVariants}>
-                                <NextLink
-                                    href="/join"
-                                    target="_blank"
-                                    style={{ textDecoration: "none" }}
-                                >
-                                    <styled.span
-                                        fontSize={{
-                                            base: "1.3em",
-                                            sm: "1.8em",
-                                            md: "2.1em",
-                                            lg: "2.4em",
-                                        }}
-                                        color="white"
-                                        bg="#004da8"
-                                        p="15px"
-                                        whiteSpace="nowrap"
-                                        borderRadius="50px"
-                                        transition="all 0.3s ease"
-                                        _hover={{
-                                            bg: "#95ca59",
-                                            color: "black",
-                                        }}
+                            {/* buttons in top of page */}
+                            <Stack
+                                direction={{ base: "column", md: "row" }}
+                                marginTop="2vh"
+                                rowGap="5vh"
+                                columnGap="20px"
+                            >
+                                <motion.div variants={textAnimVariants}>
+                                    <NextLink
+                                        href="/join"
+                                        target="_blank"
+                                        style={{ textDecoration: "none" }}
                                     >
-                                        Join The Club!
-                                    </styled.span>
-                                </NextLink>
-                            </motion.div>
-                            <motion.div variants={textAnimVariants}>
-                                <NextLink
-                                    href="https://modrinth.com/modpack/rubberducky"
-                                    target="_blank"
-                                    style={{ textDecoration: "none" }}
-                                >
-                                    <styled.span
-                                        fontSize={{
-                                            base: "1.3em",
-                                            sm: "1.8em",
-                                            md: "2.1em",
-                                            lg: "2.4em",
-                                        }}
-                                        color="white"
-                                        bg="#004da8"
-                                        p="15px"
-                                        whiteSpace="nowrap"
-                                        borderRadius="50px"
-                                        transition="all 0.3s ease"
-                                        _hover={{
-                                            bg: "#95ca59",
-                                            color: "black",
-                                        }}
+                                        <styled.span
+                                            fontSize={{
+                                                base: "1.3em",
+                                                sm: "1.8em",
+                                                md: "2.1em",
+                                                lg: "2.4em",
+                                            }}
+                                            color="white"
+                                            bg="#004da8"
+                                            p="15px"
+                                            whiteSpace="nowrap"
+                                            borderRadius="50px"
+                                            transition="all 0.3s ease"
+                                            _hover={{
+                                                bg: "#95ca59",
+                                                color: "black",
+                                            }}
+                                        >
+                                            Join The Club!
+                                        </styled.span>
+                                    </NextLink>
+                                </motion.div>
+                                <motion.div variants={textAnimVariants}>
+                                    <NextLink
+                                        href="https://modrinth.com/modpack/rubberducky"
+                                        target="_blank"
+                                        style={{ textDecoration: "none" }}
                                     >
-                                        Download The ModPack!
-                                    </styled.span>
-                                </NextLink>
-                            </motion.div>
-                            <motion.div variants={textAnimVariants}>
-                                <JoinServerButton />
-                            </motion.div>
-                        </Stack>
+                                        <styled.span
+                                            fontSize={{
+                                                base: "1.3em",
+                                                sm: "1.8em",
+                                                md: "2.1em",
+                                                lg: "2.4em",
+                                            }}
+                                            color="white"
+                                            bg="#004da8"
+                                            p="15px"
+                                            whiteSpace="nowrap"
+                                            borderRadius="50px"
+                                            transition="all 0.3s ease"
+                                            _hover={{
+                                                bg: "#95ca59",
+                                                color: "black",
+                                            }}
+                                        >
+                                            Download The ModPack!
+                                        </styled.span>
+                                    </NextLink>
+                                </motion.div>
+                                <motion.div variants={textAnimVariants}>
+                                    <JoinServerButton />
+                                </motion.div>
+                            </Stack>
+                        </motion.div>
                     </motion.div>
-                </motion.div>
+                </Box>
             </Flex>
 
             {/* image gallary section */}
