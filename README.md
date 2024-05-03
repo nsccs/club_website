@@ -1,6 +1,16 @@
-[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](code_of_conduct.md)
-
 # North Seattle College Computer Science Club Website
+
+<div id="badges">
+  <a href="https://northcs.org">
+    <img src="https://img.shields.io/website?url=https%3A%2F%2Fnorthcs.org/" alt="North Seattle Computer Science Club Website"/>
+  </a>
+  <a href="https://discord.gg/PG2re4Zb4h">
+    <img src="https://img.shields.io/discord/564559681339785228?label=discord&labelColor=5865F2&color=2C2F33" alt="Discord Badge"/>
+  </a>
+  <a href="https://github.com/nsccs/club_website/blob/main/CODE_OF_CONDUCT.md">
+    <img src="https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg" alt="Contributor Covenant"/>
+  </a>
+</div>
 
 This is the website for the Computer Science Club at North Seattle. Besides the website this project exists as a place where people new to Github, Computer Science, and building applications can learn.
 
@@ -27,7 +37,3 @@ Please read our [Code of Conduct](CODE_OF_CONDUCT.md).
 ## License
 
 Covered by MIT license. For full text click [here](LICENSE).
-
-## Contact
-
-https://discord.gg/RV6nbA9UDX
