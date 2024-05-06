@@ -163,11 +163,7 @@ const MobileHeaderUI: React.FC<{
                         </button>
                     </div>
 
-                    <div
-                        {...api.getItemProps({ value: "home" })}
-                        id="home"
-                        className={mobileStyles.item}
-                    >
+                    <div onClick={closeWindow} className={mobileStyles.item}>
                         <NextLink style={{ width: "100%" }} href="/">
                             Home
                         </NextLink>
@@ -175,7 +171,7 @@ const MobileHeaderUI: React.FC<{
                     {menuItems.map(({ name, url }) => (
                         <div
                             key={name}
-                            {...api.getItemProps({ value: name })}
+                            onClick={closeWindow}
                             className={mobileStyles.item}
                         >
                             <NextLink
