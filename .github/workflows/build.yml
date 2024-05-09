@@ -13,14 +13,14 @@ jobs:
     - name: Use Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: 18
+        node-version: 20
     - name: Install dependencies
-      run: yarn install --frozen-lockfile
+      run: npm install
 
     - name: Build
       env:
         NODE_OPTIONS: "--max_old_space_size=4096"
-      run: yarn build
+      run: npm run build
 
     - uses: actions/upload-artifact@v3
       with:
