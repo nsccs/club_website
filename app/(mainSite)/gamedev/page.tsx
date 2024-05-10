@@ -80,9 +80,11 @@ const Gamedev = () => {
                                     }}
                                 />
                                 <Box flexGrow={1} />
-                                <button className={buttonStyle}>
-                                    Returning Spring Quarter
-                                </button>
+                                <Link href="https://forms.office.com/r/PJjbpLuLR2">
+                                    <button className={buttonStyle}>
+                                        RSVP Now!
+                                    </button>
+                                </Link>
                             </Flex>
                             <Flex flexDir="column" h="100%" alignItems="center">
                                 <Image
@@ -159,15 +161,13 @@ const Gamedev = () => {
                             <br /> Minimum: Passion ;)
                         </p>
                         <Link
-                            href="404"
+                            href="https://forms.office.com/r/PJjbpLuLR2"
                             style={{
                                 alignSelf: "center",
                                 marginBottom: "20px",
                             }}
                         >
-                            <button className={buttonStyle}>
-                                Returning Spring Quarter
-                            </button>
+                            <button className={buttonStyle}>RSVP Now!</button>
                         </Link>
                     </Stack>
                     <Stack w={{ base: "inherit", md: "45%" }}>
