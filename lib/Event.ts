@@ -25,7 +25,7 @@ export interface EventData extends EventCard {
 
 /** The URL to request a list of published events from. */
 const REQUEST_EVENTS_URL =
-    "https://gdsc.community.dev/api/event/?chapter=1386&status=Published&order_by=-start_date&include_cohosted_events=true";
+    "https://gdg.community.dev/api/event/?chapter=2454&status=Published&order_by=-start_date&include_cohosted_events=true";
 
 /** The data returned from {@link REQUEST_EVENTS_URL}. */
 interface RequestEventsData {
@@ -71,7 +71,7 @@ async function getPartialEvents(): Promise<
 }
 
 /** The URL to prepend to an event's ID to get its data. */
-const GET_EVENT_URL_PRE = "https://gdsc.community.dev/api/event/";
+const GET_EVENT_URL_PRE = "https://gdg.community.dev/api/event/";
 
 /** The data returned from {@link GET_EVENT_URL_PRE}. */
 interface GetEventData {
