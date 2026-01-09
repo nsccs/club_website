@@ -8,10 +8,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
 
     - name: Use Node.js
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v6
       with:
         node-version: 20
     - name: Install dependencies
@@ -22,8 +22,8 @@ jobs:
         NODE_OPTIONS: "--max_old_space_size=4096"
       run: npm run build
 
-    - uses: actions/upload-artifact@v3
+    - uses: actions/upload-artifact@v6
       with:
         name: Website
         path: ./.next/standalone
-        retention-days: 1
+        retention-days: 7
