@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import Image from "next-image-export-optimizer";
 import greetingBackground from "@/img/VeryNiceGreeting.gif";
 import { Box, Flex, Grid, Stack, styled, VStack } from "@/styled-system/jsx";
 import { motion, Variants } from "framer-motion";

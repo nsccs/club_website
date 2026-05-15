@@ -1,6 +1,6 @@
 import { Box, Center, Flex, Stack, styled } from "@/styled-system/jsx";
 
-import Image from "next/image";
+import Image from "next-image-export-optimizer";
 import Link from "next/link";
 import Footer from "@/components/Footer/Footer";
 

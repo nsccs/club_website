@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "next-image-export-optimizer";
 import { css } from "@/styled-system/css";
 import { Flex } from "@/styled-system/jsx";
 

@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "next-image-export-optimizer";
 import headerLogo from "@/public/img/CS_Club_Logo_White.png";
 
 import NextLink from "next/link";
@@ -10,14 +10,14 @@ import MobileHeaderUI from "./MobileHeaderUI";
 import React from "react";
 
 const menuItems = [
-    {
+    /* {
         name: "Events",
         url: "/events",
     },
     {
         name: "News",
         url: "/news",
-    },
+    },*/
     {
         name: "Minecraft",
         url: "/minecraft",

@@ -5,7 +5,7 @@ import { Box, Flex, Stack, styled, VStack } from "@/styled-system/jsx";
 import { css } from "@/styled-system/css";
 
 import NextLink from "next/link";
-import Image from "next/image";
+import Image from "next-image-export-optimizer";
 import bannerImg from "@/public/img/Homepage-Background.svg";
 import bannerImgCover from "@/public/img/Homepage-Background-Text.svg";
 import { Suspense } from "react";
@@ -217,7 +217,7 @@ const Index = () => {
                             to meet you!
                         </styled.p>
                     </Box>
-                    <Suspense fallback={<Loading />}>
+                    {/* <Suspense fallback={<Loading />}>
                         <Box py="30px" px="20px" bg="#004da8">
                             <Flex
                                 flexDir={{ base: "column", lg: "row" }}
@@ -289,7 +289,7 @@ const Index = () => {
                                 </Box>
                             </Flex>
                         </Box>
-                    </Suspense>
+                    </Suspense>*/}
                 </Box>
 
                 <styled.div flexGrow={1} />

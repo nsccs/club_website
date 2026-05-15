@@ -3,7 +3,8 @@ import * as dialog from "@zag-js/dialog";
 import { useMachine, normalizeProps, Portal } from "@zag-js/react";
 import { GrClose } from "react-icons/gr";
 
-import Image, { StaticImageData } from "next/image";
+import Image from "next-image-export-optimizer";
+import { StaticImageData } from "next/image";
 import React, { CSSProperties, useId } from "react";
 import { Box, Flex, VStack } from "@/styled-system/jsx";
 import { css, sva } from "@/styled-system/css";
